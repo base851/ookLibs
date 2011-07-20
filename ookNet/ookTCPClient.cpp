@@ -45,6 +45,9 @@ ookTCPClient::ookTCPClient(string ipaddr, int iPort)
 	
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookTCPClient::~ookTCPClient()
 {
 	try

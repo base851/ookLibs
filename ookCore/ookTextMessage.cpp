@@ -46,21 +46,38 @@ ookTextMessage::ookTextMessage()
 	
 }
 
+/*! 
+ \brief Initialization constructor.
+ */
 ookTextMessage::ookTextMessage(string msg)
 {
 	_msg = msg;
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookTextMessage::~ookTextMessage()
 {
 	
 }
 
+/*! 
+ \brief Returns the text component of the message.
+ 
+ \return The message string.
+ */	
 string ookTextMessage::GetMsg()
 {
 	return _msg;
 }
 
+/*! 
+ \brief Sets the text component of the message.
+ 
+ \param msg The message string.
+ 
+ */	
 void ookTextMessage::SetMessage(string msg)
 {
 	_msg = msg;

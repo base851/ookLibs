@@ -35,11 +35,17 @@
  */
 #include "ookLibs/ookXML/ookXMLParser.h"
 
+/*! 
+ \brief Default constructor.
+ */
 ookXMLParser::ookXMLParser()
 {
 	
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookXMLParser::~ookXMLParser()
 {
 	

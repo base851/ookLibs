@@ -44,12 +44,18 @@ ookCipher::ookCipher()
 	
 }
 
+/*! 
+ \brief Initialization constructor.
+ */
 ookCipher::ookCipher(string key)
 : _key(key)
 {
 	
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookCipher::~ookCipher()
 {
 	

@@ -35,11 +35,17 @@
  */
 #include "ookLibs/ookThread/ookMutex.h"
 
+/*! 
+ \brief Default constructor.
+ */
 ookMutex::ookMutex()
 {
 	
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookMutex::~ookMutex()
 {
 	

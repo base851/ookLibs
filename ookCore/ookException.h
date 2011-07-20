@@ -43,22 +43,38 @@ class ookException : public std::exception
 {
 public:
 	
+	/*! 
+	 \brief Initialization constructor.
+	 */
 	ookException(const char* msg, long errcode=0)
 	: _msg(msg), _errcode(errcode)
 	{
 		
 	}
 	
+	/*! 
+	 \brief Destructor.
+	 */	
 	virtual ~ookException() throw()
 	{
 		
 	}
 	
+	/*! 
+	 \brief Returns the error message.
+	 
+	 \return The error message.
+	 */		
 	virtual const char* what() const throw()
 	{
 		return _msg;
 	}
-	
+
+	/*! 
+	 \brief Returns the error code.
+	 
+	 \return The error code.
+	 */			
 	virtual long errcode() const throw()
 	{
 		return _errcode;

@@ -36,12 +36,17 @@
  */
 #include "ookLibs/ookUtil/ookString.h"
 
-
+/*! 
+ \brief Default constructor.
+ */
 ookString::ookString()
 {
 	
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookString::~ookString()
 {
 	

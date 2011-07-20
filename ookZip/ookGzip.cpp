@@ -1,5 +1,5 @@
 /*
- Copyright © 2011, Ted Biggs
+ Copyright ï¿½ 2011, Ted Biggs
  All rights reserved.
  http://tbiggs.com
  
@@ -35,12 +35,17 @@
  */
 #include "ookLibs/ookZip/ookGzip.h"
 
-
+/*! 
+ \brief Default constructor.
+ */
 ookGzip::ookGzip()
 {
 	
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookGzip::~ookGzip()
 {
 	

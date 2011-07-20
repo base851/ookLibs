@@ -43,6 +43,9 @@
  */
 #include "ookLibs/ookNet/ookTCPServerThread.h"
 
+/*! 
+ \brief Initialization constructor.
+ */
 ookTCPServerThread::ookTCPServerThread(socket_ptr sock, ookMsgDispatcher* dispatcher) 
 : _sock(sock), _dispatcher(dispatcher)
 
@@ -50,6 +53,9 @@ ookTCPServerThread::ookTCPServerThread(socket_ptr sock, ookMsgDispatcher* dispat
 	
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookTCPServerThread::~ookTCPServerThread()
 {
 	try 

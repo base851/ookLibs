@@ -28,6 +28,11 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
+/*! 
+ \class ookKeyValuePair
+ \headerfile ookKeyValuePair.h "ookLibs/ookUtil/ookKeyValuePair.h"
+ \brief Simple template class encapsulating a key/value pair.
+ */
 #ifndef OOK_KEY_VALUE_PAIR_H_
 #define OOK_KEY_VALUE_PAIR_H_
 
@@ -55,12 +60,18 @@ private:
 
 };
 
+/*! 
+ \brief Default constructor.
+ */
 template<class T, class U>
 ookKeyValuePair<T, U>::ookKeyValuePair()
 {
 
 }
 
+/*! 
+ \brief Initialization constructor.
+ */
 template<class T, class U>
 ookKeyValuePair<T, U>::ookKeyValuePair(T key, U value)
 	: _key(key), _value(value)
@@ -68,6 +79,9 @@ ookKeyValuePair<T, U>::ookKeyValuePair(T key, U value)
 
 }
 
+/*! 
+ \brief Destructor.
+ */
 template<class T, class U>
 ookKeyValuePair<T, U>::~ookKeyValuePair()
 {

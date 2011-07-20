@@ -43,12 +43,18 @@ ookAESCipher::ookAESCipher()
 	
 }
 
+/*! 
+ \brief Initialization constructor.
+ */
 ookAESCipher::ookAESCipher(string key)
 : ::ookCipher(key)
 {
 	
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookAESCipher::~ookAESCipher()
 {
 	

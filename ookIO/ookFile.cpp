@@ -37,13 +37,16 @@
 #include "ookLibs/ookIO/ookFile.h"
 
 /*! 
- \brief Default constructor.
+ \brief Initialization constructor.
  */
 ookFile::ookFile(string filepath)
 {
 	
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookFile::~ookFile()
 {
 	

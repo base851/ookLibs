@@ -42,9 +42,17 @@
 	{
 
 	}
-	
+
+/*! 
+ \brief Destructor.
+ */
 	ookSQLite::~ookSQLite()
 	{
 
 	}
 
+/*
+ Test database is ookTest.sqlite. Test table is TestTable1. Cols are
+ INT_COL, BOOL_COL, DOUBLE_COL, FLOAT_COL, REAL_COL, CHAR_COL,
+ TEXT_COL, VARCHAR_COL, NUMERIC_COL, DATETIME_COL.
+ */

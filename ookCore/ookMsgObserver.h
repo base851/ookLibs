@@ -31,6 +31,18 @@
 ////////////////////////////////////////////////////////////////
 // This class a derived work of the Poco Notifier framework.
 ////////////////////////////////////////////////////////////////
+/*! 
+ \class ookMsgObserver
+ \headerfile ookMsgObserver.h "ookLibs/ookCore/ookMsgObserver.h"
+ \brief Message observer implementation.
+ 
+ The message observer is the intermediary between the dispatcher
+ and the handler. The observer's job is to determine for a handler
+ whether a given message is one which the handler would be interested in, 
+ and if so, invoke the callback which the handler registered to it. The 
+ handler will generally create an observer for each message type that it 
+ is interested in. Observers are maintained by the dispatcher.
+ */
 #ifndef OOK_MESSAGE_OBSERVER_H_
 #define OOK_MESSAGE_OBSERVER_H_
 
@@ -48,17 +60,30 @@ class ookMsgObserver : public ookMsgObserverAbs
 	
 public:
 	
+	/*! 
+	 \brief Initialization constructor.
+	 */
 	ookMsgObserver(H* handler, FP_OOK_MSG func)
 		: _handler(handler), _handlerFunc(func)
 	{
 		
 	}
 	
+	/*! 
+	 \brief Default constructor.
+	 */
 	virtual ~ookMsgObserver()
 	{
 		
 	}
 
+	/*! 
+	 \brief Copy constructor.
+	 
+	 \param observer The observer to be copied.
+	 
+	 \return A copy of the observer passed in.
+	 */
 	ookMsgObserver& operator = (const ookMsgObserver& observer)
 	{
 		if (&observer != this)
@@ -69,6 +94,12 @@ public:
 		return *this;
 	}	
 	
+	/*! 
+	 \brief Receives a message from the message dispatcher and
+	 invokes the registered handler's callback.
+	 
+	 \param pNf The message to be handled.
+	 */		
 	void SendMessage(ookMessage* msg)
 	{
 		M* pCastNf = dynamic_cast<M*>(msg);
@@ -78,6 +109,15 @@ public:
 		}
 	}
 	
+	/*! 
+	 \brief Informs the message dispatcher whether the observer
+	 accepts a particular message or not. Pure virtual method
+	 which must be overriden by implementing classes.
+	 
+	 \param observer The message to be accepted.
+	 
+	 \return True if the observer accepts the message type, false if not.
+	 */		
 	bool Accepts(ookMessage* msg) 
 	{
 		return dynamic_cast<M*>(msg) != 0;

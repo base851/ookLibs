@@ -53,6 +53,9 @@ ookSSLServerThread::ookSSLServerThread(ssl_socket_ptr sock, ookMsgDispatcher* di
 	
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookSSLServerThread::~ookSSLServerThread()
 {
 	try 

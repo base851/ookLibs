@@ -48,16 +48,32 @@ ookMsgDispatcher::ookMsgDispatcher()
 	
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookMsgDispatcher::~ookMsgDispatcher()
 {
 	
 }
 
+/*! 
+ \brief Adds a new observer to the list of observers.
+ 
+ \param obs	The observer to be added to the list of observers.
+ 
+ */
 void ookMsgDispatcher::RegisterObserver(ookMsgObserverAbs* obs)
 {
 	_vObservers.push_back(obs);
 }
 
+/*! 
+ \brief Relays a message to those observers which have registered 
+ an interest in that message type. 
+ 
+ \param msg	The message to be relayed to its observers.
+ 
+ */
 void ookMsgDispatcher::PostMsg(ookMessage* msg)
 {
 	for(int i = 0; i < _vObservers.size(); i++)

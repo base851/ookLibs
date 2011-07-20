@@ -51,11 +51,22 @@ ookMsgHandler::ookMsgHandler()
 	
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookMsgHandler::~ookMsgHandler()
 {
 	
 }
 
+/*! 
+ \brief The main method which should be overridden
+ by ookMsgHandlers. This is where you would handle any message
+ which has been dispatched to you.
+ 
+ \param msg	The message to be handled.
+ 
+ */
 void ookMsgHandler::HandleMsg(ookMessage* msg)
 {
 	cout << "I received the message!" << endl;

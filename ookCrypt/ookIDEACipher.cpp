@@ -44,12 +44,18 @@ ookIDEACipher::ookIDEACipher()
 	
 }
 
+/*! 
+ \brief Initialization constructor.
+ */
 ookIDEACipher::ookIDEACipher(string key)
 : ::ookCipher(key)
 {
 	
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookIDEACipher::~ookIDEACipher()
 {
 	

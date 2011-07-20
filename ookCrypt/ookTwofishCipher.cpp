@@ -45,12 +45,18 @@ ookTwofishCipher::ookTwofishCipher()
 
 }
 
+/*! 
+ \brief Initialization constructor.
+ */
 ookTwofishCipher::ookTwofishCipher(string key)
 : ::ookCipher(key)
 {
 
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookTwofishCipher::~ookTwofishCipher()
 {
 

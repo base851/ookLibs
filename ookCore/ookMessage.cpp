@@ -45,6 +45,9 @@ ookMessage::ookMessage()
 
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookMessage::~ookMessage()
 {
 

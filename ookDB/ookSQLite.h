@@ -32,6 +32,7 @@
 #define OOK_SQLITE_H_
 
 #include "ookLibs/ookCore/typedefs.h"
+#include "ookLibs/ookDB/sqlite3.c"
 
 class ookSQLite
 {

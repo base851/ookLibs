@@ -36,11 +36,17 @@
  */
 #include "ookLibs/ookThread/ookThread.h"
 
+/*! 
+ \brief Default constructor.
+ */
 ookThread::ookThread()
 {
 	
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookThread::~ookThread()
 {
 	try

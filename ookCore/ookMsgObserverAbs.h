@@ -31,6 +31,12 @@
 ////////////////////////////////////////////////////////////////
 // This class is a derived work of the Poco Notifier framework.
 ////////////////////////////////////////////////////////////////
+
+/*! 
+ \class ookMsgObserverAbs
+ \headerfile ookMsgObserverAbs.h "ookLibs/ookCore/ookMsgObserverAbs.h"
+ \brief Abstract base class for message observers.
+ */
 #ifndef OOK_MESSAGE_OBSERVER_ABS_H_
 #define OOK_MESSAGE_OBSERVER_ABS_H_
 
@@ -41,17 +47,49 @@ class ookMsgObserverAbs
 {
 public:
 	
+	/*! 
+	 \brief Default constructor.
+	 */
 	ookMsgObserverAbs() {}
+	
+	/*! 
+	 \brief Initialization constructor.
+	 */
 	ookMsgObserverAbs(const ookMsgObserverAbs& observer) {}
+	
+	/*! 
+	 \brief Destructor.
+	 */
 	~ookMsgObserverAbs(){}
 	
+	/*! 
+	 \brief Copy constructor.
+	 
+	 \param observer The observer to be copied.
+	 
+	 \return A copy of the observer passed in.
+	 */
 	ookMsgObserverAbs& operator = (const ookMsgObserverAbs& observer);
 	
+	/*! 
+	 \brief Receives a message from the message dispatcher. Pure virtual method
+	 which must be overriden by implementing classes.
+	 
+	 \param pNf The message to be handled.
+	 */	
 	virtual void SendMessage(ookMessage* pNf) = 0;
+	
+	/*! 
+	 \brief Informs the message dispatcher whether the observer
+	 accepts a particular message or not. Pure virtual method
+	 which must be overriden by implementing classes.
+	 
+	 \param observer The message to be accepted.
+	 
+	 \return True if the observer accepts the message type, false if not.
+	 */	
 	virtual bool Accepts(ookMessage* pNf) = 0;
 	
-//	virtual bool equals(const AbstractObserver& observer) const = 0;	
-//	virtual AbstractObserver* clone() const = 0;	
 	
 protected:
 	

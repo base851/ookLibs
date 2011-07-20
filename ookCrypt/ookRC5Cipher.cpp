@@ -44,12 +44,18 @@ ookRC5Cipher::ookRC5Cipher()
 	
 }
 
+/*! 
+ \brief Initialization constructor.
+ */
 ookRC5Cipher::ookRC5Cipher(string key)
 : ::ookCipher(key)
 {
 	
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookRC5Cipher::~ookRC5Cipher()
 {
 

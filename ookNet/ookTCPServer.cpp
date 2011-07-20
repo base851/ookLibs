@@ -51,6 +51,9 @@ ookTCPServer::ookTCPServer(int iPort)
 	_dispatcher.RegisterObserver(new ookMsgObserver<ookTCPServer, ookTextMessage>(this, &ookTCPServer::HandleMsg));
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookTCPServer::~ookTCPServer()
 {
 	try

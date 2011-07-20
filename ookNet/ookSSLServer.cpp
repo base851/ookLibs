@@ -54,6 +54,9 @@ ookSSLServer::ookSSLServer(int iPort, base_method mthd)
 	_dispatcher.RegisterObserver(new ookMsgObserver<ookSSLServer, ookTextMessage>(this, &ookSSLServer::HandleMsg));
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookSSLServer::~ookSSLServer()
 {
 	try

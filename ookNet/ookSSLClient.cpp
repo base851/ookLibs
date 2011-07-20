@@ -45,6 +45,9 @@ ookSSLClient::ookSSLClient(string ipaddr, int iPort, base_method mthd)
 
 }
 
+/*! 
+ \brief Destructor.
+ */
 ookSSLClient::~ookSSLClient()
 {
 	try

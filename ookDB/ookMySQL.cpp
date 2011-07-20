@@ -42,8 +42,17 @@
 	{
 
 	}
-	
+/*! 
+ \brief Destructor.
+ */
+
 	ookMySQL::~ookMySQL()
 	{
 
 	}
+
+/*
+ Test database instance is mysqld@localhost. Test schema is ookTest. Test table is TestTable1. Cols are
+ INT_COL, VARCHAR_COL, DECIMAL_COL, DATETIME_COL, BINARY_COL, TIMESTAMP_COL, BOOL_COL, DOUBLE_COL.
+ */
+

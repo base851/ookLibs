@@ -17,6 +17,13 @@
 		8249926513C419BC000C8F55 /* ookTCPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 8249926313C419BB000C8F55 /* ookTCPClient.h */; };
 		8249926813C41E6E000C8F55 /* ookTCPServerThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8249926613C41E6E000C8F55 /* ookTCPServerThread.cpp */; };
 		8249926913C41E6E000C8F55 /* ookTCPServerThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 8249926713C41E6E000C8F55 /* ookTCPServerThread.h */; };
+		8262FBA813D661AB004F2058 /* ookGzip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8262FBA613D661AB004F2058 /* ookGzip.cpp */; };
+		8262FBA913D661AB004F2058 /* ookGzip.h in Headers */ = {isa = PBXBuildFile; fileRef = 8262FBA713D661AB004F2058 /* ookGzip.h */; };
+		8262FBB013D661D4004F2058 /* ookMySQL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8262FBAB13D661D4004F2058 /* ookMySQL.cpp */; };
+		8262FBB113D661D4004F2058 /* ookMySQL.h in Headers */ = {isa = PBXBuildFile; fileRef = 8262FBAC13D661D4004F2058 /* ookMySQL.h */; };
+		8262FBB213D661D4004F2058 /* ookSQLite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8262FBAD13D661D4004F2058 /* ookSQLite.cpp */; };
+		8262FBB313D661D4004F2058 /* ookSQLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 8262FBAE13D661D4004F2058 /* ookSQLite.h */; };
+		8262FBB413D661D4004F2058 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = 8262FBAF13D661D4004F2058 /* sqlite3.c */; };
 		8272461D13D393420042C4F4 /* ookFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8272461B13D393420042C4F4 /* ookFile.cpp */; };
 		8272461E13D393420042C4F4 /* ookFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 8272461C13D393420042C4F4 /* ookFile.h */; };
 		8282919213C567A7004EFCFA /* ookXMLParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8282919013C567A7004EFCFA /* ookXMLParser.cpp */; };
@@ -77,6 +84,13 @@
 		8249926313C419BB000C8F55 /* ookTCPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookTCPClient.h; sourceTree = "<group>"; };
 		8249926613C41E6E000C8F55 /* ookTCPServerThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookTCPServerThread.cpp; sourceTree = "<group>"; };
 		8249926713C41E6E000C8F55 /* ookTCPServerThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookTCPServerThread.h; sourceTree = "<group>"; };
+		8262FBA613D661AB004F2058 /* ookGzip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookGzip.cpp; sourceTree = "<group>"; };
+		8262FBA713D661AB004F2058 /* ookGzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookGzip.h; sourceTree = "<group>"; };
+		8262FBAB13D661D4004F2058 /* ookMySQL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookMySQL.cpp; sourceTree = "<group>"; };
+		8262FBAC13D661D4004F2058 /* ookMySQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookMySQL.h; sourceTree = "<group>"; };
+		8262FBAD13D661D4004F2058 /* ookSQLite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookSQLite.cpp; sourceTree = "<group>"; };
+		8262FBAE13D661D4004F2058 /* ookSQLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookSQLite.h; sourceTree = "<group>"; };
+		8262FBAF13D661D4004F2058 /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sqlite3.c; sourceTree = "<group>"; };
 		8272461B13D393420042C4F4 /* ookFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookFile.cpp; sourceTree = "<group>"; };
 		8272461C13D393420042C4F4 /* ookFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookFile.h; sourceTree = "<group>"; };
 		8282919013C567A7004EFCFA /* ookXMLParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookXMLParser.cpp; sourceTree = "<group>"; };
@@ -215,6 +229,11 @@
 		82E8F7E913C1940900751A5A /* ookDB */ = {
 			isa = PBXGroup;
 			children = (
+				8262FBAB13D661D4004F2058 /* ookMySQL.cpp */,
+				8262FBAC13D661D4004F2058 /* ookMySQL.h */,
+				8262FBAD13D661D4004F2058 /* ookSQLite.cpp */,
+				8262FBAE13D661D4004F2058 /* ookSQLite.h */,
+				8262FBAF13D661D4004F2058 /* sqlite3.c */,
 			);
 			path = ookDB;
 			sourceTree = "<group>";
@@ -286,6 +305,8 @@
 		82E8F7EF13C1943C00751A5A /* ookZip */ = {
 			isa = PBXGroup;
 			children = (
+				8262FBA613D661AB004F2058 /* ookGzip.cpp */,
+				8262FBA713D661AB004F2058 /* ookGzip.h */,
 			);
 			path = ookZip;
 			sourceTree = "<group>";
@@ -327,6 +348,9 @@
 				82D3ACB613D1038D00031685 /* ookAESCipher.h in Headers */,
 				82D3ACC213D1048900031685 /* ookIDEACipher.h in Headers */,
 				8272461E13D393420042C4F4 /* ookFile.h in Headers */,
+				8262FBA913D661AB004F2058 /* ookGzip.h in Headers */,
+				8262FBB113D661D4004F2058 /* ookMySQL.h in Headers */,
+				8262FBB313D661D4004F2058 /* ookSQLite.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +428,10 @@
 				82D3ACB513D1038D00031685 /* ookAESCipher.cpp in Sources */,
 				82D3ACC113D1048900031685 /* ookIDEACipher.cpp in Sources */,
 				8272461D13D393420042C4F4 /* ookFile.cpp in Sources */,
+				8262FBA813D661AB004F2058 /* ookGzip.cpp in Sources */,
+				8262FBB013D661D4004F2058 /* ookMySQL.cpp in Sources */,
+				8262FBB213D661D4004F2058 /* ookSQLite.cpp in Sources */,
+				8262FBB413D661D4004F2058 /* sqlite3.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,18 +485,12 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
-					/Users/tedbiggs/Development/libs/boost_1_46_1/stage/include/,
-					/Users/tedbiggs/Development/Code/ookLibs/,
-					/Users/tedbiggs/Development/libs/tinyxml/,
-					"/Users/tedbiggs/Development/libs/openssl-1.0.0d/include/",
-					/Users/tedbiggs/Development/libs/cryptopp561/include/,
+					../,
+					../../../libs/boost_1_46_1/stage/include/,
+					"../../../libs/openssl-1.0.0d/include/",
+					../../../libs/cryptopp561/include/,
 				);
-				LIBRARY_SEARCH_PATHS = (
-					/Users/tedbiggs/Development/libs/boost_1_46_1/stage/lib/,
-					/Users/tedbiggs/Development/libs/tinyxml/,
-					"/Users/tedbiggs/Development/libs/openssl-1.0.0d/",
-					/Users/tedbiggs/Development/libs/cryptopp561/lib/,
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PRELINK_LIBS = "libcrypto.a libssl.a";
@@ -508,18 +530,12 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				HEADER_SEARCH_PATHS = (
-					/Users/tedbiggs/Development/libs/boost_1_46_1/stage/include/,
-					/Users/tedbiggs/Development/Code/ookLibs/,
-					/Users/tedbiggs/Development/libs/tinyxml/,
-					"/Users/tedbiggs/Development/libs/openssl-1.0.0d/include/",
-					/Users/tedbiggs/Development/libs/cryptopp561/include/,
+					../,
+					../../../libs/boost_1_46_1/stage/include/,
+					"../../../libs/openssl-1.0.0d/include/",
+					../../../libs/cryptopp561/include/,
 				);
-				LIBRARY_SEARCH_PATHS = (
-					/Users/tedbiggs/Development/libs/boost_1_46_1/stage/lib/,
-					/Users/tedbiggs/Development/libs/tinyxml/,
-					"/Users/tedbiggs/Development/libs/openssl-1.0.0d/",
-					/Users/tedbiggs/Development/libs/cryptopp561/lib/,
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRELINK_LIBS = "libcrypto.a libssl.a";
 				PRODUCT_NAME = "$(TARGET_NAME)";
