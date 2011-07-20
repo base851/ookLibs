@@ -28,6 +28,19 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
+ /*! 
+ \class ookTCPServerThread
+ \headerfile ookTCPServerThread.h "ookLibs/ookNet/ookTCPServerThread.h"
+ \brief Worker thread for TCP connections.
+
+ The Server and ServerThreads communicate via the Observer/Dispatcher/Handler
+ framework found in ookCore. Servers derive from the ookTextMessageHandler class
+ and maintain ookMsgDispatcher which is passed to the individual server threads.
+ Both the server and server thread register interest in a particualr message type
+ with the dispatcher. They also post messages to the dispatcher for handling. In
+ this manner both the server and server thread can intercommunicate and only receive
+ messages which they are interested in.
+ */
 #include "ookLibs/ookNet/ookTCPServerThread.h"
 
 ookTCPServerThread::ookTCPServerThread(socket_ptr sock, ookMsgDispatcher* dispatcher) 

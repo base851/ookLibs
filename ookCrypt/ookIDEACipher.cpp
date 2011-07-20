@@ -28,8 +28,17 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
+  /*! 
+ \class ookIDEACipher
+ \headerfile ookIDEACipher.h "ookLibs/ookCrypt/ookIDEACipher.h"
+ \brief Derived ookCipher implementing the IDEA algorithm.
+ */
+
 #include "ookLibs/ookCrypt/ookIDEACipher.h"
 
+/*! 
+ \brief Default constructor.
+ */
 ookIDEACipher::ookIDEACipher()
 {
 	

@@ -28,9 +28,17 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
+ /*! 
+ \class ookTCPClient
+ \headerfile ookTCPClient.h "ookLibs/ookNet/ookTCPClient.h"
+ \brief Base class for implementing a standard TCP client connection.
+ */
 #include "ookLibs/ookUtil/ookString.h"
 #include "ookLibs/ookNet/ookTCPClient.h"
 
+/*! 
+ \brief Initialization constructor.
+ */
 ookTCPClient::ookTCPClient(string ipaddr, int iPort)
 	: _ipaddr(ipaddr), _iPort(iPort)
 {

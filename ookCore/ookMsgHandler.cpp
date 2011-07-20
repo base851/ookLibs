@@ -43,6 +43,9 @@
 
 using namespace std;
 
+/*! 
+ \brief Default constructor.
+ */
 ookMsgHandler::ookMsgHandler()
 {
 	

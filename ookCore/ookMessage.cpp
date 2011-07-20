@@ -37,6 +37,9 @@
  */
 #include "ookLibs/ookCore/ookMessage.h"
 
+/*! 
+ \brief Default constructor.
+ */
 ookMessage::ookMessage()
 {
 

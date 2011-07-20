@@ -28,8 +28,17 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
+
+ /*! 
+ \class ookRC5Cipher
+ \headerfile ookRC5Cipher.h "ookLibs/ookCrypt/ookRC5Cipher.h"
+ \brief Derived ookCipher implementing the RC5 algorithm.
+ */
 #include "ookLibs/ookCrypt/ookRC5Cipher.h"
 
+/*! 
+ \brief Default constructor.
+ */
 ookRC5Cipher::ookRC5Cipher()
 {
 	

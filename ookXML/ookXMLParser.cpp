@@ -28,6 +28,11 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
+ /*! 
+ \class ookXMLParser
+ \headerfile ookXMLParser.h "ookLibs/ookXML/ookXMLParser.h"
+ \brief Wrapper class around the tinyXML library.
+ */
 #include "ookLibs/ookXML/ookXMLParser.h"
 
 ookXMLParser::ookXMLParser()

@@ -1,0 +1,555 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8249924813C3F5E9000C8F55 /* ookTextMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8249924613C3F5E9000C8F55 /* ookTextMessage.cpp */; };
+		8249924913C3F5E9000C8F55 /* ookTextMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 8249924713C3F5E9000C8F55 /* ookTextMessage.h */; };
+		8249924C13C3F7BB000C8F55 /* ookTextMsgHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8249924A13C3F7BB000C8F55 /* ookTextMsgHandler.cpp */; };
+		8249924D13C3F7BB000C8F55 /* ookTextMsgHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 8249924B13C3F7BB000C8F55 /* ookTextMsgHandler.h */; };
+		8249925C13C40E46000C8F55 /* ookTCPServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8249925A13C40E46000C8F55 /* ookTCPServer.cpp */; };
+		8249925D13C40E46000C8F55 /* ookTCPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8249925B13C40E46000C8F55 /* ookTCPServer.h */; };
+		8249926413C419BC000C8F55 /* ookTCPClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8249926213C419BB000C8F55 /* ookTCPClient.cpp */; };
+		8249926513C419BC000C8F55 /* ookTCPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 8249926313C419BB000C8F55 /* ookTCPClient.h */; };
+		8249926813C41E6E000C8F55 /* ookTCPServerThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8249926613C41E6E000C8F55 /* ookTCPServerThread.cpp */; };
+		8249926913C41E6E000C8F55 /* ookTCPServerThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 8249926713C41E6E000C8F55 /* ookTCPServerThread.h */; };
+		8272461D13D393420042C4F4 /* ookFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8272461B13D393420042C4F4 /* ookFile.cpp */; };
+		8272461E13D393420042C4F4 /* ookFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 8272461C13D393420042C4F4 /* ookFile.h */; };
+		8282919213C567A7004EFCFA /* ookXMLParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8282919013C567A7004EFCFA /* ookXMLParser.cpp */; };
+		8282919313C567A7004EFCFA /* ookXMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 8282919113C567A7004EFCFA /* ookXMLParser.h */; };
+		8282919D13C57603004EFCFA /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8282919713C57602004EFCFA /* tinystr.cpp */; };
+		8282919E13C57603004EFCFA /* tinystr.h in Headers */ = {isa = PBXBuildFile; fileRef = 8282919813C57602004EFCFA /* tinystr.h */; };
+		8282919F13C57603004EFCFA /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8282919913C57602004EFCFA /* tinyxml.cpp */; };
+		828291A013C57603004EFCFA /* tinyxml.h in Headers */ = {isa = PBXBuildFile; fileRef = 8282919A13C57602004EFCFA /* tinyxml.h */; };
+		828291A113C57603004EFCFA /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8282919B13C57603004EFCFA /* tinyxmlerror.cpp */; };
+		828291A213C57603004EFCFA /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8282919C13C57603004EFCFA /* tinyxmlparser.cpp */; };
+		8287160213C2534F002D0350 /* ookApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8287160013C2534F002D0350 /* ookApplication.cpp */; };
+		8287160313C2534F002D0350 /* ookApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 8287160113C2534F002D0350 /* ookApplication.h */; };
+		8287160513C2535F002D0350 /* typedefs.h in Headers */ = {isa = PBXBuildFile; fileRef = 8287160413C2535F002D0350 /* typedefs.h */; };
+		8287160813C25371002D0350 /* ookString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8287160613C25371002D0350 /* ookString.cpp */; };
+		8287160913C25371002D0350 /* ookString.h in Headers */ = {isa = PBXBuildFile; fileRef = 8287160713C25371002D0350 /* ookString.h */; };
+		8287161B13C2C1E5002D0350 /* ookThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8287161913C2C1E5002D0350 /* ookThread.cpp */; };
+		8287161C13C2C1E5002D0350 /* ookThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 8287161A13C2C1E5002D0350 /* ookThread.h */; };
+		8287162013C2C901002D0350 /* ookMutex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8287161E13C2C901002D0350 /* ookMutex.cpp */; };
+		8287162113C2C901002D0350 /* ookMutex.h in Headers */ = {isa = PBXBuildFile; fileRef = 8287161F13C2C901002D0350 /* ookMutex.h */; };
+		8294CC2313C9268500484E59 /* ookException.h in Headers */ = {isa = PBXBuildFile; fileRef = 8294CC2113C9268500484E59 /* ookException.h */; };
+		82A483D013C3D93300B14E38 /* ookMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 82A483CC13C3D93300B14E38 /* ookMessage.cpp */; };
+		82A483D113C3D93300B14E38 /* ookMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 82A483CD13C3D93300B14E38 /* ookMessage.h */; };
+		82A483D213C3D93300B14E38 /* ookMsgDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 82A483CE13C3D93300B14E38 /* ookMsgDispatcher.h */; };
+		82A483D313C3D93300B14E38 /* ookMsgObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 82A483CF13C3D93300B14E38 /* ookMsgObserver.h */; };
+		82A483D613C3D95400B14E38 /* ookKeyValuePair.h in Headers */ = {isa = PBXBuildFile; fileRef = 82A483D513C3D95400B14E38 /* ookKeyValuePair.h */; };
+		82A483D813C3E24300B14E38 /* ookMsgHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 82A483D713C3E24300B14E38 /* ookMsgHandler.h */; };
+		82A483DA13C3E6E400B14E38 /* ookMsgObserverAbs.h in Headers */ = {isa = PBXBuildFile; fileRef = 82A483D913C3E6E400B14E38 /* ookMsgObserverAbs.h */; };
+		82A483DD13C3EB2200B14E38 /* ookMsgDispatcher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 82A483DB13C3EB2200B14E38 /* ookMsgDispatcher.cpp */; };
+		82A483E013C3EDDD00B14E38 /* ookMsgHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 82A483DF13C3EDDD00B14E38 /* ookMsgHandler.cpp */; };
+		82B2645213C6872C00D2876C /* ookSSLClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 82B2644C13C6872C00D2876C /* ookSSLClient.cpp */; };
+		82B2645313C6872C00D2876C /* ookSSLClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B2644D13C6872C00D2876C /* ookSSLClient.h */; };
+		82B2645413C6872C00D2876C /* ookSSLServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 82B2644E13C6872C00D2876C /* ookSSLServer.cpp */; };
+		82B2645513C6872C00D2876C /* ookSSLServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B2644F13C6872C00D2876C /* ookSSLServer.h */; };
+		82B2645613C6872C00D2876C /* ookSSLServerThread.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 82B2645013C6872C00D2876C /* ookSSLServerThread.cpp */; };
+		82B2645713C6872C00D2876C /* ookSSLServerThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B2645113C6872C00D2876C /* ookSSLServerThread.h */; };
+		82D3ACAD13D0FC6000031685 /* ookTwofishCipher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 82D3ACAB13D0FC6000031685 /* ookTwofishCipher.cpp */; };
+		82D3ACAE13D0FC6000031685 /* ookTwofishCipher.h in Headers */ = {isa = PBXBuildFile; fileRef = 82D3ACAC13D0FC6000031685 /* ookTwofishCipher.h */; };
+		82D3ACB113D0FEB300031685 /* ookRC5Cipher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 82D3ACAF13D0FEB300031685 /* ookRC5Cipher.cpp */; };
+		82D3ACB213D0FEB300031685 /* ookRC5Cipher.h in Headers */ = {isa = PBXBuildFile; fileRef = 82D3ACB013D0FEB300031685 /* ookRC5Cipher.h */; };
+		82D3ACB513D1038D00031685 /* ookAESCipher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 82D3ACB313D1038D00031685 /* ookAESCipher.cpp */; };
+		82D3ACB613D1038D00031685 /* ookAESCipher.h in Headers */ = {isa = PBXBuildFile; fileRef = 82D3ACB413D1038D00031685 /* ookAESCipher.h */; };
+		82D3ACC113D1048900031685 /* ookIDEACipher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 82D3ACBF13D1048800031685 /* ookIDEACipher.cpp */; };
+		82D3ACC213D1048900031685 /* ookIDEACipher.h in Headers */ = {isa = PBXBuildFile; fileRef = 82D3ACC013D1048800031685 /* ookIDEACipher.h */; };
+		82E8FF0513CFD42100A8E959 /* ookCipher.h in Headers */ = {isa = PBXBuildFile; fileRef = 82E8FF0413CFD42100A8E959 /* ookCipher.h */; };
+		82E8FF0813CFD46000A8E959 /* ookCipher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 82E8FF0713CFD46000A8E959 /* ookCipher.cpp */; };
+		82E8FF0A13CFD78300A8E959 /* ookBlowfishCipher.h in Headers */ = {isa = PBXBuildFile; fileRef = 82E8FF0913CFD78300A8E959 /* ookBlowfishCipher.h */; };
+		82E8FF0C13CFD7A000A8E959 /* ookBlowfishCipher.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 82E8FF0B13CFD7A000A8E959 /* ookBlowfishCipher.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8249924613C3F5E9000C8F55 /* ookTextMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookTextMessage.cpp; sourceTree = "<group>"; };
+		8249924713C3F5E9000C8F55 /* ookTextMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookTextMessage.h; sourceTree = "<group>"; };
+		8249924A13C3F7BB000C8F55 /* ookTextMsgHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookTextMsgHandler.cpp; sourceTree = "<group>"; };
+		8249924B13C3F7BB000C8F55 /* ookTextMsgHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookTextMsgHandler.h; sourceTree = "<group>"; };
+		8249925A13C40E46000C8F55 /* ookTCPServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookTCPServer.cpp; sourceTree = "<group>"; };
+		8249925B13C40E46000C8F55 /* ookTCPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookTCPServer.h; sourceTree = "<group>"; };
+		8249926213C419BB000C8F55 /* ookTCPClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookTCPClient.cpp; sourceTree = "<group>"; };
+		8249926313C419BB000C8F55 /* ookTCPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookTCPClient.h; sourceTree = "<group>"; };
+		8249926613C41E6E000C8F55 /* ookTCPServerThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookTCPServerThread.cpp; sourceTree = "<group>"; };
+		8249926713C41E6E000C8F55 /* ookTCPServerThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookTCPServerThread.h; sourceTree = "<group>"; };
+		8272461B13D393420042C4F4 /* ookFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookFile.cpp; sourceTree = "<group>"; };
+		8272461C13D393420042C4F4 /* ookFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookFile.h; sourceTree = "<group>"; };
+		8282919013C567A7004EFCFA /* ookXMLParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookXMLParser.cpp; sourceTree = "<group>"; };
+		8282919113C567A7004EFCFA /* ookXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookXMLParser.h; sourceTree = "<group>"; };
+		8282919713C57602004EFCFA /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinystr.cpp; sourceTree = "<group>"; };
+		8282919813C57602004EFCFA /* tinystr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinystr.h; sourceTree = "<group>"; };
+		8282919913C57602004EFCFA /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
+		8282919A13C57602004EFCFA /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
+		8282919B13C57603004EFCFA /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
+		8282919C13C57603004EFCFA /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
+		8287160013C2534F002D0350 /* ookApplication.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookApplication.cpp; sourceTree = "<group>"; };
+		8287160113C2534F002D0350 /* ookApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookApplication.h; sourceTree = "<group>"; };
+		8287160413C2535F002D0350 /* typedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = typedefs.h; sourceTree = "<group>"; };
+		8287160613C25371002D0350 /* ookString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookString.cpp; sourceTree = "<group>"; };
+		8287160713C25371002D0350 /* ookString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookString.h; sourceTree = "<group>"; };
+		8287161913C2C1E5002D0350 /* ookThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookThread.cpp; sourceTree = "<group>"; };
+		8287161A13C2C1E5002D0350 /* ookThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookThread.h; sourceTree = "<group>"; };
+		8287161E13C2C901002D0350 /* ookMutex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookMutex.cpp; sourceTree = "<group>"; };
+		8287161F13C2C901002D0350 /* ookMutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookMutex.h; sourceTree = "<group>"; };
+		828EDF0213C1919C00B388DE /* libookLibs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libookLibs.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8294CC2113C9268500484E59 /* ookException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookException.h; sourceTree = "<group>"; };
+		82A483CC13C3D93300B14E38 /* ookMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookMessage.cpp; sourceTree = "<group>"; };
+		82A483CD13C3D93300B14E38 /* ookMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookMessage.h; sourceTree = "<group>"; };
+		82A483CE13C3D93300B14E38 /* ookMsgDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookMsgDispatcher.h; sourceTree = "<group>"; };
+		82A483CF13C3D93300B14E38 /* ookMsgObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookMsgObserver.h; sourceTree = "<group>"; };
+		82A483D513C3D95400B14E38 /* ookKeyValuePair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookKeyValuePair.h; sourceTree = "<group>"; };
+		82A483D713C3E24300B14E38 /* ookMsgHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookMsgHandler.h; sourceTree = "<group>"; };
+		82A483D913C3E6E400B14E38 /* ookMsgObserverAbs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookMsgObserverAbs.h; sourceTree = "<group>"; };
+		82A483DB13C3EB2200B14E38 /* ookMsgDispatcher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookMsgDispatcher.cpp; sourceTree = "<group>"; };
+		82A483DF13C3EDDD00B14E38 /* ookMsgHandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookMsgHandler.cpp; sourceTree = "<group>"; };
+		82B2644C13C6872C00D2876C /* ookSSLClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookSSLClient.cpp; sourceTree = "<group>"; };
+		82B2644D13C6872C00D2876C /* ookSSLClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookSSLClient.h; sourceTree = "<group>"; };
+		82B2644E13C6872C00D2876C /* ookSSLServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookSSLServer.cpp; sourceTree = "<group>"; };
+		82B2644F13C6872C00D2876C /* ookSSLServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookSSLServer.h; sourceTree = "<group>"; };
+		82B2645013C6872C00D2876C /* ookSSLServerThread.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookSSLServerThread.cpp; sourceTree = "<group>"; };
+		82B2645113C6872C00D2876C /* ookSSLServerThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookSSLServerThread.h; sourceTree = "<group>"; };
+		82D3ACAB13D0FC6000031685 /* ookTwofishCipher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookTwofishCipher.cpp; sourceTree = "<group>"; };
+		82D3ACAC13D0FC6000031685 /* ookTwofishCipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookTwofishCipher.h; sourceTree = "<group>"; };
+		82D3ACAF13D0FEB300031685 /* ookRC5Cipher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookRC5Cipher.cpp; sourceTree = "<group>"; };
+		82D3ACB013D0FEB300031685 /* ookRC5Cipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookRC5Cipher.h; sourceTree = "<group>"; };
+		82D3ACB313D1038D00031685 /* ookAESCipher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookAESCipher.cpp; sourceTree = "<group>"; };
+		82D3ACB413D1038D00031685 /* ookAESCipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookAESCipher.h; sourceTree = "<group>"; };
+		82D3ACBF13D1048800031685 /* ookIDEACipher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookIDEACipher.cpp; sourceTree = "<group>"; };
+		82D3ACC013D1048800031685 /* ookIDEACipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookIDEACipher.h; sourceTree = "<group>"; };
+		82E8FF0413CFD42100A8E959 /* ookCipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookCipher.h; sourceTree = "<group>"; };
+		82E8FF0713CFD46000A8E959 /* ookCipher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookCipher.cpp; sourceTree = "<group>"; };
+		82E8FF0913CFD78300A8E959 /* ookBlowfishCipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookBlowfishCipher.h; sourceTree = "<group>"; };
+		82E8FF0B13CFD7A000A8E959 /* ookBlowfishCipher.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookBlowfishCipher.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		828EDEFF13C1919C00B388DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		828EDEC713C190F600B388DE = {
+			isa = PBXGroup;
+			children = (
+				82E8F7E613C193F700751A5A /* ookApp */,
+				828EDF0713C1930700B388DE /* ookCore */,
+				82E8F7E813C1940100751A5A /* ookCrypt */,
+				82E8F7E913C1940900751A5A /* ookDB */,
+				82E8F7EA13C1941700751A5A /* ookIO */,
+				82E8F7EB13C1941F00751A5A /* ookNet */,
+				82E8F7EC13C1942700751A5A /* ookThread */,
+				82E8F7ED13C1942E00751A5A /* ookUtil */,
+				82E8F7EE13C1943400751A5A /* ookXML */,
+				82E8F7EF13C1943C00751A5A /* ookZip */,
+				828EDF0313C1919C00B388DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		828EDF0313C1919C00B388DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				828EDF0213C1919C00B388DE /* libookLibs.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		828EDF0713C1930700B388DE /* ookCore */ = {
+			isa = PBXGroup;
+			children = (
+				8287160413C2535F002D0350 /* typedefs.h */,
+				82A483CC13C3D93300B14E38 /* ookMessage.cpp */,
+				82A483CD13C3D93300B14E38 /* ookMessage.h */,
+				82A483CE13C3D93300B14E38 /* ookMsgDispatcher.h */,
+				82A483DB13C3EB2200B14E38 /* ookMsgDispatcher.cpp */,
+				82A483D713C3E24300B14E38 /* ookMsgHandler.h */,
+				82A483DF13C3EDDD00B14E38 /* ookMsgHandler.cpp */,
+				82A483CF13C3D93300B14E38 /* ookMsgObserver.h */,
+				82A483D913C3E6E400B14E38 /* ookMsgObserverAbs.h */,
+				8249924613C3F5E9000C8F55 /* ookTextMessage.cpp */,
+				8249924713C3F5E9000C8F55 /* ookTextMessage.h */,
+				8249924A13C3F7BB000C8F55 /* ookTextMsgHandler.cpp */,
+				8249924B13C3F7BB000C8F55 /* ookTextMsgHandler.h */,
+				8294CC2113C9268500484E59 /* ookException.h */,
+			);
+			path = ookCore;
+			sourceTree = "<group>";
+		};
+		82E8F7E613C193F700751A5A /* ookApp */ = {
+			isa = PBXGroup;
+			children = (
+				8287160013C2534F002D0350 /* ookApplication.cpp */,
+				8287160113C2534F002D0350 /* ookApplication.h */,
+			);
+			path = ookApp;
+			sourceTree = "<group>";
+		};
+		82E8F7E813C1940100751A5A /* ookCrypt */ = {
+			isa = PBXGroup;
+			children = (
+				82D3ACAB13D0FC6000031685 /* ookTwofishCipher.cpp */,
+				82D3ACAC13D0FC6000031685 /* ookTwofishCipher.h */,
+				82E8FF0413CFD42100A8E959 /* ookCipher.h */,
+				82E8FF0713CFD46000A8E959 /* ookCipher.cpp */,
+				82E8FF0913CFD78300A8E959 /* ookBlowfishCipher.h */,
+				82E8FF0B13CFD7A000A8E959 /* ookBlowfishCipher.cpp */,
+				82D3ACAF13D0FEB300031685 /* ookRC5Cipher.cpp */,
+				82D3ACB013D0FEB300031685 /* ookRC5Cipher.h */,
+				82D3ACB313D1038D00031685 /* ookAESCipher.cpp */,
+				82D3ACB413D1038D00031685 /* ookAESCipher.h */,
+				82D3ACBF13D1048800031685 /* ookIDEACipher.cpp */,
+				82D3ACC013D1048800031685 /* ookIDEACipher.h */,
+			);
+			path = ookCrypt;
+			sourceTree = "<group>";
+		};
+		82E8F7E913C1940900751A5A /* ookDB */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ookDB;
+			sourceTree = "<group>";
+		};
+		82E8F7EA13C1941700751A5A /* ookIO */ = {
+			isa = PBXGroup;
+			children = (
+				8272461B13D393420042C4F4 /* ookFile.cpp */,
+				8272461C13D393420042C4F4 /* ookFile.h */,
+			);
+			path = ookIO;
+			sourceTree = "<group>";
+		};
+		82E8F7EB13C1941F00751A5A /* ookNet */ = {
+			isa = PBXGroup;
+			children = (
+				82B2644C13C6872C00D2876C /* ookSSLClient.cpp */,
+				82B2644D13C6872C00D2876C /* ookSSLClient.h */,
+				82B2644E13C6872C00D2876C /* ookSSLServer.cpp */,
+				82B2644F13C6872C00D2876C /* ookSSLServer.h */,
+				82B2645013C6872C00D2876C /* ookSSLServerThread.cpp */,
+				82B2645113C6872C00D2876C /* ookSSLServerThread.h */,
+				8249925A13C40E46000C8F55 /* ookTCPServer.cpp */,
+				8249925B13C40E46000C8F55 /* ookTCPServer.h */,
+				8249926213C419BB000C8F55 /* ookTCPClient.cpp */,
+				8249926313C419BB000C8F55 /* ookTCPClient.h */,
+				8249926613C41E6E000C8F55 /* ookTCPServerThread.cpp */,
+				8249926713C41E6E000C8F55 /* ookTCPServerThread.h */,
+			);
+			path = ookNet;
+			sourceTree = "<group>";
+		};
+		82E8F7EC13C1942700751A5A /* ookThread */ = {
+			isa = PBXGroup;
+			children = (
+				8287161913C2C1E5002D0350 /* ookThread.cpp */,
+				8287161A13C2C1E5002D0350 /* ookThread.h */,
+				8287161E13C2C901002D0350 /* ookMutex.cpp */,
+				8287161F13C2C901002D0350 /* ookMutex.h */,
+			);
+			path = ookThread;
+			sourceTree = "<group>";
+		};
+		82E8F7ED13C1942E00751A5A /* ookUtil */ = {
+			isa = PBXGroup;
+			children = (
+				82A483D513C3D95400B14E38 /* ookKeyValuePair.h */,
+				8287160613C25371002D0350 /* ookString.cpp */,
+				8287160713C25371002D0350 /* ookString.h */,
+			);
+			path = ookUtil;
+			sourceTree = "<group>";
+		};
+		82E8F7EE13C1943400751A5A /* ookXML */ = {
+			isa = PBXGroup;
+			children = (
+				8282919713C57602004EFCFA /* tinystr.cpp */,
+				8282919813C57602004EFCFA /* tinystr.h */,
+				8282919913C57602004EFCFA /* tinyxml.cpp */,
+				8282919A13C57602004EFCFA /* tinyxml.h */,
+				8282919B13C57603004EFCFA /* tinyxmlerror.cpp */,
+				8282919C13C57603004EFCFA /* tinyxmlparser.cpp */,
+				8282919013C567A7004EFCFA /* ookXMLParser.cpp */,
+				8282919113C567A7004EFCFA /* ookXMLParser.h */,
+			);
+			path = ookXML;
+			sourceTree = "<group>";
+		};
+		82E8F7EF13C1943C00751A5A /* ookZip */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ookZip;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		828EDF0013C1919C00B388DE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8287160313C2534F002D0350 /* ookApplication.h in Headers */,
+				8287160513C2535F002D0350 /* typedefs.h in Headers */,
+				8287160913C25371002D0350 /* ookString.h in Headers */,
+				8287161C13C2C1E5002D0350 /* ookThread.h in Headers */,
+				8287162113C2C901002D0350 /* ookMutex.h in Headers */,
+				82A483D113C3D93300B14E38 /* ookMessage.h in Headers */,
+				82A483D213C3D93300B14E38 /* ookMsgDispatcher.h in Headers */,
+				82A483D313C3D93300B14E38 /* ookMsgObserver.h in Headers */,
+				82A483D613C3D95400B14E38 /* ookKeyValuePair.h in Headers */,
+				82A483D813C3E24300B14E38 /* ookMsgHandler.h in Headers */,
+				82A483DA13C3E6E400B14E38 /* ookMsgObserverAbs.h in Headers */,
+				8249924913C3F5E9000C8F55 /* ookTextMessage.h in Headers */,
+				8249924D13C3F7BB000C8F55 /* ookTextMsgHandler.h in Headers */,
+				8249925D13C40E46000C8F55 /* ookTCPServer.h in Headers */,
+				8249926513C419BC000C8F55 /* ookTCPClient.h in Headers */,
+				8249926913C41E6E000C8F55 /* ookTCPServerThread.h in Headers */,
+				8282919313C567A7004EFCFA /* ookXMLParser.h in Headers */,
+				8282919E13C57603004EFCFA /* tinystr.h in Headers */,
+				828291A013C57603004EFCFA /* tinyxml.h in Headers */,
+				82B2645313C6872C00D2876C /* ookSSLClient.h in Headers */,
+				82B2645513C6872C00D2876C /* ookSSLServer.h in Headers */,
+				82B2645713C6872C00D2876C /* ookSSLServerThread.h in Headers */,
+				8294CC2313C9268500484E59 /* ookException.h in Headers */,
+				82E8FF0513CFD42100A8E959 /* ookCipher.h in Headers */,
+				82E8FF0A13CFD78300A8E959 /* ookBlowfishCipher.h in Headers */,
+				82D3ACAE13D0FC6000031685 /* ookTwofishCipher.h in Headers */,
+				82D3ACB213D0FEB300031685 /* ookRC5Cipher.h in Headers */,
+				82D3ACB613D1038D00031685 /* ookAESCipher.h in Headers */,
+				82D3ACC213D1048900031685 /* ookIDEACipher.h in Headers */,
+				8272461E13D393420042C4F4 /* ookFile.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		828EDF0113C1919C00B388DE /* ookLibs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 828EDF0413C1919C00B388DE /* Build configuration list for PBXNativeTarget "ookLibs" */;
+			buildPhases = (
+				828EDEFE13C1919C00B388DE /* Sources */,
+				828EDEFF13C1919C00B388DE /* Frameworks */,
+				828EDF0013C1919C00B388DE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ookLibs;
+			productName = ookLibs;
+			productReference = 828EDF0213C1919C00B388DE /* libookLibs.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		828EDEC913C190F600B388DE /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 828EDECC13C190F600B388DE /* Build configuration list for PBXProject "ookLibs" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 828EDEC713C190F600B388DE;
+			productRefGroup = 828EDF0313C1919C00B388DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				828EDF0113C1919C00B388DE /* ookLibs */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		828EDEFE13C1919C00B388DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8287160213C2534F002D0350 /* ookApplication.cpp in Sources */,
+				8287160813C25371002D0350 /* ookString.cpp in Sources */,
+				8287161B13C2C1E5002D0350 /* ookThread.cpp in Sources */,
+				8287162013C2C901002D0350 /* ookMutex.cpp in Sources */,
+				82A483D013C3D93300B14E38 /* ookMessage.cpp in Sources */,
+				82A483DD13C3EB2200B14E38 /* ookMsgDispatcher.cpp in Sources */,
+				82A483E013C3EDDD00B14E38 /* ookMsgHandler.cpp in Sources */,
+				8249924813C3F5E9000C8F55 /* ookTextMessage.cpp in Sources */,
+				8249924C13C3F7BB000C8F55 /* ookTextMsgHandler.cpp in Sources */,
+				8249925C13C40E46000C8F55 /* ookTCPServer.cpp in Sources */,
+				8249926413C419BC000C8F55 /* ookTCPClient.cpp in Sources */,
+				8249926813C41E6E000C8F55 /* ookTCPServerThread.cpp in Sources */,
+				8282919213C567A7004EFCFA /* ookXMLParser.cpp in Sources */,
+				8282919D13C57603004EFCFA /* tinystr.cpp in Sources */,
+				8282919F13C57603004EFCFA /* tinyxml.cpp in Sources */,
+				828291A113C57603004EFCFA /* tinyxmlerror.cpp in Sources */,
+				828291A213C57603004EFCFA /* tinyxmlparser.cpp in Sources */,
+				82B2645213C6872C00D2876C /* ookSSLClient.cpp in Sources */,
+				82B2645413C6872C00D2876C /* ookSSLServer.cpp in Sources */,
+				82B2645613C6872C00D2876C /* ookSSLServerThread.cpp in Sources */,
+				82E8FF0813CFD46000A8E959 /* ookCipher.cpp in Sources */,
+				82E8FF0C13CFD7A000A8E959 /* ookBlowfishCipher.cpp in Sources */,
+				82D3ACAD13D0FC6000031685 /* ookTwofishCipher.cpp in Sources */,
+				82D3ACB113D0FEB300031685 /* ookRC5Cipher.cpp in Sources */,
+				82D3ACB513D1038D00031685 /* ookAESCipher.cpp in Sources */,
+				82D3ACC113D1048900031685 /* ookIDEACipher.cpp in Sources */,
+				8272461D13D393420042C4F4 /* ookFile.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		828EDECE13C190F600B388DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		828EDECF13C190F600B388DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		828EDF0513C1919C00B388DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = NO;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = NO;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_FAST_MATH = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_USE_INDIRECT_FUNCTION_CALLS = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ABOUT_POINTER_SIGNEDNESS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/tedbiggs/Development/libs/boost_1_46_1/stage/include/,
+					/Users/tedbiggs/Development/Code/ookLibs/,
+					/Users/tedbiggs/Development/libs/tinyxml/,
+					"/Users/tedbiggs/Development/libs/openssl-1.0.0d/include/",
+					/Users/tedbiggs/Development/libs/cryptopp561/include/,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/Users/tedbiggs/Development/libs/boost_1_46_1/stage/lib/,
+					/Users/tedbiggs/Development/libs/tinyxml/,
+					"/Users/tedbiggs/Development/libs/openssl-1.0.0d/",
+					/Users/tedbiggs/Development/libs/cryptopp561/lib/,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				PRELINK_LIBS = "libcrypto.a libssl.a";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
+			};
+			name = Debug;
+		};
+		828EDF0613C1919C00B388DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_SSE42_EXTENSIONS = NO;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = NO;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_FAST_MATH = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_INPUT_FILETYPE = automatic;
+				GCC_USE_INDIRECT_FUNCTION_CALLS = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = YES;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = NO;
+				GCC_WARN_ABOUT_POINTER_SIGNEDNESS = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/tedbiggs/Development/libs/boost_1_46_1/stage/include/,
+					/Users/tedbiggs/Development/Code/ookLibs/,
+					/Users/tedbiggs/Development/libs/tinyxml/,
+					"/Users/tedbiggs/Development/libs/openssl-1.0.0d/include/",
+					/Users/tedbiggs/Development/libs/cryptopp561/include/,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/Users/tedbiggs/Development/libs/boost_1_46_1/stage/lib/,
+					/Users/tedbiggs/Development/libs/tinyxml/,
+					"/Users/tedbiggs/Development/libs/openssl-1.0.0d/",
+					/Users/tedbiggs/Development/libs/cryptopp561/lib/,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRELINK_LIBS = "libcrypto.a libssl.a";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				STANDARD_C_PLUS_PLUS_LIBRARY_TYPE = static;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		828EDECC13C190F600B388DE /* Build configuration list for PBXProject "ookLibs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				828EDECE13C190F600B388DE /* Debug */,
+				828EDECF13C190F600B388DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		828EDF0413C1919C00B388DE /* Build configuration list for PBXNativeTarget "ookLibs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				828EDF0513C1919C00B388DE /* Debug */,
+				828EDF0613C1919C00B388DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 828EDEC913C190F600B388DE /* Project object */;
+}

@@ -28,20 +28,16 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
-
-// blowfish.cpp   C++ class implementation of the BLOWFISH encryption algorithm
-// _THE BLOWFISH ENCRYPTION ALGORITHM_
-// by Bruce Schneier
-// Revised code--3/20/94
-// Converted to C++ class 5/96, Jim Conger
-
-/*! 
+ /*! 
  \class ookBlowfishCipher
  \headerfile ookBlowfishCipher.h "ookLibs/ookCrypt/ookBlowfishCipher.h"
- \brief Performs Blowfish encryption/decryption.
+ \brief Derived ookCipher implementing the Blowfish algorithm.
  */
 #include "ookLibs/ookCrypt/ookBlowfishCipher.h"
 
+/*! 
+ \brief Default constructor.
+ */
 ookBlowfishCipher::ookBlowfishCipher()
 {
 //	_PArray = new ulong[18];

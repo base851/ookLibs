@@ -28,5 +28,23 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
-
+ /*! 
+ \class ookSQLite
+ \headerfile ookSQLite.h "ookLibs/ookDB/ookSQLite.h"
+ \brief Handles SQLite database connections.
+ */
 #include "ookLibs/ookDB/ookSQLite.h"
+
+/*! 
+ \brief Default constructor.
+ */
+	ookSQLite::ookSQLite()
+	{
+
+	}
+	
+	ookSQLite::~ookSQLite()
+	{
+
+	}
+

@@ -30,13 +30,16 @@
  POSSIBILITY OF SUCH DAMAGE.
  */
 
-/*! 
+ /*! 
  \class ookTwofishCipher
  \headerfile ookTwofishCipher.h "ookLibs/ookCrypt/ookTwofishCipher.h"
- \brief Performs Twofish encryption/decryption.
+ \brief Derived ookCipher implementing the Twofish algorithm.
  */
 #include "ookLibs/ookCrypt/ookTwofishCipher.h"
 
+/*! 
+ \brief Default constructor.
+ */
 ookTwofishCipher::ookTwofishCipher()
 {
 

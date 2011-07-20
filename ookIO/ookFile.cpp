@@ -28,9 +28,17 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
-
+ /*! 
+ \class ookFile
+ \headerfile ookFile.h "ookLibs/ookIO/ookFile.h"
+ \brief Provides basic file read/write functionality. Files can be opened
+ in any valid iostream mode and can be plaintext or binary.
+ */
 #include "ookLibs/ookIO/ookFile.h"
 
+/*! 
+ \brief Default constructor.
+ */
 ookFile::ookFile(string filepath)
 {
 	

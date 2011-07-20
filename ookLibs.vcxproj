@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2093BBA6-98E3-466A-95B8-936CAF2D05D8}</ProjectGuid>
+    <RootNamespace>ookLibs</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.\;..\;..\..\libbank\cryptopp\include;..\..\libbank\boost\include;..\..\libbank\openssl-0.9.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;_WIN32_WINNT=0x0501;_CRT_SECURE_NO_WARNINGS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4018;4275;4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="ookApp\ookApplication.h" />
+    <ClInclude Include="ookCore\ookMessage.h" />
+    <ClInclude Include="ookCore\ookMsgDispatcher.h" />
+    <ClInclude Include="ookCore\ookMsgHandler.h" />
+    <ClInclude Include="ookCore\ookMsgObserver.h" />
+    <ClInclude Include="ookCore\ookMsgObserverAbs.h" />
+    <ClInclude Include="ookCore\ookTextMessage.h" />
+    <ClInclude Include="ookCore\ookTextMsgHandler.h" />
+    <ClInclude Include="ookCore\typedefs.h" />
+    <ClInclude Include="ookCrypt\ookAESCipher.h" />
+    <ClInclude Include="ookCrypt\ookBlowfishCipher.h" />
+    <ClInclude Include="ookCrypt\ookCipher.h" />
+    <ClInclude Include="ookCrypt\ookIDEACipher.h" />
+    <ClInclude Include="ookCrypt\ookRC5Cipher.h" />
+    <ClInclude Include="ookCrypt\ookTwofishCipher.h" />
+    <ClInclude Include="ookDB\ookMySQL.h" />
+    <ClInclude Include="ookDB\ookSQLite.h" />
+    <ClInclude Include="ookIO\ookFile.h" />
+    <ClInclude Include="ookNet\ookSSLClient.h" />
+    <ClInclude Include="ookNet\ookSSLServer.h" />
+    <ClInclude Include="ookNet\ookSSLServerThread.h" />
+    <ClInclude Include="ookNet\ookTCPClient.h" />
+    <ClInclude Include="ookNet\ookTCPServer.h" />
+    <ClInclude Include="ookNet\ookTCPServerThread.h" />
+    <ClInclude Include="ookThread\ookMutex.h" />
+    <ClInclude Include="ookThread\ookThread.h" />
+    <ClInclude Include="ookUtil\ookKeyValuePair.h" />
+    <ClInclude Include="ookUtil\ookString.h" />
+    <ClInclude Include="ookXML\ookXMLParser.h" />
+    <ClInclude Include="ookXML\tinystr.h" />
+    <ClInclude Include="ookXML\tinyxml.h" />
+    <ClInclude Include="ookZip\ookGzip.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ookApp\ookApplication.cpp" />
+    <ClCompile Include="ookCore\ookMessage.cpp" />
+    <ClCompile Include="ookCore\ookMsgDispatcher.cpp" />
+    <ClCompile Include="ookCore\ookMsgHandler.cpp" />
+    <ClCompile Include="ookCore\ookTextMessage.cpp" />
+    <ClCompile Include="ookCore\ookTextMsgHandler.cpp" />
+    <ClCompile Include="ookCrypt\ookAESCipher.cpp" />
+    <ClCompile Include="ookCrypt\ookBlowfishCipher.cpp" />
+    <ClCompile Include="ookCrypt\ookCipher.cpp" />
+    <ClCompile Include="ookCrypt\ookIDEACipher.cpp" />
+    <ClCompile Include="ookCrypt\ookRC5Cipher.cpp" />
+    <ClCompile Include="ookCrypt\ookTwofishCipher.cpp" />
+    <ClCompile Include="ookDB\ookMySQL.cpp" />
+    <ClCompile Include="ookDB\ookSQLite.cpp" />
+    <ClCompile Include="ookIO\ookFile.cpp" />
+    <ClCompile Include="ookNet\ookSSLClient.cpp" />
+    <ClCompile Include="ookNet\ookSSLServer.cpp" />
+    <ClCompile Include="ookNet\ookSSLServerThread.cpp" />
+    <ClCompile Include="ookNet\ookTCPClient.cpp" />
+    <ClCompile Include="ookNet\ookTCPServer.cpp" />
+    <ClCompile Include="ookNet\ookTCPServerThread.cpp" />
+    <ClCompile Include="ookThread\ookMutex.cpp" />
+    <ClCompile Include="ookThread\ookThread.cpp" />
+    <ClCompile Include="ookUtil\ookString.cpp" />
+    <ClCompile Include="ookXML\ookXMLParser.cpp" />
+    <ClCompile Include="ookXML\tinystr.cpp" />
+    <ClCompile Include="ookXML\tinyxml.cpp" />
+    <ClCompile Include="ookXML\tinyxmlerror.cpp" />
+    <ClCompile Include="ookXML\tinyxmlparser.cpp" />
+    <ClCompile Include="ookZip\ookGzip.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

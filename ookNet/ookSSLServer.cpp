@@ -28,8 +28,26 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
+ /*! 
+ \class ookSSLServer
+ \headerfile ookSSLServer.h "ookLibs/ookNet/ookSSLServer.h"
+ \brief Base class for implementing an SSL server. This class simply 
+ listens for connections and then hands them off to individual server
+ threads which do the actual work.
+
+ The Server and ServerThreads communicate via the Observer/Dispatcher/Handler
+ framework found in ookCore. Servers derive from the ookTextMessageHandler class
+ and maintain ookMsgDispatcher which is passed to the individual server threads.
+ Both the server and server thread register interest in a particualr message type
+ with the dispatcher. They also post messages to the dispatcher for handling. In
+ this manner both the server and server thread can intercommunicate and only receive
+ messages which they are interested in.
+ */
 #include "ookLibs/ookNet/ookSSLServer.h"
 
+/*! 
+ \brief Initialization constructor.
+ */
 ookSSLServer::ookSSLServer(int iPort, base_method mthd)
 	: _iPort(iPort), _context(_io_service, mthd)
 {	

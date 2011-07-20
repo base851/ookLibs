@@ -28,9 +28,17 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
+ /*! 
+ \class ookSSLClient
+ \headerfile ookSSLClient.h "ookLibs/ookNet/ookSSLClient.h"
+ \brief Base class for implementing an SSL client connection.
+ */
 #include "ookLibs/ookUtil/ookString.h"
 #include "ookLibs/ookNet/ookSSLClient.h"
 
+/*! 
+ \brief Initialization constructor.
+ */
 ookSSLClient::ookSSLClient(string ipaddr, int iPort, base_method mthd)
 : _ipaddr(ipaddr), _iPort(iPort), _context(_io_service, mthd)
 {
@@ -298,9 +306,6 @@ void ookSSLClient::Run()
 		tcp::resolver resolver(_io_service);
 		tcp::resolver::query query(tcp::v4(), _ipaddr, ookString::ConvertInt2String(_iPort));
 		tcp::resolver::iterator iterator = resolver.resolve(query);
-	
-//		_context.set_verify_mode(boost::asio::ssl::context::verify_none); 
-//		_context.load_verify_file("ca.pem");		
 	
 		_sock = boost::shared_ptr<ssl_socket>(new ssl_socket(_io_service, _context));	
 		

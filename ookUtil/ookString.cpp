@@ -28,6 +28,12 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
+ /*! 
+ \class ookString
+ \headerfile ookString.h "ookLibs/ookUtil/ookString.h"
+ \brief Utility class which provides string manipulation and 
+ conversion.
+ */
 #include "ookLibs/ookUtil/ookString.h"
 
 

@@ -40,6 +40,9 @@
  */
 #include "ookLibs/ookCore/ookMsgDispatcher.h"
 
+/*! 
+ \brief Default constructor.
+ */
 ookMsgDispatcher::ookMsgDispatcher()
 {
 	

@@ -1,0 +1,35 @@
+=======================================================================================
+									ookLibs - README
+=======================================================================================
+
+OVERVIEW
+---------
+ookLibs is a C++ library of general purpose utility classes. It is designed to provide
+a flexible and intuitive framework for creating C++ applications by abstracting some
+of the more cumbersome and esoteric tasks to speed the development process.
+
+ookLibs currently provides classes for:
+
+* Application development
+* Multithreading
+* TCP & SSL Networking, including a delegation event notification framework
+* Encryption/Decryption
+* File compression/decompression
+* File IO
+* Connectivity to MySQL and SQLite databases
+* XML parsing
+
+Additional functionality may be added in subsequent releases.
+
+DEPENDENCIES
+------------
+Rather than re-invent what others have already effectively done, ookLibs goal is to 
+simplify usage. Thus, ookLibs is primarily a wrapper around other C++ frameworks. As 
+such, ookLibs has a number of dependencies in order to be used in a new project:
+
+* Boost (currently using version 0.9.6)
+* OpenSSL (currently using version 0.9.8r)
+* Crypto++ (currently using version 5.6.1)
+* MySQL (currently using version 5.5)
+* SQLite (currently using version 3.7.7.1)
+

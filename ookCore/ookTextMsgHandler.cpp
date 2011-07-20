@@ -36,6 +36,9 @@
  */
 #include "ookLibs/ookCore/ookTextMsgHandler.h"
 
+/*! 
+ \brief Default constructor.
+ */
 ookTextMsgHandler::ookTextMsgHandler()
 {
 	

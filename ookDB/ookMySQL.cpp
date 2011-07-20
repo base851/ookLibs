@@ -28,5 +28,22 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
-
+ /*! 
+ \class ookMySQL
+ \headerfile ookMySQL.h "ookLibs/ookDB/ookMySQL.h"
+ \brief Handles MySQL database connections.
+ */
 #include "ookLibs/ookDB/ookMySQL.h"
+
+/*! 
+ \brief Default constructor.
+ */
+	ookMySQL::ookMySQL()
+	{
+
+	}
+	
+	ookMySQL::~ookMySQL()
+	{
+
+	}

@@ -28,6 +28,12 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
+ /*! 
+ \class ookThread
+ \headerfile ookMutex.h "ookLibs/ookThread/ookThread.h"
+ \brief Simple base thread class. Derived classes should override
+ Run(), which is the worker function for the thread.
+ */
 #include "ookLibs/ookThread/ookThread.h"
 
 ookThread::ookThread()

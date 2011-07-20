@@ -29,8 +29,16 @@
  POSSIBILITY OF SUCH DAMAGE.
  */
 
+ /*! 
+ \class ookCipher
+ \headerfile ookCipher.h "ookLibs/ookCrypt/ookCipher.h"
+ \brief Base class for cipher implementations.
+ */
 #include "ookLibs/ookCrypt/ookCipher.h"
 
+/*! 
+ \brief Default constructor.
+ */
 ookCipher::ookCipher()
 {
 	

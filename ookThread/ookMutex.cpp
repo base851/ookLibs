@@ -28,6 +28,11 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
+ /*! 
+ \class ookMutex
+ \headerfile ookMutex.h "ookLibs/ookThread/ookMutex.h"
+ \brief Simple mutex class for implementing thread safety.
+ */
 #include "ookLibs/ookThread/ookMutex.h"
 
 ookMutex::ookMutex()

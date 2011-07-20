@@ -28,8 +28,16 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
+ /*! 
+ \class ookAESCipher
+ \headerfile ookAESCipher.h "ookLibs/ookCrypt/ookAESCipher.h"
+ \brief Derived ookCipher implementing the AES (Rijndael) algorithm.
+ */
 #include "ookLibs/ookCrypt/ookAESCipher.h"
 
+/*! 
+ \brief Default constructor.
+ */
 ookAESCipher::ookAESCipher()
 {
 	

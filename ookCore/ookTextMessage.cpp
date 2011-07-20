@@ -38,6 +38,9 @@
  */
 #include "ookLibs/ookCore/ookTextMessage.h"
 
+/*! 
+ \brief Default constructor.
+ */
 ookTextMessage::ookTextMessage()
 {
 	
