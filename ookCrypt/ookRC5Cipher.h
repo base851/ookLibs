@@ -60,4 +60,8 @@ private:
 
 };
 
+#ifndef ookRC5CipherPtr
+typedef boost::shared_ptr<ookRC5Cipher> ookRC5CipherPtr;
+#endif
+
 #endif

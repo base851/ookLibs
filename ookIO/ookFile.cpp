@@ -38,6 +38,8 @@
 
 /*! 
  \brief Initialization constructor.
+
+ \param filepath	The full path and filename.
  */
 ookFile::ookFile(string filepath)
 {
@@ -49,15 +51,22 @@ ookFile::ookFile(string filepath)
  */
 ookFile::~ookFile()
 {
-	
+	this->Close();
 }
 
+/*! 
+ \brief Opens the file for reading & writing in default mode. 
+ */
 void ookFile::Open()
 {
 	_filestream.open(_filepath.data());
 }
 
 /*
+ \brief Opens the file for reading and/or writing in specified mode(s). 
+
+ \param modes	The mode(s) to open the file in. 
+
  Setting the open mode consists of bitwise OR-ing any combination of the below modes:
  
  ios::in - Open for input operations.
@@ -69,8 +78,10 @@ void ookFile::Open()
  
  For example, if one wanted to open the file in binary mode for writing and truncate existing contents, the call would be:
  
+ \code
  somefile.Open(ios::out | ios::binary | ios::trunc);
- 
+ \endcode
+
  */
 void ookFile::Open(ios_base::openmode modes)
 {
@@ -78,12 +89,22 @@ void ookFile::Open(ios_base::openmode modes)
 		_filestream.open(_filepath.data(), modes);	
 }
 
+/*! 
+ \brief Closes the file. This should be performed after
+ file reading/writing is complete in order to ensure data 
+ integrity.
+ */
 void ookFile::Close()
 {
 	if(_filestream.is_open())
 		_filestream.close();
 }
 
+/*! 
+ \brief Fully reads in a file and returns its contents as a string. 
+
+ \return The file's contents.
+ */
 string ookFile::Read()
 {
 	string input;
@@ -95,6 +116,11 @@ string ookFile::Read()
 	return input;
 }
 
+/*! 
+ \brief Fully reads in a file and returns its contents as a vector of strings. 
+
+ \return The file's contents. Each string in the vector represents a line in the file.
+ */
 vector<string> ookFile::ReadLines()
 {
 	string line;
@@ -110,12 +136,22 @@ vector<string> ookFile::ReadLines()
 	return vRet;
 }
 
+/*! 
+ \brief Writes to a file. 
+
+ \param content The content to be written to the file.
+ */
 void ookFile::Write(string content)
 {
 	if(_filestream.is_open())
 		_filestream << content;
 }
 
+/*! 
+ \brief Writes to a file & appends a "\n" line terminator. 
+
+ \param content The content to be written to the file.
+ */
 void ookFile::WriteLine(string content)
 {
 	if(_filestream.is_open())

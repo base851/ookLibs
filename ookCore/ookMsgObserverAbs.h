@@ -1,5 +1,5 @@
 /*
- Copyright © 2011, Ted Biggs
+ Copyright (C) 2011, Ted Biggs
  All rights reserved.
  http://tbiggs.com
  
@@ -53,11 +53,6 @@ public:
 	ookMsgObserverAbs() {}
 	
 	/*! 
-	 \brief Initialization constructor.
-	 */
-	ookMsgObserverAbs(const ookMsgObserverAbs& observer) {}
-	
-	/*! 
 	 \brief Destructor.
 	 */
 	~ookMsgObserverAbs(){}
@@ -96,5 +91,9 @@ protected:
 private:
 	
 };
+
+#ifndef ookMsgObserverAbsPtr
+typedef boost::shared_ptr<ookMsgObserverAbs> ookMsgObserverAbsPtr;
+#endif
 
 #endif

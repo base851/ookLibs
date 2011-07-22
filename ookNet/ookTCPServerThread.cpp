@@ -28,6 +28,7 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
+
  /*! 
  \class ookTCPServerThread
  \headerfile ookTCPServerThread.h "ookLibs/ookNet/ookTCPServerThread.h"
@@ -45,6 +46,9 @@
 
 /*! 
  \brief Initialization constructor.
+
+ \param sock The thread's asio::ip::tcp::socket.
+ \param dispatcher	The thread's message dispatcher.
  */
 ookTCPServerThread::ookTCPServerThread(socket_ptr sock, ookMsgDispatcher* dispatcher) 
 : _sock(sock), _dispatcher(dispatcher)
@@ -67,6 +71,13 @@ ookTCPServerThread::~ookTCPServerThread()
 	}
 }
 
+/*! 
+ \brief Reads in a message from the socket. This particular implementation uses
+ a numeric header to permit variable-length messaging. Thus, ookClients should
+ communicate with ookServers and vice-versa.
+
+ \return The message on the socket.
+ */
 string ookTCPServerThread::Read()
 {
 	string ret;
@@ -106,12 +117,28 @@ string ookTCPServerThread::Read()
 	return ret;
 }
 
+/*! 
+ \brief Handles a message read in by the server thread. This is the primary
+ worker method that should be overriden and customized by implementing 
+ classes. For example, if the message read in is in XML format, this is 
+ the method where the message could be parsed and then dealt with accordingly.
+
+ \return The message to be handled.
+ */
 void ookTCPServerThread::HandleMsg(string msg)
 {
-	ookTextMessage message(msg);
-	_dispatcher->PostMsg(&message);
+//	ookTextMessage message(msg);
+//	_dispatcher->PostMsg(&message);
+	_dispatcher->PostMsg(new ookTextMessage(msg));
 }
 
+/*! 
+ \brief Writes a message to the socket. This particular implementation uses
+ a numeric header to permit variable-length messaging. Thus, ookClients should
+ communicate with ookServers and vice-versa.
+
+ \param msg The message to be written on the socket.
+ */
 void ookTCPServerThread::WriteMsg(string msg)
 {	
 	try
@@ -133,6 +160,9 @@ void ookTCPServerThread::WriteMsg(string msg)
 	}			
 }
 
+/*! 
+ \brief The socket read loop. Incoming messages are read and forwarded to HandleMsg().
+ */
 void ookTCPServerThread::Run()
 {
 	try

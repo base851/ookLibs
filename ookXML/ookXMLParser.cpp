@@ -51,6 +51,9 @@ ookXMLParser::~ookXMLParser()
 	
 }
 
+/*! 
+ \brief Parses an XML string and places it into a document.
+ */
 void ookXMLParser::ParseXMLString(string xml)
 {
 	try
@@ -62,31 +65,65 @@ void ookXMLParser::ParseXMLString(string xml)
 	}
 }
 
+/*! 
+ \brief Parses XML from a file and places it into a document.
+ 
+ \param filename	The full path to the file to be parsed.
+ \return	true if successful, false otherwise.
+ */
 bool ookXMLParser::LoadXMLFile(string filename)
 {
 	return _doc.LoadFile(filename.data());
 }
 
+/*! 
+ \brief Saves XML data to a file.
+ 
+ \param source	The full path to the XML file.
+ \return	true if successful, false otherwise.
+ */
 bool ookXMLParser::SaveXMLFile(string filename)
 {
 	return _doc.SaveFile(filename.data());
 }
 
+/*! 
+ \brief Returns the XML document containing the parsed XML.
+ 
+ \return	The XML document.
+ */
 TiXmlDocument ookXMLParser::GetDocument()
 {
 	return _doc;
 }
 
+/*! 
+ \brief Returns the XML document's root element.
+ 
+ \return	The XML document's root element.
+ */
 TiXmlElement* ookXMLParser::GetRootElement()
 {
 	return _doc.RootElement();
 }
 
+/*! 
+ \brief Returns the XML document's first child element by name.
+ 
+ \param tagname	The tag name.
+ \return	The first XML element corresponding to the tag name.
+ */
 TiXmlElement* ookXMLParser::GetFirstChild(string tagname)
 {
 	return _doc.FirstChildElement(tagname.data());
 }
 
+/*! 
+ \brief Returns a document handle object. Used to chain a query for
+ a specific element in the document.
+ 
+ \return	The document handle.
+ */
 TiXmlHandle ookXMLParser::GetDocumentHandle()
 {
 	return TiXmlHandle(&_doc);

@@ -80,5 +80,8 @@ private:
 	asio::ssl::context _context;
 };
 
+#ifndef ookSSLClientPtr
+typedef boost::shared_ptr<ookSSLClient> ookSSLClientPtr;
+#endif
 
 #endif

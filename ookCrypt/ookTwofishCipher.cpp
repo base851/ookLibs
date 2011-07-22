@@ -47,6 +47,8 @@ ookTwofishCipher::ookTwofishCipher()
 
 /*! 
  \brief Initialization constructor.
+
+ \param key	The encryption/decryption password.
  */
 ookTwofishCipher::ookTwofishCipher(string key)
 : ::ookCipher(key)
@@ -62,6 +64,9 @@ ookTwofishCipher::~ookTwofishCipher()
 
 }
 
+/*! 
+ \brief Initializes the cipher.
+ */
 void ookTwofishCipher::Initialize()
 {
 	_keybytes = new byte[CryptoPP::Twofish::DEFAULT_KEYLENGTH];
@@ -72,6 +77,13 @@ void ookTwofishCipher::Initialize()
 	}	
 }
 
+/*! 
+ \brief Encrypts a string.
+ 
+ \param msg	The string to be encrypted.
+ 
+ \return The encrypted string.
+ */
 string ookTwofishCipher::Encrypt(string msg)
 {
 	// Cipher Text Sink
@@ -90,6 +102,13 @@ string ookTwofishCipher::Encrypt(string msg)
 	return CipherText;
 }
 
+/*! 
+ \brief Decrypts a string.
+ 
+ \param msg	The string to be decrypted.
+ 
+ \return The decrypted string.
+ */
 string ookTwofishCipher::Decrypt(string msg)
 {
 	// Recovered Text Sink

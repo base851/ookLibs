@@ -52,22 +52,13 @@ ookString::~ookString()
 	
 }
 
-const unsigned char* ookString::ConvertToUnsignedCharArray(string str)
-{	
-	return reinterpret_cast<const unsigned char*>(str.c_str());
-}
 
-wchar_t* ookString::ConvertChar2WChar(char* cstr)
-{
-	size_t iLen = strlen(cstr) + 1;
-	wchar_t* wchars = new wchar_t[iLen];
-		
-	mbstowcs(wchars, cstr, iLen);
-	
-	return wchars;
-}
-
-
+/*! 
+ \brief Converts an integer to its string representation.
+ 
+ \param i	The integer to be converted.
+ \return The integer's string representation.
+ */
 string ookString::ConvertInt2String (int i)
 {
 	string s;
@@ -78,11 +69,23 @@ string ookString::ConvertInt2String (int i)
 	return s;
 }
 
+/*! 
+ \brief Indicates whether a given unsigned character is a valid
+ BASE64 character.
+ 
+ \return true if the character is valid BASE64, false otherwise.
+ */
 bool ookString::IsBase64(unsigned char c) 
 {
   return (isalnum(c) || (c == '+') || (c == '/'));
 }
 
+/*! 
+ \brief Converts a string of unsigned characters into BASE64 format.
+ 
+ \param msg	The string to be converted.
+ \return	The converted string.
+ */
 ucstring ookString::UCBase64Encode(ucstring msg) 
 {
   ucstring ret;
@@ -131,6 +134,12 @@ ucstring ookString::UCBase64Encode(ucstring msg)
 
 }
 
+/*! 
+ \brief Converts a BASE64 string to a string of unsigned characters.
+ 
+ \param msg	The string to be converted.
+ \return	The converted string.
+ */
 ucstring ookString::UCBase64Decode(ucstring const& encoded_string) 
 {
   int in_len = encoded_string.length();
@@ -177,6 +186,13 @@ ucstring ookString::UCBase64Decode(ucstring const& encoded_string)
   return ret;
 }
 
+/*! 
+ \brief Splits a string by a set of delimiters.
+ 
+ \param str	The string to be split.
+ \param delims	The delimiters by which to perform the split.
+ \return	A vector containing the individual tokens following the split.
+ */
 vector<string> ookString::Split(string str, string delims)
 {
 	vector<string> ret;
@@ -186,6 +202,13 @@ vector<string> ookString::Split(string str, string delims)
 	return ret;
 }
 
+/*! 
+ \brief Splits an unsigned character string by a set of delimiters.
+ 
+ \param str	The string to be split.
+ \param delims	The delimiters by which to perform the split.
+ \return	A vector containing the individual tokens following the split.
+ */
 vector<ucstring> ookString::UCSplit(ucstring str, ucstring delims)
 {
 	vector<ucstring> ret;
@@ -195,6 +218,14 @@ vector<ucstring> ookString::UCSplit(ucstring str, ucstring delims)
 	return ret;
 }
 
+/*! 
+ \brief Left pads a string by the specified character. Padding will only be
+ performed up to the specified string length.
+ 
+ \param str	The string to be padded.
+
+ \return	A string, left padded with the specified character at the specified length.
+ */
 string ookString::LeftPad(string str, char padchar, int length)
 {
 	if(str.length() > 0)
@@ -209,6 +240,13 @@ string ookString::LeftPad(string str, char padchar, int length)
 	return str;
 }
 
+/*! 
+ \brief Converts an array of 4 unsigned characters to its unsigned long
+ representation. 
+ 
+ \param chars	The array to be transformed into an unsigned long.
+ \return	The unsigned long representation of the characters.
+ */
 ulong ookString::UCharsToULong(uchar* chars)
 {
 	ulong a;
@@ -223,6 +261,12 @@ ulong ookString::UCharsToULong(uchar* chars)
 
 }
 
+/*! 
+ \brief Converts an unsigned long into an array of 4 unsigned characters.
+ 
+ \param longint	The unsigned long value to be converted.
+ \param outchars	The array which the converted characters will be placed into.
+ */
 void ookString::ULongToUChars(ulong longint, uchar* outchars)
 {
 	// convert from an unsigned long int to a 4-byte array

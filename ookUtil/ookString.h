@@ -1,5 +1,5 @@
 /*
- Copyright © 2011, Ted Biggs
+ Copyright (C) 2011, Ted Biggs
  All rights reserved.
  http://tbiggs.com
  
@@ -42,8 +42,6 @@ public:
 	ookString();
 	virtual ~ookString();
 	
-	static const unsigned char* ConvertToUnsignedCharArray(string str);
-	static wchar_t* ConvertChar2WChar(char* cstr);	
 	static string ConvertInt2String (int i);	
 	static string LeftPad(string str, char padchar, int length);
 	static vector<string> Split(string str, string delims);
@@ -62,5 +60,9 @@ private:
 	
 	
 };
+
+#ifndef ookStringPtr
+typedef boost::shared_ptr<ookString> ookStringPtr;
+#endif
 
 #endif

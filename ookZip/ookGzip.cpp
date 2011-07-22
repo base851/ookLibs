@@ -51,6 +51,12 @@ ookGzip::~ookGzip()
 	
 }
 
+/*! 
+ \brief Compresses a string.
+ 
+ \param source	The string to be compressed.
+ \return	The compressed string.
+ */
 string ookGzip::Compress(string source)
 {
 	string ret;
@@ -60,6 +66,12 @@ string ookGzip::Compress(string source)
 	return ret;
 }
 
+/*! 
+ \brief Uncompresses a string.
+ 
+ \param source	The string to be uncompressed.
+ \return	The uncompressed string.
+ */
 string ookGzip::Uncompress(string source)
 {
 	string ret;

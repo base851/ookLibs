@@ -50,6 +50,9 @@ public:
 	T GetKey();
 	U GetValue();
 
+	void SetKey(T key);
+	void SetValue(U value);
+
 protected:
 
 
@@ -59,6 +62,10 @@ private:
 	U _value;
 
 };
+
+//#ifndef ookKeyValuePairPtr
+//typedef boost::shared_ptr<ookKeyValuePair> ookKeyValuePairPtr;
+//#endif
 
 /*! 
  \brief Default constructor.
@@ -71,6 +78,9 @@ ookKeyValuePair<T, U>::ookKeyValuePair()
 
 /*! 
  \brief Initialization constructor.
+
+ \param key The lookup key.
+ \param value The value associated with the key.
  */
 template<class T, class U>
 ookKeyValuePair<T, U>::ookKeyValuePair(T key, U value)
@@ -88,16 +98,48 @@ ookKeyValuePair<T, U>::~ookKeyValuePair()
 
 }
 
+/*! 
+	 \brief Returns the key component of the pair.
+	 
+	 \return The key component of the pair.
+*/	
 template<class T, class U>
 T ookKeyValuePair<T, U>::GetKey()
 {
 	return _key;
 }
 
+/*! 
+	 \brief Returns the value component of the pair.
+	 
+	 \return The value component of the pair.
+*/
 template<class T, class U>
 U ookKeyValuePair<T, U>::GetValue()
 {
 	return _value;
+}
+
+/*! 
+	 \brief Sets the key component of the pair.
+	 
+	 \param key The key component of the pair.
+*/
+template<class T, class U>
+void ookKeyValuePair<T, U>::SetKey(T key)
+{
+	_key = key;
+}
+
+/*! 
+	 \brief Sets the value component of the pair.
+	 
+	 \param value The value component of the pair.
+*/
+template<class T, class U>
+void ookKeyValuePair<T, U>::SetValue(U value)
+{
+	_value = value;
 }
 
 #endif

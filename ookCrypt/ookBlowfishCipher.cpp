@@ -45,6 +45,8 @@ ookBlowfishCipher::ookBlowfishCipher()
 
 /*! 
  \brief Initialization constructor.
+
+ \param key	The encryption/decryption password.
  */
 ookBlowfishCipher::ookBlowfishCipher(string key)
 : ::ookCipher(key)
@@ -60,6 +62,9 @@ ookBlowfishCipher::~ookBlowfishCipher()
 
 }
 
+/*! 
+ \brief Initializes the cipher.
+ */
 void ookBlowfishCipher::Initialize()
 {
 	_keybytes = new byte[CryptoPP::Blowfish::DEFAULT_KEYLENGTH];
@@ -70,6 +75,13 @@ void ookBlowfishCipher::Initialize()
 	}		
 }
 
+/*! 
+ \brief Encrypts a string.
+ 
+ \param msg	The string to be encrypted.
+ 
+ \return The encrypted string.
+ */
 string ookBlowfishCipher::Encrypt(string msg)
 {
 	// Cipher Text Sink
@@ -89,6 +101,13 @@ string ookBlowfishCipher::Encrypt(string msg)
 
 }
 
+/*! 
+ \brief Decrypts a string.
+ 
+ \param msg	The string to be decrypted.
+ 
+ \return The decrypted string.
+ */
 string ookBlowfishCipher::Decrypt(string msg)
 {
 	// Recovered Text Sink

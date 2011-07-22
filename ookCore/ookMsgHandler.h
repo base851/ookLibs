@@ -1,5 +1,5 @@
 /*
- Copyright © 2011, Ted Biggs
+ Copyright (C) 2011, Ted Biggs
  All rights reserved.
  http://tbiggs.com
  
@@ -56,5 +56,8 @@ private:
 	
 };
 
+#ifndef ookMsgHandlerPtr
+typedef boost::shared_ptr<ookMsgHandler> ookMsgHandlerPtr;
+#endif
 
 #endif

@@ -38,6 +38,25 @@
 
 /*! 
  \brief Initialization constructor.
+
+ \param ipaddr The server hostname/IP address.
+ \param iPort	The server port.
+ \param mthd	The asio::ssl::context_base::method for the connection.
+ Default is asio::ssl::context_base::sslv23_client. Options are:
+
+sslv2
+sslv2_client
+sslv2_server
+sslv3
+sslv3_client
+sslv3_server
+tlsv1
+tlsv1_client
+tlsv1_server
+sslv23
+sslv23_client
+sslv23_server 
+
  */
 ookSSLClient::ookSSLClient(string ipaddr, int iPort, base_method mthd)
 : _ipaddr(ipaddr), _iPort(iPort), _context(_io_service, mthd)
@@ -59,6 +78,11 @@ ookSSLClient::~ookSSLClient()
 	}
 }
 
+/*! 
+ \brief Adds a directory path to verification files.
+
+ \param path The full path to verification files.
+ */
 void ookSSLClient::AddVerifyPath(string path)
 {
 	boost::system::error_code err;
@@ -72,6 +96,11 @@ void ookSSLClient::AddVerifyPath(string path)
 	}
 }
 
+/*! 
+ \brief Loads a verification file.
+
+ \param filename The name of the verification file.
+ */
 void ookSSLClient::LoadVerifyFile(string filename)
 {
 	boost::system::error_code err;
@@ -85,7 +114,18 @@ void ookSSLClient::LoadVerifyFile(string filename)
 	}
 }
 
+/*! 
+ \brief Sets one or more options for the connection context.
 
+ \param opt The option(s) for the connection. This is a bitwise OR 
+ of boost::asio::ssl::context_base::options. Options are:
+
+ SSL_OP_ALL
+ SSL_OP_SINGLE_DH_USE
+ SSL_OP_NO_SSLv2
+ SSL_OP_NO_SSLv3
+ SSL_OP_NO_TLSv1
+ */
 void ookSSLClient::SetOptions(int opt)
 {
 	boost::system::error_code err;
@@ -99,6 +139,11 @@ void ookSSLClient::SetOptions(int opt)
 	}
 }
 
+/*! 
+ \brief Specifies the password callback function.
+
+ \param cb The password callback function.
+ */
 template <typename PasswordCallback>
 void ookSSLClient::SetPasswordCallback(PasswordCallback cb)
 {
@@ -113,6 +158,17 @@ void ookSSLClient::SetPasswordCallback(PasswordCallback cb)
 	}
 }
 
+/*! 
+ \brief Sets one or more options for peer verification.
+
+ \param opt The option(s) for verification. This is a bitwise OR 
+ of boost::asio::ssl::context_base::verify_mode. Options are:
+
+ SSL_VERIFY_NONE
+ SSL_VERIFY_PEER
+ SSL_VERIFY_FAIL_IF_NO_PEER_CERT
+ SSL_VERIFY_CLIENT_ONCE
+ */
 void ookSSLClient::SetVerifyMode(int mode)
 {
 	boost::system::error_code err;
@@ -126,6 +182,11 @@ void ookSSLClient::SetVerifyMode(int mode)
 	}
 }
 
+/*! 
+ \brief Specifies a certificate chain file to use.
+
+	\param filename The name of the certificate chain file.
+ */
 void ookSSLClient::UseCertificateChainFile(string filename)
 {
 	boost::system::error_code err;
@@ -139,6 +200,17 @@ void ookSSLClient::UseCertificateChainFile(string filename)
 	}
 }
 
+/*! 
+ \brief Specifies a certificate file to use.
+
+ \param filename The name of the certificate file.
+ \param frmt The asio::ssl::context_base::file_format of the certificate. Default is 
+ asio::ssl::context_base::pem. Options are:
+
+pem
+asn1
+
+ */
 void ookSSLClient::UseCertificateFile(string filename, base_file_format frmt=asio::ssl::context_base::pem)
 {
 	boost::system::error_code err;
@@ -152,6 +224,17 @@ void ookSSLClient::UseCertificateFile(string filename, base_file_format frmt=asi
 	}
 }
 
+/*! 
+ \brief Specifies a private key file to use.
+
+ \param filename The name of the private key file.
+ \param frmt The asio::ssl::context_base::file_format of the certificate. Default is 
+ asio::ssl::context_base::pem. Options are:
+
+pem
+asn1
+
+ */
 void ookSSLClient::UsePrivateKeyFile(string filename, base_file_format frmt=asio::ssl::context_base::pem)
 {
 	boost::system::error_code err;
@@ -165,6 +248,17 @@ void ookSSLClient::UsePrivateKeyFile(string filename, base_file_format frmt=asio
 	}
 }
 
+/*! 
+ \brief Specifies an RSA private key file to use.
+
+ \param filename The name of the RSA private key file.
+ \param frmt The asio::ssl::context_base::file_format of the certificate. Default is 
+ asio::ssl::context_base::pem. Options are:
+
+pem
+asn1
+
+ */
 void ookSSLClient::UseRSAPrivateKeyFile(string filename, base_file_format frmt=asio::ssl::context_base::pem)
 {
 	boost::system::error_code err;
@@ -178,6 +272,11 @@ void ookSSLClient::UseRSAPrivateKeyFile(string filename, base_file_format frmt=a
 	}
 }
 
+/*! 
+ \brief Specifies a temporary DH file to use.
+
+ \param filename The name of the temporary DH file.
+ */
 void ookSSLClient::UseTmpDHFile(string filename)
 {
 	boost::system::error_code err;
@@ -191,6 +290,13 @@ void ookSSLClient::UseTmpDHFile(string filename)
 	}
 }
 
+/*! 
+ \brief Reads in a message from the socket. This particular implementation uses
+ a numeric header to permit variable-length messaging. Thus, ookClients should
+ communicate with ookServers and vice-versa.
+
+ \return The message on the socket.
+ */
 string ookSSLClient::Read()
 {
 	string ret;
@@ -241,11 +347,26 @@ string ookSSLClient::Read()
 	return ret;
 }
 
+/*! 
+ \brief Handles a message read in by the client. This is the primary
+ worker method that should be overriden and customized by implementing 
+ classes. For example, if the message read in is in XML format, this is 
+ the method where the message could be parsed and then dealt with accordingly.
+
+ \return The message to be handled.
+ */
 void ookSSLClient::HandleMsg(string msg)
 {
 	cout << "Received: " << msg << endl;
 }
 
+/*! 
+ \brief Writes a message to the socket. This particular implementation uses
+ a numeric header to permit variable-length messaging. Thus, ookClients should
+ communicate with ookServers and vice-versa.
+
+ \param msg The message to be written on the socket.
+ */
 void ookSSLClient::WriteMsg(string msg)
 {
 	try
@@ -274,6 +395,11 @@ void ookSSLClient::WriteMsg(string msg)
 	}		
 }
 
+/*! 
+ \brief Performs an SSL handshake with the server.
+
+ \return true if the handshake succeeded, false otherwise.
+ */
 bool ookSSLClient::DoHandshake()
 {
 	try
@@ -302,6 +428,9 @@ bool ookSSLClient::DoHandshake()
 	return false;
 }
 
+/*! 
+ \brief The socket read loop. Incoming messages are read and forwarded to HandleMsg().
+ */
 void ookSSLClient::Run()
 {
 	try 

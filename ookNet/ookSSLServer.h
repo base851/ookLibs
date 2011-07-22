@@ -87,5 +87,8 @@ private:
 
 };
 
+#ifndef ookSSLServerPtr
+typedef boost::shared_ptr<ookSSLServer> ookSSLServerPtr;
+#endif
 
 #endif

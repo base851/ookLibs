@@ -61,4 +61,8 @@ private:
 	bool		_bKeepRunning;
 };
 
+#ifndef ookThreadPtr
+typedef boost::shared_ptr<ookThread> ookThreadPtr;
+#endif
+
 #endif

@@ -59,4 +59,8 @@ private:
 	fstream _filestream;
 };
 
+#ifndef ookFilePtr
+typedef boost::shared_ptr<ookFile> ookFilePtr;
+#endif
+
 #endif

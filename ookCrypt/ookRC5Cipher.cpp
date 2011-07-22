@@ -46,6 +46,8 @@ ookRC5Cipher::ookRC5Cipher()
 
 /*! 
  \brief Initialization constructor.
+
+ \param key	The encryption/decryption password.
  */
 ookRC5Cipher::ookRC5Cipher(string key)
 : ::ookCipher(key)
@@ -61,6 +63,26 @@ ookRC5Cipher::~ookRC5Cipher()
 
 }
 
+/*! 
+ \brief Initializes the cipher.
+ */
+void ookRC5Cipher::Initialize()
+{
+	_keybytes = new byte[CryptoPP::RC5::DEFAULT_KEYLENGTH];
+	memset(_keybytes, 0, CryptoPP::RC5::DEFAULT_KEYLENGTH);
+	for(int i=0; (i < _key.length()) && (i < CryptoPP::RC5::DEFAULT_KEYLENGTH); i++)
+	{
+		_keybytes[i] = _key[i];
+	}		
+}
+
+/*! 
+ \brief Encrypts a string.
+ 
+ \param msg	The string to be encrypted.
+ 
+ \return The encrypted string.
+ */
 string ookRC5Cipher::Encrypt(string msg)
 {
 	// Cipher Text Sink
@@ -79,6 +101,13 @@ string ookRC5Cipher::Encrypt(string msg)
 	return CipherText;	
 }
 
+/*! 
+ \brief Decrypts a string.
+ 
+ \param msg	The string to be decrypted.
+ 
+ \return The decrypted string.
+ */
 string ookRC5Cipher::Decrypt(string msg)
 {
 	// Recovered Text Sink
@@ -97,15 +126,7 @@ string ookRC5Cipher::Decrypt(string msg)
 	return RecoveredText;	
 }
 
-void ookRC5Cipher::Initialize()
-{
-	_keybytes = new byte[CryptoPP::RC5::DEFAULT_KEYLENGTH];
-	memset(_keybytes, 0, CryptoPP::RC5::DEFAULT_KEYLENGTH);
-	for(int i=0; (i < _key.length()) && (i < CryptoPP::RC5::DEFAULT_KEYLENGTH); i++)
-	{
-		_keybytes[i] = _key[i];
-	}		
-}
+
 
 
 

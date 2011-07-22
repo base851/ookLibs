@@ -33,7 +33,6 @@
  \headerfile ookSSLServerThread.h "ookLibs/ookNet/ookSSLServerThread.h"
  \brief Worker thread for SSL connections.
 
-
  The Server and ServerThreads communicate via the Observer/Dispatcher/Handler
  framework found in ookCore. Servers derive from the ookTextMessageHandler class
  and maintain ookMsgDispatcher which is passed to the individual server threads.
@@ -46,6 +45,9 @@
 
 /*! 
  \brief Initialization constructor.
+
+ \param sock The thread's ssl_socket.
+ \param dispatcher	The thread's message dispatcher.
  */
 ookSSLServerThread::ookSSLServerThread(ssl_socket_ptr sock, ookMsgDispatcher* dispatcher) 
 : _sock(sock), _dispatcher(dispatcher)
@@ -67,6 +69,13 @@ ookSSLServerThread::~ookSSLServerThread()
 	}
 }
 
+/*! 
+ \brief Reads in a message from the socket. This particular implementation uses
+ a numeric header to permit variable-length messaging. Thus, ookClients should
+ communicate with ookServers and vice-versa.
+
+ \return The message on the socket.
+ */
 string ookSSLServerThread::Read()
 {
 	string ret;
@@ -106,12 +115,28 @@ string ookSSLServerThread::Read()
 	return ret;
 }
 
+/*! 
+ \brief Handles a message read in by the server thread. This is the primary
+ worker method that should be overriden and customized by implementing 
+ classes. For example, if the message read in is in XML format, this is 
+ the method where the message could be parsed and then dealt with accordingly.
+
+ \return The message to be handled.
+ */
 void ookSSLServerThread::HandleMsg(string msg)
 {
-	ookTextMessage message(msg);
-	_dispatcher->PostMsg(&message);
+//	ookTextMessage message(msg);
+//	_dispatcher->PostMsg(&message);
+	_dispatcher->PostMsg(new ookTextMessage(msg));
 }
 
+/*! 
+ \brief Writes a message to the socket. This particular implementation uses
+ a numeric header to permit variable-length messaging. Thus, ookClients should
+ communicate with ookServers and vice-versa.
+
+ \param msg The message to be written on the socket.
+ */
 void ookSSLServerThread::WriteMsg(string msg)
 {	
 	try
@@ -137,6 +162,11 @@ void ookSSLServerThread::WriteMsg(string msg)
 	}	
 }
 
+/*! 
+ \brief Performs an SSL handshake with the client.
+
+ \return true if the handshake succeeded, false otherwise.
+ */
 bool ookSSLServerThread::DoHandshake()
 {
 	try
@@ -165,6 +195,9 @@ bool ookSSLServerThread::DoHandshake()
 	return false;
 }
 
+/*! 
+ \brief The socket read loop. Incoming messages are read and forwarded to HandleMsg().
+ */
 void ookSSLServerThread::Run()
 {
 	try

@@ -58,4 +58,8 @@ private:
 	StringMap _appConfigVals;
 };
 
+#ifndef ookApplicationPtr
+typedef boost::shared_ptr<ookApplication> ookApplicationPtr;
+#endif
+
 #endif

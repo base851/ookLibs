@@ -53,10 +53,12 @@ public:
 	
 protected:
 	
-	
 private:
 	
-	
 };
+
+#ifndef ookAESCipherPtr
+typedef boost::shared_ptr<ookAESCipher> ookAESCipherPtr;
+#endif
 
 #endif

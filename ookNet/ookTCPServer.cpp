@@ -45,6 +45,11 @@
  */
 #include "ookLibs/ookNet/ookTCPServer.h"
 
+/*! 
+ \brief Initialization constructor.
+
+ \param iPort	The server port.
+ */
 ookTCPServer::ookTCPServer(int iPort)
 	: _iPort(iPort)
 {
@@ -65,6 +70,11 @@ ookTCPServer::~ookTCPServer()
 	}		
 }
 
+/*! 
+ \brief Instantiates a new server thread for a socket connection.
+
+ \return A new ookSSLServerThread.
+ */
 tcp_thread_ptr ookTCPServer::GetServerThread(socket_ptr sock)
 {
 	tcp_thread_ptr thrd(new ookTCPServerThread(sock, &_dispatcher));
@@ -75,11 +85,20 @@ tcp_thread_ptr ookTCPServer::GetServerThread(socket_ptr sock)
 	return thrd;
 }
 
+/*! 
+ \brief Returns the current list of server threads.
+
+ \return A list of ookSSLServerThreads.
+ */
 vector<tcp_thread_ptr>& ookTCPServer::GetServerThreads()
 {
 	return _vServerThreads;
 }
 
+/*! 
+ \brief Iterates through the server thread list and removes any
+ which are no longer running.
+ */
 void ookTCPServer::CleanServerThreads()
 {
 	int iSize = _vServerThreads.size();
@@ -114,11 +133,23 @@ void ookTCPServer::CleanServerThreads()
 
 }
 
+/*! 
+ \brief Handles a message forwarded by the observer/dispatcher. This should be 
+ overriden and customized by implementing classes. For example, if the message 
+ read in is in XML format, this is the method where the message could be parsed 
+ and then dealt with accordingly.
+
+ \return The message to be handled.
+ */
 void ookTCPServer::HandleMsg(ookTextMessage* msg)
 {
 	cout << "Received message: " << msg->GetMsg() << endl;
 }
 
+/*! 
+ \brief The socket accept loop. Incoming socket connection requests are accepted
+ and, if valid, forwarded to a new server thread for handling.
+ */
 void ookTCPServer::Run()
 {
 	try

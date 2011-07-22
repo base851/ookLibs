@@ -58,4 +58,8 @@ private:
 	
 };
 
+#ifndef ookIDEACipherPtr
+typedef boost::shared_ptr<ookIDEACipher> ookIDEACipherPtr;
+#endif
+
 #endif

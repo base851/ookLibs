@@ -46,6 +46,8 @@ ookIDEACipher::ookIDEACipher()
 
 /*! 
  \brief Initialization constructor.
+
+ \param key	The encryption/decryption password.
  */
 ookIDEACipher::ookIDEACipher(string key)
 : ::ookCipher(key)
@@ -61,6 +63,9 @@ ookIDEACipher::~ookIDEACipher()
 	
 }
 
+/*! 
+ \brief Initializes the cipher.
+ */
 void ookIDEACipher::Initialize()
 {
 	_keybytes = new byte[CryptoPP::IDEA::DEFAULT_KEYLENGTH];
@@ -71,6 +76,13 @@ void ookIDEACipher::Initialize()
 	}
 }
 
+/*! 
+ \brief Encrypts a string.
+ 
+ \param msg	The string to be encrypted.
+ 
+ \return The encrypted string.
+ */
 string ookIDEACipher::Encrypt(string msg)
 {
 	// Cipher Text Sink
@@ -89,6 +101,13 @@ string ookIDEACipher::Encrypt(string msg)
 	return CipherText;
 }
 
+/*! 
+ \brief Decrypts a string.
+ 
+ \param msg	The string to be decrypted.
+ 
+ \return The decrypted string.
+ */
 string ookIDEACipher::Decrypt(string msg)
 {
 	// Recovered Text Sink

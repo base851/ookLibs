@@ -61,4 +61,8 @@ private:
 	ookMsgDispatcher* _dispatcher;
 };
 
+#ifndef ookTCPServerThreadPtr
+typedef boost::shared_ptr<ookTCPServerThread> ookTCPServerThreadPtr;
+#endif
+
 #endif

@@ -58,22 +58,38 @@ ookThread::~ookThread()
 	}	
 }
 
+/*! 
+ \brief Starts a thread by calling the Run() function.
+ */
 void ookThread::Start()
 {
 	_bKeepRunning = true;
 	_pThread = boost::shared_ptr<thread>(new thread(&ookThread::Run, this));
 }
 
+/*! 
+ \brief Stops the thread.
+ */
 void ookThread::Stop()
 {
 	_bKeepRunning = false;
 }
 
+/*! 
+ \brief Indicates whether the thread is currently running.
+ 
+ \return	true if the thread is running, false otherwise.
+ */
 bool ookThread::IsRunning()
 {
 	return _bKeepRunning; 
 }
 
+/*! 
+ \brief Causes the thread to sleep for the specified number of seconds.
+ 
+ \param lTimeSec	The number of seconds for the thread to sleep.
+ */
 void ookThread::Sleep(int lTimeSec)
 {
 	boost::xtime xt;
@@ -83,6 +99,11 @@ void ookThread::Sleep(int lTimeSec)
 	_pThread->sleep(xt);
 }
 
+/*! 
+ \brief Causes the thread to sleep for the specified number of nanoseconds.
+ 
+ \param lTimeSec	The number of nanoseconds for the thread to sleep.
+ */
 void ookThread::NanoSleep(long lTimeNanos)
 {
 	boost::xtime xt;
@@ -92,6 +113,10 @@ void ookThread::NanoSleep(long lTimeNanos)
 	_pThread->sleep(xt);
 }
 
+/*! 
+ \brief The main worker function of the thread. This should be overridden by
+ implementing classes.
+ */
 void ookThread::Run()
 {
 	//Do your stuff here	

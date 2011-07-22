@@ -46,6 +46,8 @@ ookCipher::ookCipher()
 
 /*! 
  \brief Initialization constructor.
+
+ \param key	The encryption/decryption password.
  */
 ookCipher::ookCipher(string key)
 : _key(key)
@@ -61,11 +63,21 @@ ookCipher::~ookCipher()
 	
 }
 
+/*! 
+ \brief Returns the encryption/decryption password.
+
+ \return The encryption/decryption password.
+ */
 string ookCipher::GetKey()
 {
 	return _key;
 }
 
+/*! 
+ \brief Sets the encryption/decryption password.
+
+ \param key The encryption/decryption password.
+ */
 void ookCipher::SetKey(string key)
 {
 	_key = key;

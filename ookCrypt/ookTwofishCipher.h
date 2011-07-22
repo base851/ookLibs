@@ -59,4 +59,8 @@ private:
 
 };
 
+#ifndef ookTwofishCipherPtr
+typedef boost::shared_ptr<ookTwofishCipher> ookTwofishCipherPtr;
+#endif
+
 #endif

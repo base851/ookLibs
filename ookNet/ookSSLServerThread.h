@@ -73,5 +73,8 @@ private:
 	ookMsgDispatcher* _dispatcher;
 };
 
+#ifndef ookSSLServerThreadPtr
+typedef boost::shared_ptr<ookSSLServerThread> ookSSLServerThreadPtr;
+#endif
 
 #endif

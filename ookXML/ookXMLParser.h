@@ -59,4 +59,8 @@ private:
 	
 };
 
+#ifndef ookXMLParserPtr
+typedef boost::shared_ptr<ookXMLParser> ookXMLParserPtr;
+#endif
+
 #endif

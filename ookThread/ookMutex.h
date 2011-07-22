@@ -54,4 +54,8 @@ private:
 	mutex _mut;
 };
 
+#ifndef ookMutexPtr
+typedef boost::shared_ptr<ookMutex> ookMutexPtr;
+#endif
+
 #endif

@@ -65,5 +65,8 @@ private:
 	
 };
 
+#ifndef ookTCPServerPtr
+typedef boost::shared_ptr<ookTCPServer> ookTCPServerPtr;
+#endif
 
 #endif

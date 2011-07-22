@@ -1,5 +1,5 @@
 /*
- Copyright © 2011, Ted Biggs
+ Copyright (C) 2011, Ted Biggs
  All rights reserved.
  http://tbiggs.com
  
@@ -138,6 +138,5 @@ private:
 	
 	
 };
-
 
 #endif

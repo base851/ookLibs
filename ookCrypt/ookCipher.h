@@ -48,8 +48,30 @@ public:
 	string GetKey();
 	void SetKey(string key);
 	
+/*! 
+ \brief Encrypts a string. Pure virtual method
+	 which must be overriden by implementing classes.
+ 
+ \param msg	The string to be encrypted.
+ 
+ \return The encrypted string.
+ */
 	virtual string Encrypt(string msg) = 0;
+
+/*! 
+ \brief Decrypts a string. Pure virtual method
+	 which must be overriden by implementing classes.
+ 
+ \param msg	The string to be decrypted.
+ 
+ \return The decrypted string.
+ */
 	virtual string Decrypt(string crypt) = 0;
+
+/*! 
+ \brief Initializes the cipher. Pure virtual method
+	 which must be overriden by implementing classes.
+ */
 	virtual void Initialize() = 0;
 	
 protected:
@@ -63,5 +85,9 @@ protected:
 private:
 	
 };
+
+#ifndef ookCipherPtr
+typedef boost::shared_ptr<ookCipher> ookCipherPtr;
+#endif
 
 #endif

@@ -38,6 +38,9 @@
 
 /*! 
  \brief Initialization constructor.
+
+ \param ipaddr The server hostname/IP address.
+ \param iPort	The server port.
  */
 ookTCPClient::ookTCPClient(string ipaddr, int iPort)
 	: _ipaddr(ipaddr), _iPort(iPort)
@@ -59,6 +62,13 @@ ookTCPClient::~ookTCPClient()
 	}
 }
 
+/*! 
+ \brief Reads in a message from the socket. This particular implementation uses
+ a numeric header to permit variable-length messaging. Thus, ookClients should
+ communicate with ookServers and vice-versa.
+
+ \return The message on the socket.
+ */
 string ookTCPClient::Read()
 {
 	string ret;
@@ -98,11 +108,26 @@ string ookTCPClient::Read()
 	return ret;
 }
 
+/*! 
+ \brief Handles a message read in by the client. This is the primary
+ worker method that should be overriden and customized by implementing 
+ classes. For example, if the message read in is in XML format, this is 
+ the method where the message could be parsed and then dealt with accordingly.
+
+ \return The message to be handled.
+ */
 void ookTCPClient::HandleMsg(string msg)
 {
 	cout << "Received: " << msg << endl;
 }
 
+/*! 
+ \brief Writes a message to the socket. This particular implementation uses
+ a numeric header to permit variable-length messaging. Thus, ookClients should
+ communicate with ookServers and vice-versa.
+
+ \param msg The message to be written on the socket.
+ */
 void ookTCPClient::WriteMsg(string msg)
 {
 	try
@@ -127,6 +152,9 @@ void ookTCPClient::WriteMsg(string msg)
 	}	
 }
 
+/*! 
+ \brief The socket read loop. Incoming messages are read and forwarded to HandleMsg().
+ */
 void ookTCPClient::Run()
 {
 	tcp::resolver resolver(_ioService);

@@ -51,16 +51,28 @@ ookMutex::~ookMutex()
 	
 }
 
+/*! 
+ \brief Sets a mutex lock. If a lock already exists, this call blocks
+ until the lock is obtained.
+ */
 void ookMutex::Lock()
 {
 	_mut.lock();
 }
 
+/*! 
+ \brief Attempts to obtain a mutex lock. Nonblocking.
+
+ \return	true if the lock was successfully obtained, false otherwise.
+ */
 bool ookMutex::TryLock()
 {
 	return _mut.try_lock();
 }
 
+/*! 
+ \brief Releases a mutex lock.
+ */
 void ookMutex::Unlock()
 {
 	_mut.unlock();

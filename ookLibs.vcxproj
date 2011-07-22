@@ -41,7 +41,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>.\;..\;..\..\libbank\cryptopp\include;..\..\libbank\boost\include;..\..\libbank\openssl-0.9.8\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;..\;..\..\libbank\cryptopp\include;..\..\libbank\boost\include;..\..\libbank\openssl-0.9.8\include;..\..\libbank\mysql\include;..\..\libbank\sqlite\include\sqlite;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_MBCS;_WIN32_WINNT=0x0501;_CRT_SECURE_NO_WARNINGS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DisableSpecificWarnings>4018;4275;4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
@@ -78,8 +78,15 @@
     <ClInclude Include="ookCrypt\ookIDEACipher.h" />
     <ClInclude Include="ookCrypt\ookRC5Cipher.h" />
     <ClInclude Include="ookCrypt\ookTwofishCipher.h" />
-    <ClInclude Include="ookDB\ookMySQL.h" />
-    <ClInclude Include="ookDB\ookSQLite.h" />
+    <ClInclude Include="ookDB\ookDB.h" />
+    <ClInclude Include="ookDB\ookDBRow.h" />
+    <ClInclude Include="ookDB\ookMySQLBindParam.h" />
+    <ClInclude Include="ookDB\ookMySQLDB.h" />
+    <ClInclude Include="ookDB\ookDBRowSet.h" />
+    <ClInclude Include="ookDB\ookMySQLStatement.h" />
+    <ClInclude Include="ookDB\ookSQLiteDB.h" />
+    <ClInclude Include="ookDB\ookDBStatement.h" />
+    <ClInclude Include="ookDB\ookSQLiteStatement.h" />
     <ClInclude Include="ookIO\ookFile.h" />
     <ClInclude Include="ookNet\ookSSLClient.h" />
     <ClInclude Include="ookNet\ookSSLServer.h" />
@@ -89,6 +96,7 @@
     <ClInclude Include="ookNet\ookTCPServerThread.h" />
     <ClInclude Include="ookThread\ookMutex.h" />
     <ClInclude Include="ookThread\ookThread.h" />
+    <ClInclude Include="ookUtil\ookDate.h" />
     <ClInclude Include="ookUtil\ookKeyValuePair.h" />
     <ClInclude Include="ookUtil\ookString.h" />
     <ClInclude Include="ookXML\ookXMLParser.h" />
@@ -109,8 +117,14 @@
     <ClCompile Include="ookCrypt\ookIDEACipher.cpp" />
     <ClCompile Include="ookCrypt\ookRC5Cipher.cpp" />
     <ClCompile Include="ookCrypt\ookTwofishCipher.cpp" />
-    <ClCompile Include="ookDB\ookMySQL.cpp" />
-    <ClCompile Include="ookDB\ookSQLite.cpp" />
+    <ClCompile Include="ookDB\ookDB.cpp" />
+    <ClCompile Include="ookDB\ookDBRow.cpp" />
+    <ClCompile Include="ookDB\ookDBRowSet.cpp" />
+    <ClCompile Include="ookDB\ookDBStatement.cpp" />
+    <ClCompile Include="ookDB\ookMySQLDB.cpp" />
+    <ClCompile Include="ookDB\ookMySQLStatement.cpp" />
+    <ClCompile Include="ookDB\ookSQLiteDB.cpp" />
+    <ClCompile Include="ookDB\ookSQLiteStatement.cpp" />
     <ClCompile Include="ookIO\ookFile.cpp" />
     <ClCompile Include="ookNet\ookSSLClient.cpp" />
     <ClCompile Include="ookNet\ookSSLServer.cpp" />
@@ -120,6 +134,7 @@
     <ClCompile Include="ookNet\ookTCPServerThread.cpp" />
     <ClCompile Include="ookThread\ookMutex.cpp" />
     <ClCompile Include="ookThread\ookThread.cpp" />
+    <ClCompile Include="ookUtil\ookDate.cpp" />
     <ClCompile Include="ookUtil\ookString.cpp" />
     <ClCompile Include="ookXML\ookXMLParser.cpp" />
     <ClCompile Include="ookXML\tinystr.cpp" />

@@ -47,6 +47,23 @@
 
 /*! 
  \brief Initialization constructor.
+
+ \param iPort	The server port.
+ \param mthd	The asio::ssl::context_base::method for the connection.
+ Default is asio::ssl::context_base::sslv23_client. Options are:
+
+sslv2
+sslv2_client
+sslv2_server
+sslv3
+sslv3_client
+sslv3_server
+tlsv1
+tlsv1_client
+tlsv1_server
+sslv23
+sslv23_client
+sslv23_server 
  */
 ookSSLServer::ookSSLServer(int iPort, base_method mthd)
 	: _iPort(iPort), _context(_io_service, mthd)
@@ -68,6 +85,11 @@ ookSSLServer::~ookSSLServer()
 	}	
 }
 
+/*! 
+ \brief Adds a directory path to verification files.
+
+ \param path The full path to verification files.
+ */
 void ookSSLServer::AddVerifyPath(string path)
 {
 	boost::system::error_code err;
@@ -78,6 +100,11 @@ void ookSSLServer::AddVerifyPath(string path)
 		throw err;
 }
 
+/*! 
+ \brief Loads a verification file.
+
+ \param filename The name of the verification file.
+ */
 void ookSSLServer::LoadVerifyFile(string filename)
 {
 	boost::system::error_code err;
@@ -88,7 +115,18 @@ void ookSSLServer::LoadVerifyFile(string filename)
 		throw err;
 }
 
+/*! 
+ \brief Sets one or more options for the connection context.
 
+ \param opt The option(s) for the connection. This is a bitwise OR 
+ of boost::asio::ssl::context_base::options. Options are:
+
+ SSL_OP_ALL
+ SSL_OP_SINGLE_DH_USE
+ SSL_OP_NO_SSLv2
+ SSL_OP_NO_SSLv3
+ SSL_OP_NO_TLSv1
+ */
 void ookSSLServer::SetOptions(int opt)
 {
 	boost::system::error_code err;
@@ -99,6 +137,11 @@ void ookSSLServer::SetOptions(int opt)
 		throw err;
 }
 
+/*! 
+ \brief Specifies the password callback function.
+
+ \param cb The password callback function.
+ */
 void ookSSLServer::SetPasswordCallback()
 {
 	boost::system::error_code err;
@@ -109,12 +152,28 @@ void ookSSLServer::SetPasswordCallback()
 		throw err;
 }
 
+/*! 
+ \brief The password callback function. This should be overridden
+ to return the correct password is the key file has a password.
+
+ \return The password for the key file.
+ */
 string ookSSLServer::PasswordCB() const
 {
 	return "";
 }
 
+/*! 
+ \brief Sets one or more options for peer verification.
 
+ \param opt The option(s) for verification. This is a bitwise OR 
+ of boost::asio::ssl::context_base::verify_mode. Options are:
+
+ SSL_VERIFY_NONE
+ SSL_VERIFY_PEER
+ SSL_VERIFY_FAIL_IF_NO_PEER_CERT
+ SSL_VERIFY_CLIENT_ONCE
+ */
 void ookSSLServer::SetVerifyMode(int mode)
 {
 	boost::system::error_code err;
@@ -125,6 +184,11 @@ void ookSSLServer::SetVerifyMode(int mode)
 		throw err;
 }
 
+/*! 
+ \brief Specifies a certificate chain file to use.
+
+	\param filename The name of the certificate chain file.
+ */
 void ookSSLServer::UseCertificateChainFile(string filename)
 {
 	boost::system::error_code err;
@@ -135,6 +199,17 @@ void ookSSLServer::UseCertificateChainFile(string filename)
 		throw err;
 }
 
+/*! 
+ \brief Specifies a certificate file to use.
+
+ \param filename The name of the certificate file.
+ \param frmt The asio::ssl::context_base::file_format of the certificate. Default is 
+ asio::ssl::context_base::pem. Options are:
+
+pem
+asn1
+
+ */
 void ookSSLServer::UseCertificateFile(string filename, base_file_format frmt=asio::ssl::context_base::pem)
 {
 	boost::system::error_code err;
@@ -145,6 +220,17 @@ void ookSSLServer::UseCertificateFile(string filename, base_file_format frmt=asi
 		throw err;
 }
 
+/*! 
+ \brief Specifies a private key file to use.
+
+ \param filename The name of the private key file.
+ \param frmt The asio::ssl::context_base::file_format of the certificate. Default is 
+ asio::ssl::context_base::pem. Options are:
+
+pem
+asn1
+
+ */
 void ookSSLServer::UsePrivateKeyFile(string filename, base_file_format frmt=asio::ssl::context_base::pem)
 {
 	boost::system::error_code err;
@@ -155,6 +241,17 @@ void ookSSLServer::UsePrivateKeyFile(string filename, base_file_format frmt=asio
 		throw err;
 }
 
+/*! 
+ \brief Specifies an RSA private key file to use.
+
+ \param filename The name of the RSA private key file.
+ \param frmt The asio::ssl::context_base::file_format of the certificate. Default is 
+ asio::ssl::context_base::pem. Options are:
+
+pem
+asn1
+
+ */
 void ookSSLServer::UseRSAPrivateKeyFile(string filename, base_file_format frmt=asio::ssl::context_base::pem)
 {
 	boost::system::error_code err;
@@ -165,6 +262,11 @@ void ookSSLServer::UseRSAPrivateKeyFile(string filename, base_file_format frmt=a
 		throw err;
 }
 
+/*! 
+ \brief Specifies a temporary DH file to use.
+
+ \param filename The name of the temporary DH file.
+ */
 void ookSSLServer::UseTmpDHFile(string filename)
 {
 	boost::system::error_code err;
@@ -175,6 +277,11 @@ void ookSSLServer::UseTmpDHFile(string filename)
 		throw err;
 }
 
+/*! 
+ \brief Instantiates a new server thread for a socket connection.
+
+ \return A new ookSSLServerThread.
+ */
 ssl_thread_ptr ookSSLServer::GetServerThread(ssl_socket_ptr sock)
 {
 	ssl_thread_ptr thrd(new ookSSLServerThread(sock, &_dispatcher));
@@ -185,11 +292,20 @@ ssl_thread_ptr ookSSLServer::GetServerThread(ssl_socket_ptr sock)
 	return thrd;
 }
 
+/*! 
+ \brief Returns the current list of server threads.
+
+ \return A list of ookSSLServerThreads.
+ */
 vector<ssl_thread_ptr>& ookSSLServer::GetServerThreads()
 {
 	return _vServerThreads;
 }
 
+/*! 
+ \brief Iterates through the server thread list and removes any
+ which are no longer running.
+ */
 void ookSSLServer::CleanServerThreads()
 {
 	int iSize = _vServerThreads.size();
@@ -222,11 +338,23 @@ void ookSSLServer::CleanServerThreads()
 
 }
 
+/*! 
+ \brief Handles a message forwarded by the observer/dispatcher. This should be 
+ overriden and customized by implementing classes. For example, if the message 
+ read in is in XML format, this is the method where the message could be parsed 
+ and then dealt with accordingly.
+
+ \return The message to be handled.
+ */
 void ookSSLServer::HandleMsg(ookTextMessage* msg)
 {
 	cout << "Received message: " << msg->GetMsg() << endl;
 }
 
+/*! 
+ \brief The socket accept loop. Incoming socket connection requests are accepted
+ and, if valid, forwarded to a new server thread for handling.
+ */
 void ookSSLServer::Run()
 {
 	try

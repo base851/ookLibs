@@ -45,6 +45,8 @@ ookAESCipher::ookAESCipher()
 
 /*! 
  \brief Initialization constructor.
+
+ \param key	The encryption/decryption password.
  */
 ookAESCipher::ookAESCipher(string key)
 : ::ookCipher(key)
@@ -60,6 +62,9 @@ ookAESCipher::~ookAESCipher()
 	
 }
 
+/*! 
+ \brief Initializes the cipher.
+ */
 void ookAESCipher::Initialize()
 {
 	_keybytes = new byte[CryptoPP::AES::DEFAULT_KEYLENGTH];
@@ -71,6 +76,13 @@ void ookAESCipher::Initialize()
 	}
 }
 
+/*! 
+ \brief Encrypts a string.
+ 
+ \param msg	The string to be encrypted.
+ 
+ \return The encrypted string.
+ */
 string ookAESCipher::Encrypt(string msg)
 {	
 	// Cipher Text Sink
@@ -89,6 +101,13 @@ string ookAESCipher::Encrypt(string msg)
 	return CipherText;
 }
 
+/*! 
+ \brief Decrypts a string.
+ 
+ \param msg	The string to be decrypted.
+ 
+ \return The decrypted string.
+ */
 string ookAESCipher::Decrypt(string msg)
 {	
 	// Recovered Text Sink

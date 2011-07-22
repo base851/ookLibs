@@ -53,4 +53,8 @@ private:
 	
 };
 
+#ifndef ookGzipPtr
+typedef boost::shared_ptr<ookGzip> ookGzipPtr;
+#endif
+
 #endif
