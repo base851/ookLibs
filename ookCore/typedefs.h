@@ -36,44 +36,9 @@
 #include <winsock2.h>
 #endif
 
-#include "openssl/aes.h"
-#include "openssl/bio.h"
-#include "openssl/blowfish.h"
-#include "openssl/conf.h"
-#include "openssl/des.h"
-#include "openssl/engine.h"
-#include "openssl/err.h"
-#include "openssl/evp.h"
-#include "openssl/pem.h"
-#include "openssl/rand.h"
-#include "openssl/rsa.h"
-#include "openssl/ssl.h"
-
-#include "boost/asio.hpp"
-#include "boost/bind.hpp"
-#include "boost/shared_ptr.hpp"
-#include "boost/scoped_array.hpp"
-#include "boost/unordered_map.hpp"
-#include "boost/algorithm/string.hpp"
-#include "boost/asio/error.hpp"
-#include "boost/asio/io_service.hpp"
-#include "boost/asio/ssl.hpp"
-#include "boost/asio/ssl/context_base.hpp"
-#include "boost/date_time/posix_time/posix_time.hpp"
-
-#include "ookLibs/ookCore/ookException.h"
-#include "ookLibs/ookXml/tinyxml.h"
-
-#include <iostream>
-#include <list>
-#include <sstream>
 #include <string>
-#include <vector>
-#include <memory>
 
 using namespace std;
-using namespace boost;
-using asio::ip::tcp;
 
 //==========================================================
 // Typedefs
@@ -163,53 +128,9 @@ static const string APP_INFO_APP_NAME = "app.info.appName";
 //==========================================================
 // Boost Typedefs
 //==========================================================
-#ifndef StringMap
-/*!
- std::basic_string <unsigned char>
- */
-typedef unordered_map<string,string> StringMap;
-#endif
 
-#ifndef string_iterator
-/*!
- boost::unordered_map<string, string>::const_iterator
- */
-typedef boost::unordered_map<string, string>::const_iterator StringMapIterator;
-#endif
 
-#ifndef socket_ptr
-/*!
- boost::shared_ptr<tcp::socket>
- */
-typedef boost::shared_ptr<tcp::socket> socket_ptr;
-#endif
 
-#ifndef ssl_socket
-/*!
- boost::asio::ssl::stream<boost::asio::ip::tcp::socket>
- */
-typedef boost::asio::ssl::stream<boost::asio::ip::tcp::socket> ssl_socket;
-#endif
 
-#ifndef ssl_socket_ptr
-/*!
- boost::shared_ptr<ssl_socket>
- */
-typedef boost::shared_ptr<ssl_socket> ssl_socket_ptr;
-#endif
-
-#ifndef base_method
-/*!
- boost::asio::ssl::context_base::method
- */
-typedef enum asio::ssl::context_base::method base_method;
-#endif
-
-#ifndef base_file_format
-/*!
- boost::asio::ssl::context_base::file_format
- */
-typedef enum asio::ssl::context_base::file_format base_file_format;
-#endif
 
 #endif

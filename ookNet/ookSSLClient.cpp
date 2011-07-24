@@ -35,6 +35,9 @@
  */
 #include "ookLibs/ookUtil/ookString.h"
 #include "ookLibs/ookNet/ookSSLClient.h"
+#include "ookLibs/ookCore/ookTextMsgHandler.h"
+#include "ookLibs/ookCore/ookMsgDispatcher.h"
+#include "ookLibs/ookCore/ookMsgObserver.h"
 
 /*! 
  \brief Initialization constructor.
@@ -333,6 +336,8 @@ string ookSSLClient::Read()
 	
 		msgBuf[messageSize] = '\0';
 	
+		
+		
 		ret = msgBuf;
 	}
 	catch (system::error_code& e)

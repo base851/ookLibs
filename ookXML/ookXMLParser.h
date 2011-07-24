@@ -32,6 +32,16 @@
 #define OOK_XML_PARSER_H_
 
 #include "ookLibs/ookCore/typedefs.h"
+#include "ookLibs/ookXml/tinyxml.h"
+#include "boost/shared_ptr.hpp"
+
+#ifndef TiXmlElementPtr
+typedef boost::shared_ptr<TiXmlElement> TiXmlElementPtr;
+#endif
+
+#ifndef TiXmlDocumentPtr
+typedef boost::shared_ptr<TiXmlDocument> TiXmlDocumentPtr;
+#endif
 
 class ookXMLParser
 {
@@ -45,9 +55,9 @@ public:
 	
 	void ParseXMLString(string xml);
 	
-	TiXmlDocument GetDocument();
-	TiXmlElement* GetRootElement();
-	TiXmlElement* GetFirstChild(string tagname);	
+	TiXmlDocumentPtr GetDocument();
+	TiXmlElementPtr GetRootElement();
+	TiXmlElementPtr GetFirstChild(string tagname);	
 	TiXmlHandle GetDocumentHandle();
 	
 protected:
@@ -55,7 +65,7 @@ protected:
 	
 private:
 	
-	TiXmlDocument _doc;
+	TiXmlDocumentPtr _doc;
 	
 };
 

@@ -35,12 +35,15 @@
  */
 #include "ookLibs/ookXML/ookXMLParser.h"
 
+
+
+
 /*! 
  \brief Default constructor.
  */
 ookXMLParser::ookXMLParser()
 {
-	
+	_doc = TiXmlDocumentPtr(new TiXmlDocument());
 }
 
 /*! 
@@ -58,7 +61,7 @@ void ookXMLParser::ParseXMLString(string xml)
 {
 	try
 	{
-		_doc.Parse(xml.data());
+		_doc->Parse(xml.data());
 	}
 	catch(...)
 	{
@@ -73,7 +76,7 @@ void ookXMLParser::ParseXMLString(string xml)
  */
 bool ookXMLParser::LoadXMLFile(string filename)
 {
-	return _doc.LoadFile(filename.data());
+	return _doc->LoadFile(filename.data());
 }
 
 /*! 
@@ -84,7 +87,7 @@ bool ookXMLParser::LoadXMLFile(string filename)
  */
 bool ookXMLParser::SaveXMLFile(string filename)
 {
-	return _doc.SaveFile(filename.data());
+	return _doc->SaveFile(filename.data());
 }
 
 /*! 
@@ -92,7 +95,7 @@ bool ookXMLParser::SaveXMLFile(string filename)
  
  \return	The XML document.
  */
-TiXmlDocument ookXMLParser::GetDocument()
+TiXmlDocumentPtr ookXMLParser::GetDocument()
 {
 	return _doc;
 }
@@ -102,9 +105,9 @@ TiXmlDocument ookXMLParser::GetDocument()
  
  \return	The XML document's root element.
  */
-TiXmlElement* ookXMLParser::GetRootElement()
+TiXmlElementPtr ookXMLParser::GetRootElement()
 {
-	return _doc.RootElement();
+	return TiXmlElementPtr(_doc->RootElement());
 }
 
 /*! 
@@ -113,9 +116,9 @@ TiXmlElement* ookXMLParser::GetRootElement()
  \param tagname	The tag name.
  \return	The first XML element corresponding to the tag name.
  */
-TiXmlElement* ookXMLParser::GetFirstChild(string tagname)
+TiXmlElementPtr ookXMLParser::GetFirstChild(string tagname)
 {
-	return _doc.FirstChildElement(tagname.data());
+	return TiXmlElementPtr(_doc->FirstChildElement(tagname.data()));
 }
 
 /*! 
@@ -126,5 +129,5 @@ TiXmlElement* ookXMLParser::GetFirstChild(string tagname)
  */
 TiXmlHandle ookXMLParser::GetDocumentHandle()
 {
-	return TiXmlHandle(&_doc);
+	return TiXmlHandle(_doc.get());
 }

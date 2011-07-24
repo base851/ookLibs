@@ -32,10 +32,29 @@
 #define OOK_APPLICATION_H_
 
 #include "ookLibs/ookCore/typedefs.h"
+#include "boost/unordered_map.hpp"
+#include <vector>
+
+#ifndef StringMap
+/*!
+ std::basic_string <unsigned char>
+ */
+typedef boost::unordered_map<string,string> StringMap;
+#endif
+
+#ifndef string_iterator
+/*!
+ boost::unordered_map<string, string>::const_iterator
+ */
+typedef boost::unordered_map<string, string>::const_iterator StringMapIterator;
+#endif
 
 class ookApplication
 {
 public:
+	
+	ookApplication(const ookApplication& cpy);
+	ookApplication& operator = (const ookApplication &cpy);
 	
 	virtual ~ookApplication();
 	

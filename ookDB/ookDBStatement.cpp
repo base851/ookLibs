@@ -41,7 +41,7 @@
 
  \param db	The originating database object.
  */
-ookDBStatement::ookDBStatement(ookDB* db)
+ookDBStatement::ookDBStatement(ookDBPtr db)
 	: _db(db)
 {
 	
@@ -53,7 +53,7 @@ ookDBStatement::ookDBStatement(ookDB* db)
  \param db	The originating database object.
  \param sql The statement's SQL command.
  */
-ookDBStatement::ookDBStatement(ookDB* db, string sql)
+ookDBStatement::ookDBStatement(ookDBPtr db, string sql)
 	: _db(db), _sql(sql)
 {
 	
@@ -92,7 +92,7 @@ string ookDBStatement::GetSQL()
  
  \param db The originating database object.
  */
-void ookDBStatement::SetDB(ookDB*  db)
+void ookDBStatement::SetDB(ookDBPtr  db)
 {
 	_db = db;
 }
@@ -102,7 +102,7 @@ void ookDBStatement::SetDB(ookDB*  db)
  
 	\return The originating database object.
  */
-ookDB* ookDBStatement::GetDB()
+ookDBPtr ookDBStatement::GetDB()
 {
 	return _db;
 }

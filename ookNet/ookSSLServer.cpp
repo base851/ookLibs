@@ -44,6 +44,10 @@
  messages which they are interested in.
  */
 #include "ookLibs/ookNet/ookSSLServer.h"
+#include "ookLibs/ookNet/ookSSLServerThread.h"
+#include "ookLibs/ookCore/ookMsgObserver.h"
+#include "boost/asio.hpp"
+#include "ookLibs/ookCore/ookMsgObserver.h"
 
 /*! 
  \brief Initialization constructor.
@@ -346,7 +350,7 @@ void ookSSLServer::CleanServerThreads()
 
  \return The message to be handled.
  */
-void ookSSLServer::HandleMsg(ookTextMessage* msg)
+void ookSSLServer::HandleMsg(ookTextMessagePtr msg)
 {
 	cout << "Received message: " << msg->GetMsg() << endl;
 }

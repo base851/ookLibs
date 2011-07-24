@@ -35,6 +35,7 @@
 #include "ookLibs/ookCore/ookMsgDispatcher.h"
 #include "ookLibs/ookCore/ookTextMessage.h"
 #include "ookLibs/ookThread/ookThread.h"
+#include "ookLibs/ookNet/ookSSLServer.h"
 #include "ookLibs/ookUtil/ookString.h"
 
 #include "boost/bind.hpp"
@@ -46,7 +47,6 @@
 
 #include <iostream>
 
-using namespace std;
 using namespace boost;
 using asio::ip::tcp;
 

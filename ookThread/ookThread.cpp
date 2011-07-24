@@ -34,6 +34,8 @@
  \brief Simple base thread class. Derived classes should override
  Run(), which is the worker function for the thread.
  */
+
+#include "ookLibs/ookCore/typedefs.h"
 #include "ookLibs/ookThread/ookThread.h"
 
 /*! 

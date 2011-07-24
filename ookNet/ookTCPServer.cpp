@@ -44,6 +44,8 @@
  messages which they are interested in.
  */
 #include "ookLibs/ookNet/ookTCPServer.h"
+#include "ookLibs/ookNet/ookTCPServerThread.h"
+#include "ookLibs/ookCore/ookMsgObserver.h"
 
 /*! 
  \brief Initialization constructor.
@@ -141,7 +143,9 @@ void ookTCPServer::CleanServerThreads()
 
  \return The message to be handled.
  */
-void ookTCPServer::HandleMsg(ookTextMessage* msg)
+//void ookTCPServer::HandleMsg(ookTextMessage* msg)
+void ookTCPServer::HandleMsg(ookTextMessagePtr msg)
+
 {
 	cout << "Received message: " << msg->GetMsg() << endl;
 }
@@ -154,15 +158,15 @@ void ookTCPServer::Run()
 {
 	try
 	{
-		tcp::acceptor accptr(_ioService, tcp::endpoint(tcp::v4(), _iPort));
+		boost::asio::ip::tcp::acceptor accptr(_ioService, boost::asio::ip::tcp::endpoint(boost::asio::ip::tcp::v4(), _iPort));
 
 		while(this->IsRunning())
 		{
 			//Get a new socket_ptr and accept a new connection
-			socket_ptr sock = boost::shared_ptr<tcp::socket>(new tcp::socket(_ioService));
+			socket_ptr sock = boost::shared_ptr<boost::asio::ip::tcp::socket>(new boost::asio::ip::tcp::socket(_ioService));
 			accptr.accept(*sock);
 	
-			asio::ip::tcp::endpoint remote_ep = sock->remote_endpoint();
+			boost::asio::ip::tcp::endpoint remote_ep = sock->remote_endpoint();
 			
 			cout << "Accepted new client from " << remote_ep.address().to_string() << endl;
 			

@@ -35,6 +35,7 @@
  */
 #include "ookLibs/ookUtil/ookString.h"
 #include "ookLibs/ookNet/ookTCPClient.h"
+#include "boost/asio.hpp"
 
 /*! 
  \brief Initialization constructor.
@@ -157,11 +158,11 @@ void ookTCPClient::WriteMsg(string msg)
  */
 void ookTCPClient::Run()
 {
-	tcp::resolver resolver(_ioService);
-	tcp::resolver::query query(tcp::v4(), _ipaddr, ookString::ConvertInt2String(_iPort));
-	tcp::resolver::iterator iterator = resolver.resolve(query);
+	boost::asio::ip::tcp::resolver resolver(_ioService);
+	boost::asio::ip::tcp::resolver::query query(boost::asio::ip::tcp::v4(), _ipaddr, ookString::ConvertInt2String(_iPort));
+	boost::asio::ip::tcp::resolver::iterator iterator = resolver.resolve(query);
 	
-	_sock = auto_ptr<tcp::socket>(new tcp::socket(_ioService));	
+	_sock = auto_ptr<boost::asio::ip::tcp::socket>(new boost::asio::ip::tcp::socket(_ioService));	
 	_sock->connect(*iterator);	
 	
 	try

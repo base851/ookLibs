@@ -41,7 +41,7 @@ public:
 	ookTextMsgHandler();
 	virtual ~ookTextMsgHandler();
 	
-	virtual void HandleMsg(ookTextMessage* msg);
+	virtual void HandleMsg(ookTextMessagePtr msg);
 	
 protected:
 	

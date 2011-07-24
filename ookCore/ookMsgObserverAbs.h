@@ -42,6 +42,7 @@
 
 #include "ookLibs/ookCore/typedefs.h"
 #include "ookLibs/ookCore/ookMessage.h"
+#include "boost/shared_ptr.hpp"
 
 class ookMsgObserverAbs
 {
@@ -58,13 +59,9 @@ public:
 	~ookMsgObserverAbs(){}
 	
 	/*! 
-	 \brief Copy constructor.
-	 
-	 \param observer The observer to be copied.
-	 
-	 \return A copy of the observer passed in.
+	 \brief Overloaded assignment operator.
 	 */
-	ookMsgObserverAbs& operator = (const ookMsgObserverAbs& observer);
+	ookMsgObserverAbs& operator= (const ookMsgObserverAbs& observer);
 	
 	/*! 
 	 \brief Receives a message from the message dispatcher. Pure virtual method
@@ -72,7 +69,7 @@ public:
 	 
 	 \param pNf The message to be handled.
 	 */	
-	virtual void SendMessage(ookMessage* pNf) = 0;
+	virtual void SendMessage(ookMessagePtr pNf) = 0;
 	
 	/*! 
 	 \brief Informs the message dispatcher whether the observer
@@ -83,7 +80,7 @@ public:
 	 
 	 \return True if the observer accepts the message type, false if not.
 	 */	
-	virtual bool Accepts(ookMessage* pNf) = 0;
+	virtual bool Accepts(ookMessagePtr pNf) = 0;
 	
 	
 protected:

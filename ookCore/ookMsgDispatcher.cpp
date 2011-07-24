@@ -74,7 +74,7 @@ void ookMsgDispatcher::RegisterObserver(ookMsgObserverAbs* obs)
  \param msg	The message to be relayed to its observers.
  
  */
-void ookMsgDispatcher::PostMsg(ookMessage* msg)
+void ookMsgDispatcher::PostMsg(ookMessagePtr msg)
 {
 	for(int i = 0; i < _vObservers.size(); i++)
 	{

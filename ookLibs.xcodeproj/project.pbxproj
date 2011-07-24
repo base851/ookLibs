@@ -539,6 +539,7 @@
 					../../../libs/cryptopp561/include/,
 					"../../../libs/sqlite-autoconf-3070701/",
 					"../../../libs/mysql-5.5.13/include/",
+					"../../../libs/mysql-5.5.13/",
 				);
 				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
@@ -586,6 +587,7 @@
 					../../../libs/cryptopp561/include/,
 					"../../../libs/sqlite-autoconf-3070701/",
 					"../../../libs/mysql-5.5.13/include/",
+					"../../../libs/mysql-5.5.13/",
 				);
 				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;

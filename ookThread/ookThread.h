@@ -31,7 +31,6 @@
 #ifndef OOK_THREAD_H_
 #define OOK_THREAD_H_
 
-#include "ookLibs/ookCore/typedefs.h"
 #include "boost/thread.hpp"
 #include "boost/shared_ptr.hpp"
 

@@ -36,6 +36,7 @@
 #include "cryptopp/blowfish.h"
 #include "cryptopp/modes.h"      // xxx_Mode< >
 #include "cryptopp/filters.h"    // StringSource and		
+#include "boost/shared_ptr.hpp"
 
 class ookBlowfishCipher : public ookCipher
 {

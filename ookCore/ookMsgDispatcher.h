@@ -31,10 +31,10 @@
 #ifndef OOK_MESSAGE_DISPATCHER_H_
 #define OOK_MESSAGE_DISPATCHER_H_
 
-#include "ookLibs/ookCore/typedefs.h"
+//#include "ookLibs/ookCore/typedefs.h"
 #include "ookLibs/ookCore/ookMsgObserverAbs.h"
-
-//Define the ookMsgObserver function pointer
+#include "boost/shared_ptr.hpp"
+#include <vector>
 
 class ookMsgDispatcher
 {
@@ -47,7 +47,7 @@ public:
 
 	void RegisterObserver(ookMsgObserverAbs* obs);
 	
-	void PostMsg(ookMessage* msg);
+	void PostMsg(ookMessagePtr msg);
 
 protected:
 

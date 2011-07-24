@@ -127,7 +127,7 @@ void ookSSLServerThread::HandleMsg(string msg)
 {
 //	ookTextMessage message(msg);
 //	_dispatcher->PostMsg(&message);
-	_dispatcher->PostMsg(new ookTextMessage(msg));
+	_dispatcher->PostMsg(ookTextMessagePtr(new ookTextMessage(msg)));
 }
 
 /*! 

@@ -67,7 +67,7 @@ ookMsgHandler::~ookMsgHandler()
  \param msg	The message to be handled.
  
  */
-void ookMsgHandler::HandleMsg(ookMessage* msg)
+void ookMsgHandler::HandleMsg(ookMessagePtr msg)
 {
 	cout << "I received the message!" << endl;
 }

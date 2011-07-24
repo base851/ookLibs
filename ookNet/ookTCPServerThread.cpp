@@ -43,6 +43,7 @@
  messages which they are interested in.
  */
 #include "ookLibs/ookNet/ookTCPServerThread.h"
+#include "ookLibs/ookUtil/ookString.h"
 
 /*! 
  \brief Initialization constructor.
@@ -129,7 +130,7 @@ void ookTCPServerThread::HandleMsg(string msg)
 {
 //	ookTextMessage message(msg);
 //	_dispatcher->PostMsg(&message);
-	_dispatcher->PostMsg(new ookTextMessage(msg));
+	_dispatcher->PostMsg(ookTextMessagePtr(new ookTextMessage(msg)));
 }
 
 /*! 

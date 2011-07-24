@@ -70,7 +70,7 @@
  */
 #include "ookLibs/ookApp/ookApplication.h"
 #include "ookLibs/ookUtil/ookString.h"
-
+#include <vector>
 
 #ifdef __GNUC__
 #include <sys/utsname.h>
@@ -87,6 +87,29 @@ ookApplication::ookApplication(int argc, const char** argv)
 	: _argc(argc), _argv(argv)
 {
 	
+}
+
+/*! 
+ \brief Copy constructor.
+ */
+ookApplication::ookApplication(const ookApplication& cpy)
+{
+	_argc = cpy._argc;
+	_argv = cpy._argv;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookApplication& ookApplication::operator= (const ookApplication& cpy)
+{
+	if(&cpy != this)
+	{
+		_argc = cpy._argc;
+		_argv = cpy._argv;
+	}
+		
+	return *this;
 }
 
 /*! 

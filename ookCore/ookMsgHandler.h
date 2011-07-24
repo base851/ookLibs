@@ -34,7 +34,7 @@
 #ifndef OOK_MESSAGE_HANDLER_H_
 #define OOK_MESSAGE_HANDLER_H_
 
-#include "ookLibs/ookCore/typedefs.h"
+#include "boost/shared_ptr.hpp"
 #include "ookLibs/ookCore/ookMessage.h"
 
 class ookMsgHandler
@@ -44,7 +44,7 @@ public:
 	ookMsgHandler();
 	virtual ~ookMsgHandler();
 	
-	virtual void HandleMsg(ookMessage* msg);
+	virtual void HandleMsg(ookMessagePtr msg);
 	
 protected:
 	

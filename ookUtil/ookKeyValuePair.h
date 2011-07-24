@@ -36,8 +36,6 @@
 #ifndef OOK_KEY_VALUE_PAIR_H_
 #define OOK_KEY_VALUE_PAIR_H_
 
-#include "ookLibs/ookCore/typedefs.h"
-
 template<class T, class U>
 class ookKeyValuePair
 {

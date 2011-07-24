@@ -155,8 +155,8 @@ bool ookMySQLDB::Disconnect()
 */
 ookDBRowSetPtr ookMySQLDB::ExecuteQuery(string sql)
 {
-	ookMySQLStatement stmt(this, sql);
-	return this->ExecuteQuery(&stmt);
+	ookMySQLStatementPtr stmt(new ookMySQLStatement(ookMySQLDBPtr(this), sql));
+	return this->ExecuteQuery(stmt);
 //	return this->ExecuteQuery(ookMySQLStatementPtr(new ookMySQLStatement(ookMySQLDBPtr(this), sql)));
 }
 
@@ -168,7 +168,7 @@ ookDBRowSetPtr ookMySQLDB::ExecuteQuery(string sql)
  
 		\return An ookDBRowSet.
 */
-ookDBRowSetPtr ookMySQLDB::ExecuteQuery(ookDBStatement* stmt)
+ookDBRowSetPtr ookMySQLDB::ExecuteQuery(ookDBStatementPtr stmt)
 {
 	stmt->PrepareStatement();
 	return stmt->ExecuteQuery();
@@ -185,8 +185,8 @@ ookDBRowSetPtr ookMySQLDB::ExecuteQuery(ookDBStatement* stmt)
 */
 bool ookMySQLDB::ExecuteStatement(string sql)
 {
-	ookMySQLStatement stmt(this, sql);
-	return this->ExecuteStatement(&stmt);	
+	ookMySQLStatementPtr stmt(new ookMySQLStatement(ookMySQLDBPtr(this), sql));
+	return this->ExecuteStatement(stmt);	
 //	return this->ExecuteQuery(ookMySQLStatementPtr(new ookMySQLStatement(ookMySQLDBPtr(this), sql)));
 }
 
@@ -199,7 +199,7 @@ bool ookMySQLDB::ExecuteStatement(string sql)
  
 		\return true if successful, false otherwise.
 */
-bool ookMySQLDB::ExecuteStatement(ookDBStatement* stmt)
+bool ookMySQLDB::ExecuteStatement(ookDBStatementPtr stmt)
 {
 	stmt->PrepareStatement();	
 	return stmt->ExecuteNonQuery();

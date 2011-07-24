@@ -49,13 +49,15 @@
 #include "ookLibs/ookCore/typedefs.h"
 #include "ookLibs/ookCore/ookMsgObserverAbs.h"
 #include "ookLibs/ookCore/ookMessage.h"
+#include "boost/shared_ptr.hpp"
 
 template <class H, class M>
 class ookMsgObserver : public ookMsgObserverAbs
 {
 	
 #ifndef FP_OOK_MSG
-	typedef void (H::*FP_OOK_MSG)(M*);
+//	typedef void (H::*FP_OOK_MSG)(M*);
+	typedef void (H::*FP_OOK_MSG)(boost::shared_ptr<M>);
 #endif		
 	
 public:
@@ -78,11 +80,7 @@ public:
 	}
 
 	/*! 
-	 \brief Copy constructor.
-	 
-	 \param observer The observer to be copied.
-	 
-	 \return A copy of the observer passed in.
+	 \brief Overloaded assignment operator.
 	 */
 	ookMsgObserver& operator = (const ookMsgObserver& observer)
 	{
@@ -100,9 +98,16 @@ public:
 	 
 	 \param pNf The message to be handled.
 	 */		
-	void SendMessage(ookMessage* msg)
+	void SendMessage(ookMessagePtr msg)
 	{
-		M* pCastNf = dynamic_cast<M*>(msg);
+/*		
+		M* pCastNf = dynamic_cast<M*>(msg.get());
+		if (pCastNf)
+		{	
+			(_handler->*_handlerFunc)(pCastNf);
+		}
+*/
+		boost::shared_ptr<M> pCastNf = boost::dynamic_pointer_cast<M>(msg);
 		if (pCastNf)
 		{	
 			(_handler->*_handlerFunc)(pCastNf);
@@ -118,9 +123,10 @@ public:
 	 
 	 \return True if the observer accepts the message type, false if not.
 	 */		
-	bool Accepts(ookMessage* msg) 
+	bool Accepts(ookMessagePtr msg) 
 	{
-		return dynamic_cast<M*>(msg) != 0;
+//		return dynamic_cast<M*>(msg.get()) != 0;
+		return boost::dynamic_pointer_cast<M>(msg) != 0;
 	}	
 
 protected:

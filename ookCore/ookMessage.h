@@ -31,7 +31,10 @@
 #ifndef OOK_MESSAGE_H_
 #define OOK_MESSAGE_H_
 
-#include "ookLibs/ookCore/typedefs.h"
+//#include "ookLibs/ookCore/typedefs.h"
+#include "boost/shared_ptr.hpp"
+
+using namespace boost;
 
 class ookMessage
 {
@@ -47,7 +50,7 @@ private:
 };
 
 #ifndef ookMessagePtr
-typedef boost::shared_ptr<ookMessage> ookMessagePtr;
+typedef shared_ptr<ookMessage> ookMessagePtr;
 #endif
 
 #endif

@@ -31,11 +31,8 @@
 #ifndef OOK_SSL_CLIENT_H_
 #define OOK_SSL_CLIENT_H_
 
-#include "ookLibs/ookCore/typedefs.h"
-#include "ookLibs/ookCore/ookTextMsgHandler.h"
-#include "ookLibs/ookCore/ookMsgDispatcher.h"
-#include "ookLibs/ookCore/ookMsgObserver.h"
 #include "ookLibs/ookThread/ookThread.h"
+#include "ookLibs/ookCore/typedefs.h"
 #include "ookLibs/ookNet/ookSSLServerThread.h"
 
 class ookSSLClient  : public ookThread

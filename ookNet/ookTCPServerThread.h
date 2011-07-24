@@ -31,12 +31,10 @@
 #ifndef OOK_TCP_SERVER_THREAD_H_
 #define OOK_TCP_SERVER_THREAD_H_
 
+#include "ookLibs/ookThread/ookThread.h"
 #include "ookLibs/ookCore/typedefs.h"
 #include "ookLibs/ookCore/ookMsgDispatcher.h"
-#include "ookLibs/ookCore/ookTextMessage.h"
-#include "ookLibs/ookThread/ookThread.h"
-#include "ookLibs/ookNet/ookTCPServerThread.h"
-#include "ookLibs/ookUtil/ookString.h"
+#include "ookLibs/ookNet/ookTCPServer.h"
 
 class ookTCPServerThread : public ookThread
 {

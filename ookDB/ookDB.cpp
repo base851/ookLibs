@@ -34,6 +34,9 @@
  \brief Abstract base class for database interface implementations.
  */
 #include "ookLibs/ookDB/ookDB.h"
+#include "ookLibs/ookDB/ookDBStatement.h"
+#include "ookLibs/ookDB/ookDBRowSet.h"
+
 
 /*! 
  \brief Default constructor.

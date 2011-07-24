@@ -31,18 +31,16 @@
 #ifndef OOK_DB_STATEMENT_H_
 #define OOK_DB_STATEMENT_H_
 
-#include "ookLibs/ookCore/typedefs.h"
+#include "ookLibs/ookDB/ookDB.h"
 #include "ookLibs/ookDB/ookDBRowSet.h"
 #include "ookLibs/ookUtil/ookDate.h"
-
-class ookDB;
 
 class ookDBStatement
 {
 public:
 	
-	ookDBStatement(ookDB* db);		
-	ookDBStatement(ookDB* db, string sql);	
+	ookDBStatement(ookDBPtr db);		
+	ookDBStatement(ookDBPtr db, string sql);	
 
 	virtual ~ookDBStatement();
 	
@@ -155,8 +153,8 @@ public:
  */
 	virtual bool ExecuteNonQuery() = 0;
 
-	void SetDB(ookDB* db);
-	ookDB* GetDB();
+	void SetDB(ookDBPtr db);
+	ookDBPtr GetDB();
 	void SetSQL(string sql);
 	string GetSQL();
 
@@ -165,13 +163,11 @@ protected:
 	
 private:
 
-	ookDB* _db;
+	ookDBPtr _db;
 	string _sql;
 
 };
 
-#ifndef ookDBStatementPtr
-typedef boost::shared_ptr<ookDBStatement> ookDBStatementPtr;
-#endif
+
 
 #endif

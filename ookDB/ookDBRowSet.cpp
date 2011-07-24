@@ -34,7 +34,7 @@
  \brief Platform-independent representation of a collection database rows. 
  */
 #include "ookLibs/ookDB/ookDBRowSet.h"
-
+#include "ookLibs/ookCore/ookException.h"
 /*! 
  \brief Default constructor.
  */	

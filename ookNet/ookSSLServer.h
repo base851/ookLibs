@@ -34,15 +34,45 @@
 #include "ookLibs/ookCore/typedefs.h"
 #include "ookLibs/ookCore/ookTextMsgHandler.h"
 #include "ookLibs/ookCore/ookMsgDispatcher.h"
-#include "ookLibs/ookCore/ookMsgObserver.h"
-//#include "ookLibs/ookCrypt/ookSSLContext.h"
 #include "ookLibs/ookThread/ookThread.h"
-#include "ookLibs/ookNet/ookSSLServerThread.h"
+#include "boost/asio.hpp"
+#include "boost/asio/ssl.hpp"
+#include "boost/asio/ssl/context_base.hpp"
+
+class ookSSLServerThread;
 
 typedef boost::shared_ptr<ookSSLServerThread> ssl_thread_ptr;
 
 typedef boost::function<std::string(std::size_t,
 																		asio::ssl::context_base::password_purpose)> password_callback_type;
+
+#ifndef ssl_socket
+/*!
+ boost::asio::ssl::stream<boost::asio::ip::tcp::socket>
+ */
+typedef boost::asio::ssl::stream<boost::asio::ip::tcp::socket> ssl_socket;
+#endif
+
+#ifndef ssl_socket_ptr
+/*!
+ boost::shared_ptr<ssl_socket>
+ */
+typedef boost::shared_ptr<ssl_socket> ssl_socket_ptr;
+#endif
+
+#ifndef base_method
+/*!
+ boost::asio::ssl::context_base::method
+ */
+typedef enum boost::asio::ssl::context_base::method base_method;
+#endif
+
+#ifndef base_file_format
+/*!
+ boost::asio::ssl::context_base::file_format
+ */
+typedef enum boost::asio::ssl::context_base::file_format base_file_format;
+#endif
 
 class ookSSLServer : public ookThread, public ookTextMsgHandler
 {
@@ -51,7 +81,7 @@ public:
 	ookSSLServer(int iPort, base_method mthd = asio::ssl::context_base::sslv23);
 	virtual ~ookSSLServer();
 
-	virtual void HandleMsg(ookTextMessage* msg);
+	virtual void HandleMsg(ookTextMessagePtr msg);
 	virtual void Run();
 
 	//The plethora of options available to initialize the context

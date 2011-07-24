@@ -31,8 +31,9 @@
 #ifndef OOK_TCP_CLIENT_H_
 #define OOK_TCP_CLIENT_H_
 
-#include "ookLibs/ookCore/typedefs.h"
 #include "ookLibs/ookThread/ookThread.h"
+#include "ookLibs/ookCore/typedefs.h"
+#include "ookLibs/ookNet/ookTCPServer.h"
 
 class ookTCPClient : public ookThread
 {

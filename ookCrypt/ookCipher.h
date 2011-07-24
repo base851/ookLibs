@@ -38,6 +38,7 @@
  */
 #include "ookLibs/ookCore/typedefs.h"
 #include "cryptopp/cryptlib.h"
+#include "boost/shared_ptr.hpp"
 
 class ookCipher
 {

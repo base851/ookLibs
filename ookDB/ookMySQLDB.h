@@ -49,10 +49,10 @@ public:
 	virtual bool Disconnect();	
 
 	virtual ookDBRowSetPtr ExecuteQuery(string sql);
-	virtual ookDBRowSetPtr ExecuteQuery(ookDBStatement* stmt);
+	virtual ookDBRowSetPtr ExecuteQuery(ookDBStatementPtr stmt);
 	
 	virtual bool ExecuteStatement(string sql);
-	virtual bool ExecuteStatement(ookDBStatement* stmt);	
+	virtual bool ExecuteStatement(ookDBStatementPtr stmt);	
 	
 	const MYSQL* GetMySQLObj();
 

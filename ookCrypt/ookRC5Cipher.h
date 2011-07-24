@@ -36,6 +36,7 @@
 #include "cryptopp/rc5.h"
 #include "cryptopp/modes.h"      // xxx_Mode< >
 #include "cryptopp/filters.h"    // StringSource and
+#include "boost/shared_ptr.hpp"
 
 class ookRC5Cipher : public ookCipher
 {

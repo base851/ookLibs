@@ -31,7 +31,6 @@
 #ifndef OOK_MUTEX_H_
 #define OOK_MUTEX_H_
 
-#include "ookLibs/ookCore/typedefs.h"
 #include "boost/thread/mutex.hpp"
 
 using namespace boost;

@@ -32,8 +32,8 @@
 #define OOK_STRING_H_
 
 #include "ookLibs/ookCore/typedefs.h"
-
-
+#include "boost/shared_ptr.hpp"
+#include <vector>
 
 class ookString
 {

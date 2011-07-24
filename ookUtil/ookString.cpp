@@ -35,6 +35,8 @@
  conversion.
  */
 #include "ookLibs/ookUtil/ookString.h"
+#include "boost/algorithm/string.hpp"
+#include <sstream>
 
 /*! 
  \brief Default constructor.
@@ -197,7 +199,7 @@ vector<string> ookString::Split(string str, string delims)
 {
 	vector<string> ret;
 	
-	split(ret, str, is_any_of(delims));	
+	split(ret, str, boost::is_any_of(delims));	
 	
 	return ret;
 }
@@ -213,7 +215,7 @@ vector<ucstring> ookString::UCSplit(ucstring str, ucstring delims)
 {
 	vector<ucstring> ret;
 	
-	split(ret, str, is_any_of(delims));	
+	split(ret, str, boost::is_any_of(delims));	
 	
 	return ret;
 }

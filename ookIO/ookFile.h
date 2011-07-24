@@ -33,6 +33,8 @@
 
 #include "ookLibs/ookCore/typedefs.h"
 #include <fstream>
+#include "boost/shared_ptr.hpp"
+#include <vector>
 
 class ookFile
 {

@@ -39,6 +39,7 @@
 
  */
 #include "ookLibs/ookDB/ookDBRow.h"
+#include "ookLibs/ookCore/ookException.h"
 
 /*! 
  \brief Default constructor.

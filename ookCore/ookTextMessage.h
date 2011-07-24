@@ -33,6 +33,7 @@
 
 #include "ookLibs/ookCore/typedefs.h"
 #include "ookLibs/ookCore/ookMessage.h"
+#include "boost/shared_ptr.hpp"
 
 class ookTextMessage : public ookMessage
 {

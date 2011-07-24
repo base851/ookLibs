@@ -34,6 +34,9 @@
  \brief Provides gzip compression/decomopression.
  */
 #include "ookLibs/ookZip/ookGzip.h"
+#include "cryptopp/gzip.h"
+#include "cryptopp/modes.h"      // xxx_Mode< >
+#include "cryptopp/filters.h"    // StringSource and
 
 /*! 
  \brief Default constructor.

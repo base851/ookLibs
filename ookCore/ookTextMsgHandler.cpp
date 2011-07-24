@@ -60,7 +60,7 @@ ookTextMsgHandler::~ookTextMsgHandler()
  \param msg	The message to be handled.
  
  */
-void ookTextMsgHandler::HandleMsg(ookTextMessage* msg)
+void ookTextMsgHandler::HandleMsg(ookTextMessagePtr msg)
 {
 	cout << "The message is: " << msg->GetMsg() << endl;
 }

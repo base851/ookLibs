@@ -31,14 +31,23 @@
 #ifndef OOK_TCP_SERVER_H_
 #define OOK_TCP_SERVER_H_
 
-#include "ookLibs/ookCore/typedefs.h"
-#include "ookLibs/ookCore/ookTextMsgHandler.h"
-#include "ookLibs/ookCore/ookMsgDispatcher.h"
-#include "ookLibs/ookCore/ookMsgObserver.h"
 #include "ookLibs/ookThread/ookThread.h"
-#include "ookLibs/ookNet/ookTCPServerThread.h"
+#include "ookLibs/ookCore/ookTextMsgHandler.h"
+#include "ookLibs/ookCore/typedefs.h"
+#include "ookLibs/ookCore/ookMsgDispatcher.h"
+
+#include "boost/asio.hpp"
+
+class ookTCPServerThread;
 
 typedef boost::shared_ptr<ookTCPServerThread> tcp_thread_ptr;
+
+#ifndef socket_ptr
+/*!
+ boost::shared_ptr<tcp::socket>
+ */
+typedef boost::shared_ptr<boost::asio::ip::tcp::socket> socket_ptr;
+#endif
 
 class ookTCPServer : public ookThread, public ookTextMsgHandler
 {
@@ -47,7 +56,7 @@ public:
 	ookTCPServer(int iPort);	
 	virtual ~ookTCPServer();
 	
-	virtual void HandleMsg(ookTextMessage* msg);
+	virtual void HandleMsg(ookTextMessagePtr msg);
 	virtual void Run();
 	
 protected:

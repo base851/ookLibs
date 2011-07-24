@@ -32,8 +32,14 @@
 #define OOK_DB_H_
 
 #include "ookLibs/ookCore/typedefs.h"
+//#include "ookLibs/ookDB/ookDBStatement.h"
 #include "ookLibs/ookDB/ookDBRowSet.h"
-#include "ookLibs/ookDB/ookDBStatement.h"
+
+class ookDBStatement;
+
+#ifndef ookDBStatementPtr
+typedef boost::shared_ptr<ookDBStatement> ookDBStatementPtr;
+#endif
 
 class ookDB
 {
@@ -77,7 +83,7 @@ public:
  
 		\return An ookDBRowSet.
  */
-	virtual ookDBRowSetPtr ExecuteQuery(ookDBStatement* stmt) = 0;
+	virtual ookDBRowSetPtr ExecuteQuery(ookDBStatementPtr stmt) = 0;
 
 	/*! 
 		\brief Executes a database statement (i.e. any statement which does not return a
@@ -99,7 +105,7 @@ public:
  
 		\return true if successful, false otherwise.
  */
-	virtual bool ExecuteStatement(ookDBStatement* stmt) = 0;
+	virtual bool ExecuteStatement(ookDBStatementPtr stmt) = 0;
 
 	void SetConnectionString(string connstr);
 	string GetConnectionString();

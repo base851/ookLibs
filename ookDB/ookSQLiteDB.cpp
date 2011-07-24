@@ -141,9 +141,8 @@ bool ookSQLiteDB::Disconnect()
 */
 ookDBRowSetPtr ookSQLiteDB::ExecuteQuery(string sql)
 {
-	ookSQLiteStatement stmt(this, sql);
-	return this->ExecuteQuery(&stmt);
-//	return this->ExecuteQuery(ookSQLiteStatementPtr(new ookSQLiteStatement(ookSQLiteDBPtr(this), sql)));
+	ookSQLiteStatementPtr stmt(new ookSQLiteStatement(ookSQLiteDBPtr(this), sql));
+	return this->ExecuteQuery(stmt);
 }
 
 /*! 
@@ -154,7 +153,7 @@ ookDBRowSetPtr ookSQLiteDB::ExecuteQuery(string sql)
  
 		\return An ookDBRowSet.
 */
-ookDBRowSetPtr ookSQLiteDB::ExecuteQuery(ookDBStatement* stmt)
+ookDBRowSetPtr ookSQLiteDB::ExecuteQuery(ookDBStatementPtr stmt)
 {
 	stmt->PrepareStatement();
 	return stmt->ExecuteQuery();
@@ -171,9 +170,8 @@ ookDBRowSetPtr ookSQLiteDB::ExecuteQuery(ookDBStatement* stmt)
 */
 bool ookSQLiteDB::ExecuteStatement(string sql)
 {
-	ookSQLiteStatement stmt(this, sql);
-	return this->ExecuteStatement(&stmt);	
-//	return this->ExecuteStatement(ookSQLiteStatementPtr(new ookSQLiteStatement(ookSQLiteDBPtr(this), sql)));
+	ookSQLiteStatementPtr stmt(new ookSQLiteStatement(ookSQLiteDBPtr(this), sql));
+	return this->ExecuteStatement(stmt);	
 }
 
 /*! 
@@ -185,7 +183,7 @@ bool ookSQLiteDB::ExecuteStatement(string sql)
  
 		\return true if successful, false otherwise.
 */
-bool ookSQLiteDB::ExecuteStatement(ookDBStatement* stmt)
+bool ookSQLiteDB::ExecuteStatement(ookDBStatementPtr stmt)
 {
 	stmt->PrepareStatement();	
 	return stmt->ExecuteNonQuery();
