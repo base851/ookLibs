@@ -40,6 +40,8 @@ class ookString
 public:
 
 	ookString();
+	ookString(const ookString& cpy);
+	virtual ookString& operator= (const ookString &cpy);		
 	virtual ~ookString();
 	
 	static string ConvertInt2String (int i);	

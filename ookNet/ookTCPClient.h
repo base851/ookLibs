@@ -40,7 +40,8 @@ class ookTCPClient : public ookThread
 public:
 	
 	ookTCPClient(string ipaddr, int iPort);
-	
+	ookTCPClient(const ookTCPClient& cpy);
+	virtual ookTCPClient& operator= (const ookTCPClient &cpy);			
 	virtual ~ookTCPClient();
 	
 	virtual string Read();

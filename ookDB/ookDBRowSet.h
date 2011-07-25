@@ -39,6 +39,8 @@ class ookDBRowSet
 public:
 	
 	ookDBRowSet();		
+	ookDBRowSet(const ookDBRowSet& cpy);
+	virtual ookDBRowSet& operator= (const ookDBRowSet &cpy);		
 	virtual ~ookDBRowSet();
 	
 	virtual void AddBlankRow();

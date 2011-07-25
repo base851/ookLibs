@@ -59,6 +59,33 @@ ookTCPServer::ookTCPServer(int iPort)
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookTCPServer::ookTCPServer(const ookTCPServer& cpy)
+{
+	_iPort = cpy._iPort;	
+	_vServerThreads = cpy._vServerThreads;
+//  _ioService = cpy._ioService;
+	_dispatcher = cpy._dispatcher;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookTCPServer& ookTCPServer::operator= (const ookTCPServer &cpy)
+{
+	if (&cpy != this)
+	{
+		_iPort = cpy._iPort;	
+		_vServerThreads = cpy._vServerThreads;
+//		_ioService = cpy._ioService;
+		_dispatcher = cpy._dispatcher;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookTCPServer::~ookTCPServer()

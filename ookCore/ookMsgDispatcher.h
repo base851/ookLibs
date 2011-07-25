@@ -43,6 +43,8 @@ class ookMsgDispatcher
 public:
 	
 	ookMsgDispatcher();
+	ookMsgDispatcher(const ookMsgDispatcher& cpy);
+	virtual ookMsgDispatcher& operator= (const ookMsgDispatcher &cpy);	
 	virtual ~ookMsgDispatcher();
 
 	void RegisterObserver(ookMsgObserverAbs* obs);

@@ -72,6 +72,35 @@ ookDB::ookDB(string server, string schema, string username, string password)
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookDB::ookDB(const ookDB& cpy)
+{
+	_connstr = cpy._connstr;
+	_server = cpy._server;
+	_schema = cpy._schema;
+	_username = cpy._username;
+	_password = cpy._password;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookDB& ookDB::operator= (const ookDB &cpy)
+{
+	if (&cpy != this)
+	{
+		_connstr = cpy._connstr;
+		_server = cpy._server;
+		_schema = cpy._schema;
+		_username = cpy._username;
+		_password = cpy._password;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */	
 ookDB::~ookDB()

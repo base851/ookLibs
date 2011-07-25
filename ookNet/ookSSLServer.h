@@ -79,6 +79,8 @@ class ookSSLServer : public ookThread, public ookTextMsgHandler
 public:
 
 	ookSSLServer(int iPort, base_method mthd = asio::ssl::context_base::sslv23);
+	ookSSLServer(const ookSSLServer& cpy);
+	virtual ookSSLServer& operator= (const ookSSLServer &cpy);			
 	virtual ~ookSSLServer();
 
 	virtual void HandleMsg(ookTextMessagePtr msg);
@@ -108,12 +110,11 @@ protected:
 	int			_iPort;	
 	vector<ssl_thread_ptr> _vServerThreads;
 	ookMsgDispatcher _dispatcher;
-	
-  asio::io_service _io_service;
-  asio::ssl::context _context;	
+	base_method _mthd;
+  boost::shared_ptr<asio::io_service> _io_service;
+  boost::shared_ptr<asio::ssl::context> _context;
 	
 private:
-
 
 };
 

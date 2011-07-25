@@ -32,6 +32,7 @@
 #define OOK_APPLICATION_H_
 
 #include "ookLibs/ookCore/typedefs.h"
+#include "ookLibs/ookCore/ookSingleton.h"
 #include "boost/unordered_map.hpp"
 #include <vector>
 
@@ -52,13 +53,10 @@ typedef boost::unordered_map<string, string>::const_iterator StringMapIterator;
 class ookApplication
 {
 public:
-	
-	ookApplication(const ookApplication& cpy);
-	ookApplication& operator = (const ookApplication &cpy);
-	
+		
 	virtual ~ookApplication();
 	
-	virtual void Init();
+	virtual void GetConfig();
 	virtual void AppMain();
 	
 	string GetConfigValue(string key);
@@ -66,7 +64,7 @@ public:
 	vector<string> GetConfigKeys();
 	
 protected:
-	
+
 	ookApplication(int argc, const char** argv);	
 	
 private:
@@ -75,10 +73,8 @@ private:
 	const char** _argv;
 	
 	StringMap _appConfigVals;
+	
 };
 
-#ifndef ookApplicationPtr
-typedef boost::shared_ptr<ookApplication> ookApplicationPtr;
-#endif
 
 #endif

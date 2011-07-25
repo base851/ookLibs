@@ -60,6 +60,29 @@ ookDBStatement::ookDBStatement(ookDBPtr db, string sql)
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookDBStatement::ookDBStatement(const ookDBStatement& cpy)
+{
+	_db = cpy._db;
+	_sql = cpy._sql;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookDBStatement& ookDBStatement::operator= (const ookDBStatement &cpy)
+{
+	if (&cpy != this)
+	{
+		_db = cpy._db;
+		_sql = cpy._sql;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */	
 ookDBStatement::~ookDBStatement()

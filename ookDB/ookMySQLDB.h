@@ -42,7 +42,8 @@ public:
 	
 	ookMySQLDB();
 	ookMySQLDB(string server, string schema, string username, string password);
-	
+	ookMySQLDB(const ookMySQLDB& cpy);
+	virtual ookMySQLDB& operator= (const ookMySQLDB &cpy);		
 	virtual ~ookMySQLDB();
 	
 	virtual bool Connect();

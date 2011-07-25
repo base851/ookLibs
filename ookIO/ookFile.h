@@ -41,6 +41,8 @@ class ookFile
 public:
 	
 	ookFile(string filepath);
+	ookFile(const ookFile& cpy);
+	virtual ookFile& operator= (const ookFile &cpy);		
 	virtual ~ookFile();
 	
 	void Open();

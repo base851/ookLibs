@@ -50,6 +50,33 @@ ookTCPClient::ookTCPClient(string ipaddr, int iPort)
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookTCPClient::ookTCPClient(const ookTCPClient& cpy)
+{
+	_ipaddr = cpy._ipaddr;
+	_iPort = cpy._iPort;	
+	_sock = cpy._sock;
+//	_ioService = cpy._ioService;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookTCPClient& ookTCPClient::operator= (const ookTCPClient &cpy)
+{
+	if (&cpy != this)
+	{
+		_ipaddr = cpy._ipaddr;
+		_iPort = cpy._iPort;	
+		_sock = cpy._sock;
+//		_ioService = cpy._ioService;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookTCPClient::~ookTCPClient()

@@ -56,6 +56,37 @@ ookSQLiteDB::ookSQLiteDB(string connstr)
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookSQLiteDB::ookSQLiteDB(const ookSQLiteDB& cpy)
+{
+	_connstr = cpy._connstr;
+	_server = cpy._server;
+	_schema = cpy._schema;
+	_username = cpy._username;
+	_password = cpy._password;
+	_sqlitedb = cpy._sqlitedb;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookSQLiteDB& ookSQLiteDB::operator= (const ookSQLiteDB &cpy)
+{
+	if (&cpy != this)
+	{
+		_connstr = cpy._connstr;
+		_server = cpy._server;
+		_schema = cpy._schema;
+		_username = cpy._username;
+		_password = cpy._password;
+		_sqlitedb = cpy._sqlitedb;		
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookSQLiteDB::~ookSQLiteDB()

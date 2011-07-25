@@ -40,6 +40,8 @@ class ookMutex
 public:
 	
 	ookMutex();
+	ookMutex(const ookMutex& cpy);
+	virtual ookMutex& operator= (const ookMutex &cpy);		
 	virtual ~ookMutex();
 	
 	void Lock();

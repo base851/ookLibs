@@ -41,6 +41,8 @@ class ookMessage
 public:
 	
 	ookMessage();
+	ookMessage(const ookMessage& cpy);
+	virtual ookMessage& operator= (const ookMessage &cpy);
 	virtual ~ookMessage();
 
 protected:

@@ -56,6 +56,29 @@ ookRC5Cipher::ookRC5Cipher(string key)
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookRC5Cipher::ookRC5Cipher(const ookRC5Cipher& cpy)
+{
+	_key = cpy._key;
+	_keybytes = cpy._keybytes;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookRC5Cipher& ookRC5Cipher::operator= (const ookRC5Cipher &cpy)
+{
+	if (&cpy != this)
+	{
+		_key = cpy._key;
+		_keybytes = cpy._keybytes;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookRC5Cipher::~ookRC5Cipher()

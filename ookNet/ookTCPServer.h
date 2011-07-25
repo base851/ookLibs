@@ -54,6 +54,8 @@ class ookTCPServer : public ookThread, public ookTextMsgHandler
 public:
 
 	ookTCPServer(int iPort);	
+	ookTCPServer(const ookTCPServer& cpy);
+	virtual ookTCPServer& operator= (const ookTCPServer &cpy);			
 	virtual ~ookTCPServer();
 	
 	virtual void HandleMsg(ookTextMessagePtr msg);

@@ -96,6 +96,46 @@ class ookMySQLBindParam
 public:
 	
 	ookMySQLBindParam() {}
+	ookMySQLBindParam(const ookMySQLBindParam& cpy)
+	{
+		_field_type = cpy._field_type;
+		_buf_schar = cpy._buf_schar;
+		_buf_sint = cpy._buf_sint;
+		_buf_int = cpy._buf_int;
+		_buf_llint = cpy._buf_llint;
+		_buf_float = cpy._buf_float;
+		_buf_double = cpy._buf_double;
+		_buf_char = cpy._buf_char;
+		_buf_date = cpy._buf_date;
+		_buffer_length = cpy._buffer_length;
+		_length = cpy._length;
+		_is_null = cpy._is_null;
+		_is_unsigned = cpy._is_unsigned;
+		_error = cpy._error;		
+	}
+	
+	virtual ookMySQLBindParam& operator= (const ookMySQLBindParam &cpy)
+	{
+		if(&cpy != this)
+		{
+			_field_type = cpy._field_type;
+			_buf_schar = cpy._buf_schar;
+			_buf_sint = cpy._buf_sint;
+			_buf_int = cpy._buf_int;
+			_buf_llint = cpy._buf_llint;
+			_buf_float = cpy._buf_float;
+			_buf_double = cpy._buf_double;
+			_buf_char = cpy._buf_char;
+			_buf_date = cpy._buf_date;
+			_buffer_length = cpy._buffer_length;
+			_length = cpy._length;
+			_is_null = cpy._is_null;
+			_is_unsigned = cpy._is_unsigned;
+			_error = cpy._error;			
+		}
+		
+		return *this;
+	}
 	
 	virtual ~ookMySQLBindParam() {}
 	

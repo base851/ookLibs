@@ -49,6 +49,7 @@
 #include "boost/asio.hpp"
 #include "ookLibs/ookCore/ookMsgObserver.h"
 
+
 /*! 
  \brief Initialization constructor.
 
@@ -70,9 +71,42 @@ sslv23_client
 sslv23_server 
  */
 ookSSLServer::ookSSLServer(int iPort, base_method mthd)
-	: _iPort(iPort), _context(_io_service, mthd)
+	: _iPort(iPort), _mthd(mthd)
 {	
+	_io_service = boost::shared_ptr<asio::io_service>(new asio::io_service);
+	_context = boost::shared_ptr<asio::ssl::context>(new asio::ssl::context(*_io_service, mthd));
 	_dispatcher.RegisterObserver(new ookMsgObserver<ookSSLServer, ookTextMessage>(this, &ookSSLServer::HandleMsg));
+}
+
+/*! 
+ \brief Copy constructor.
+ */
+ookSSLServer::ookSSLServer(const ookSSLServer& cpy)
+{
+	_iPort = cpy._iPort;	
+	_vServerThreads = cpy._vServerThreads;
+	_dispatcher = cpy._dispatcher;
+	_mthd = cpy._mthd;
+  _io_service = cpy._io_service;
+	_context = cpy._context;	
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookSSLServer& ookSSLServer::operator= (const ookSSLServer &cpy)
+{
+	if (&cpy != this)
+	{
+		_iPort = cpy._iPort;	
+		_vServerThreads = cpy._vServerThreads;
+		_dispatcher = cpy._dispatcher;
+		_mthd = cpy._mthd;
+		_io_service = cpy._io_service;
+		_context = cpy._context;
+	}
+	
+	return *this;
 }
 
 /*! 
@@ -98,7 +132,7 @@ void ookSSLServer::AddVerifyPath(string path)
 {
 	boost::system::error_code err;
 
-	_context.add_verify_path(path, err);
+	_context->add_verify_path(path, err);
 
 	if(err)
 		throw err;
@@ -113,7 +147,7 @@ void ookSSLServer::LoadVerifyFile(string filename)
 {
 	boost::system::error_code err;
 
-	_context.load_verify_file(filename, err);
+	_context->load_verify_file(filename, err);
 
 	if(err)
 		throw err;
@@ -135,7 +169,7 @@ void ookSSLServer::SetOptions(int opt)
 {
 	boost::system::error_code err;
 
-	_context.set_options(opt, err);
+	_context->set_options(opt, err);
 
 	if(err)
 		throw err;
@@ -150,7 +184,7 @@ void ookSSLServer::SetPasswordCallback()
 {
 	boost::system::error_code err;
 
-	_context.set_password_callback(boost::bind(&ookSSLServer::PasswordCB, this), err);
+	_context->set_password_callback(boost::bind(&ookSSLServer::PasswordCB, this), err);
 
 	if(err)
 		throw err;
@@ -182,7 +216,7 @@ void ookSSLServer::SetVerifyMode(int mode)
 {
 	boost::system::error_code err;
 
-	_context.set_verify_mode(mode, err);
+	_context->set_verify_mode(mode, err);
 
 	if(err)
 		throw err;
@@ -197,7 +231,7 @@ void ookSSLServer::UseCertificateChainFile(string filename)
 {
 	boost::system::error_code err;
 
-	_context.use_certificate_chain_file(filename, err);
+	_context->use_certificate_chain_file(filename, err);
 
 	if(err)
 		throw err;
@@ -218,7 +252,7 @@ void ookSSLServer::UseCertificateFile(string filename, base_file_format frmt=asi
 {
 	boost::system::error_code err;
 
-	_context.use_certificate_file(filename, frmt, err);
+	_context->use_certificate_file(filename, frmt, err);
 
 	if(err)
 		throw err;
@@ -239,7 +273,7 @@ void ookSSLServer::UsePrivateKeyFile(string filename, base_file_format frmt=asio
 {
 	boost::system::error_code err;
 
-	_context.use_private_key_file(filename, frmt, err);
+	_context->use_private_key_file(filename, frmt, err);
 
 	if(err)
 		throw err;
@@ -260,7 +294,7 @@ void ookSSLServer::UseRSAPrivateKeyFile(string filename, base_file_format frmt=a
 {
 	boost::system::error_code err;
 
-	_context.use_rsa_private_key_file(filename, frmt, err);
+	_context->use_rsa_private_key_file(filename, frmt, err);
 
 	if(err)
 		throw err;
@@ -275,7 +309,7 @@ void ookSSLServer::UseTmpDHFile(string filename)
 {
 	boost::system::error_code err;
 
-	_context.use_tmp_dh_file(filename, err);
+	_context->use_tmp_dh_file(filename, err);
 
 	if(err)
 		throw err;
@@ -364,7 +398,7 @@ void ookSSLServer::Run()
 	try
 	{
 
-		tcp::acceptor accptr(_io_service, tcp::endpoint(tcp::v4(), _iPort));
+		tcp::acceptor accptr(*_io_service, tcp::endpoint(tcp::v4(), _iPort));
 		
 		//Now that the context and acceptor are initialized, we can start the io service
 		//_io_service.run();
@@ -373,7 +407,7 @@ void ookSSLServer::Run()
 		{			
 			boost::system::error_code err;
 
-			ssl_socket_ptr sock = boost::shared_ptr<ssl_socket>(new ssl_socket(_io_service, _context));
+			ssl_socket_ptr sock = boost::shared_ptr<ssl_socket>(new ssl_socket(*_io_service, *_context));
 			accptr.accept(sock->lowest_layer(), err);
 			
 			asio::ip::tcp::endpoint remote_ep = sock->lowest_layer().remote_endpoint();

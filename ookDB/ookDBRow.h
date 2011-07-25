@@ -71,6 +71,8 @@ class ookDBRow
 public:
 			
 	ookDBRow();		
+	ookDBRow(const ookDBRow& cpy);
+	virtual ookDBRow& operator= (const ookDBRow &cpy);			
 	virtual ~ookDBRow();
 	
 	virtual int GetColumnCount();

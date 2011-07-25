@@ -41,6 +41,8 @@ public:
 	
 	ookTextMessage();
 	ookTextMessage(string msg);
+	ookTextMessage(const ookTextMessage& cpy);
+	virtual ookTextMessage& operator= (const ookTextMessage &cpy);	
 	virtual ~ookTextMessage();
 	
 	string GetMsg();

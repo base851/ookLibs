@@ -47,6 +47,22 @@ ookThread::ookThread()
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookThread::ookThread(const ookThread& cpy)
+{
+
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookThread& ookThread::operator= (const ookThread &cpy)
+{
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookThread::~ookThread()

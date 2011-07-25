@@ -53,6 +53,29 @@ public:
 	}
 	
 	/*! 
+	 \brief Copy constructor.
+	 */
+	ookException(const ookException& cpy)
+	{
+		_msg = cpy._msg;
+		_errcode = cpy._errcode;
+	}
+	
+	/*! 
+	 \brief Overloaded assignment operator.
+	 */
+	ookException& operator= (const ookException &cpy)
+	{
+		if (&cpy != this)
+		{
+			_msg = cpy._msg;
+			_errcode = cpy._errcode;
+		}
+		
+		return *this;
+	}
+	
+	/*! 
 	 \brief Destructor.
 	 */	
 	virtual ~ookException() throw()

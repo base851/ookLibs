@@ -79,6 +79,8 @@ protected:
 	
 	ookCipher();
 	ookCipher(string key);	
+	ookCipher(const ookCipher& cpy);
+	virtual ookCipher& operator= (const ookCipher &cpy);	
 	
 	string _key;
 	byte* _keybytes;

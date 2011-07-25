@@ -47,6 +47,22 @@ ookGzip::ookGzip()
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookGzip::ookGzip(const ookGzip& cpy)
+{
+
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookGzip& ookGzip::operator= (const ookGzip &cpy)
+{	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookGzip::~ookGzip()

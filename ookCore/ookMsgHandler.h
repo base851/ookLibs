@@ -42,6 +42,8 @@ class ookMsgHandler
 public:
 	
 	ookMsgHandler();
+	ookMsgHandler(const ookMsgHandler& cpy);
+	virtual ookMsgHandler& operator= (const ookMsgHandler &cpy);		
 	virtual ~ookMsgHandler();
 	
 	virtual void HandleMsg(ookMessagePtr msg);

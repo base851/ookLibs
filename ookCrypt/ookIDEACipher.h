@@ -44,7 +44,8 @@ public:
 	
 	ookIDEACipher();
 	ookIDEACipher(string key);
-	
+	ookIDEACipher(const ookIDEACipher& cpy);
+	virtual ookIDEACipher& operator= (const ookIDEACipher &cpy);		
 	virtual ~ookIDEACipher();
 	
 	virtual string Encrypt(string msg);

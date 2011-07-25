@@ -38,7 +38,8 @@ class ookGzip
 public:
 	
 	ookGzip();
-	
+	ookGzip(const ookGzip& cpy);
+	virtual ookGzip& operator= (const ookGzip &cpy);		
 	virtual ~ookGzip();
 	
 	string Compress(string source);

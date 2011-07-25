@@ -55,6 +55,27 @@ ookTextMessage::ookTextMessage(string msg)
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookTextMessage::ookTextMessage(const ookTextMessage& cpy)
+{
+	_msg = cpy._msg;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookTextMessage& ookTextMessage::operator= (const ookTextMessage &cpy)
+{
+	if (&cpy != this)
+	{
+		_msg = cpy._msg;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookTextMessage::~ookTextMessage()

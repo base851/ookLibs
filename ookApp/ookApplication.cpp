@@ -84,32 +84,9 @@
  \param	argv	The argv value passed into the program's main() function.
  */
 ookApplication::ookApplication(int argc, const char** argv)
-	: _argc(argc), _argv(argv)
+: _argc(argc), _argv(argv)
 {
 	
-}
-
-/*! 
- \brief Copy constructor.
- */
-ookApplication::ookApplication(const ookApplication& cpy)
-{
-	_argc = cpy._argc;
-	_argv = cpy._argv;
-}
-
-/*! 
- \brief Overloaded assignment operator.
- */
-ookApplication& ookApplication::operator= (const ookApplication& cpy)
-{
-	if(&cpy != this)
-	{
-		_argc = cpy._argc;
-		_argv = cpy._argv;
-	}
-		
-	return *this;
 }
 
 /*! 
@@ -145,9 +122,9 @@ ookApplication::~ookApplication()
  
  \code
  
- void DerivedApplication::Init()
+ void DerivedApplication::GetConfig()
  {
- ookApplication::Init();
+ ookApplication::GetConfig();
  
  //Do any other initialization you may want to do
  } 
@@ -155,7 +132,7 @@ ookApplication::~ookApplication()
  \endcode
  
  */
-void ookApplication::Init()
+void ookApplication::GetConfig()
 {
 	//uname is a *NIX call
 	#ifdef __GNUC__

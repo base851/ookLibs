@@ -44,7 +44,8 @@ public:
 	
 	ookRC5Cipher();
 	ookRC5Cipher(string key);
-	
+	ookRC5Cipher(const ookRC5Cipher& cpy);
+	virtual ookRC5Cipher& operator= (const ookRC5Cipher &cpy);	
 	virtual ~ookRC5Cipher();
 	
 	virtual string Encrypt(string msg);

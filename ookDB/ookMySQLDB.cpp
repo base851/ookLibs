@@ -60,6 +60,37 @@
 	}
 
 /*! 
+ \brief Copy constructor.
+ */
+ookMySQLDB::ookMySQLDB(const ookMySQLDB& cpy)
+{
+	_connstr = cpy._connstr;
+	_server = cpy._server;
+	_schema = cpy._schema;
+	_username = cpy._username;
+	_password = cpy._password;
+	_mysqldb = cpy._mysqldb;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookMySQLDB& ookMySQLDB::operator= (const ookMySQLDB &cpy)
+{
+	if (&cpy != this)
+	{
+		_connstr = cpy._connstr;
+		_server = cpy._server;
+		_schema = cpy._schema;
+		_username = cpy._username;
+		_password = cpy._password;
+		_mysqldb = cpy._mysqldb;		
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 	ookMySQLDB::~ookMySQLDB()

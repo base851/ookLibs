@@ -47,6 +47,29 @@ ookFile::ookFile(string filepath)
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookFile::ookFile(const ookFile& cpy)
+{
+	_filepath = cpy._filepath;
+//	_filestream = cpy._filestream;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookFile& ookFile::operator= (const ookFile &cpy)
+{
+	if (&cpy != this)
+	{
+		_filepath = cpy._filepath;
+//		_filestream = cpy._filestream;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookFile::~ookFile()

@@ -40,6 +40,8 @@ class ookSSLClient  : public ookThread
 public:
 
 	ookSSLClient(string ipaddr, int iPort, base_method mthd = asio::ssl::context_base::sslv23_client);
+	ookSSLClient(const ookSSLClient& cpy);
+	virtual ookSSLClient& operator= (const ookSSLClient &cpy);			
 	virtual ~ookSSLClient();
 
 	virtual void Run();
@@ -68,13 +70,13 @@ protected:
 		virtual bool DoHandshake();
 	
 private:
-
+	
 	string	_ipaddr;
 	int			_iPort;
-	
+	base_method _mthd;	
 	ssl_socket_ptr _sock;
-	asio::io_service _io_service;
-	asio::ssl::context _context;
+	boost::shared_ptr<asio::io_service> _io_service;
+	boost::shared_ptr<asio::ssl::context> _context;
 };
 
 #ifndef ookSSLClientPtr

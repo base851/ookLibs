@@ -44,7 +44,8 @@ public:
 	
 	ookBlowfishCipher();
 	ookBlowfishCipher(string key);
-	
+	ookBlowfishCipher(const ookBlowfishCipher& cpy);
+	virtual ookBlowfishCipher& operator= (const ookBlowfishCipher &cpy);		
 	virtual ~ookBlowfishCipher();
 	
 	virtual string Encrypt(string msg);

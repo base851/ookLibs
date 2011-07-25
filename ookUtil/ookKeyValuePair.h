@@ -43,6 +43,8 @@ public:
 
 	ookKeyValuePair();
 	ookKeyValuePair(T key, U value);
+	ookKeyValuePair(const ookKeyValuePair& cpy);
+	virtual ookKeyValuePair& operator= (const ookKeyValuePair &cpy);		
 	virtual ~ookKeyValuePair();
 
 	T GetKey();
@@ -85,6 +87,31 @@ ookKeyValuePair<T, U>::ookKeyValuePair(T key, U value)
 	: _key(key), _value(value)
 {
 
+}
+
+/*! 
+ \brief Copy constructor.
+ */
+template<class T, class U>
+ookKeyValuePair<T, U>::ookKeyValuePair(const ookKeyValuePair<T, U>& cpy)
+{
+	_key = cpy._key;
+	_value = cpy._value;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+template<class T, class U>
+ookKeyValuePair<T, U>& ookKeyValuePair<T, U>::operator= (const ookKeyValuePair<T, U> &cpy)
+{
+	if(&cpy != this)
+	{
+		_key = cpy._key;
+		_value = cpy._value;		
+	}
+	
+	return *this;
 }
 
 /*! 

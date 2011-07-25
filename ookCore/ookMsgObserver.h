@@ -78,11 +78,20 @@ public:
 	{
 		
 	}
+	
+	/*! 
+	 \brief Copy constructor.
+	 */
+	ookMsgObserver(const ookMsgObserver& cpy)
+	{
+		_handler = cpy._handler;
+		_handlerFunc  = cpy._handlerFunc;
+	}
 
 	/*! 
 	 \brief Overloaded assignment operator.
 	 */
-	ookMsgObserver& operator = (const ookMsgObserver& observer)
+	virtual ookMsgObserver& operator= (const ookMsgObserver& observer)
 	{
 		if (&observer != this)
 		{

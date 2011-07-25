@@ -43,7 +43,8 @@ public:
 	
 	ookSQLiteStatement(ookDBPtr db);		
 	ookSQLiteStatement(ookDBPtr db, string sql);	
-	
+	ookSQLiteStatement(const ookSQLiteStatement& cpy);
+	virtual ookSQLiteStatement& operator= (const ookSQLiteStatement &cpy);	
 	virtual ~ookSQLiteStatement();
 	
 	virtual bool PrepareStatement();

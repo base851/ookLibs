@@ -55,6 +55,8 @@ class ookSSLServerThread : public ookThread
 public:
 
 	ookSSLServerThread(ssl_socket_ptr sock, ookMsgDispatcher* dispatcher);
+	ookSSLServerThread(const ookSSLServerThread& cpy);
+	virtual ookSSLServerThread& operator= (const ookSSLServerThread &cpy);		
 	virtual ~ookSSLServerThread();
 
 	virtual string Read();

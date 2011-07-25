@@ -44,6 +44,27 @@ ookDBRowSet::ookDBRowSet()
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookDBRowSet::ookDBRowSet(const ookDBRowSet& cpy)
+{
+	_rows = cpy._rows;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookDBRowSet& ookDBRowSet::operator= (const ookDBRowSet &cpy)
+{
+	if (&cpy != this)
+	{
+		_rows = cpy._rows;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */	
 ookDBRowSet::~ookDBRowSet()

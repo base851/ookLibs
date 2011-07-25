@@ -56,6 +56,29 @@ ookSSLServerThread::ookSSLServerThread(ssl_socket_ptr sock, ookMsgDispatcher* di
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookSSLServerThread::ookSSLServerThread(const ookSSLServerThread& cpy)
+{
+	_sock = cpy._sock;
+	_dispatcher = cpy._dispatcher;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookSSLServerThread& ookSSLServerThread::operator= (const ookSSLServerThread &cpy)
+{
+	if (&cpy != this)
+	{
+		_sock = cpy._sock;
+		_dispatcher = cpy._dispatcher;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookSSLServerThread::~ookSSLServerThread()

@@ -47,6 +47,22 @@ ookString::ookString()
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookString::ookString(const ookString& cpy)
+{
+	
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookString& ookString::operator= (const ookString &cpy)
+{
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookString::~ookString()

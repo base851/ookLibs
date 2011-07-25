@@ -59,6 +59,29 @@ ookTCPServerThread::ookTCPServerThread(socket_ptr sock, ookMsgDispatcher* dispat
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookTCPServerThread::ookTCPServerThread(const ookTCPServerThread& cpy)
+{
+	_sock = cpy._sock;	
+	_dispatcher = cpy._dispatcher;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookTCPServerThread& ookTCPServerThread::operator= (const ookTCPServerThread &cpy)
+{
+	if (&cpy != this)
+	{
+		_sock = cpy._sock;	
+		_dispatcher = cpy._dispatcher;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookTCPServerThread::~ookTCPServerThread()

@@ -123,14 +123,17 @@ protected:
 	ookDB();
 	ookDB(string connstr);
 	ookDB(string server, string schema, string username, string password);
-
-private:
+	ookDB(const ookDB& cpy);
+	virtual ookDB& operator= (const ookDB &cpy);		
 
 	string _connstr;
 	string _server; 
 	string _schema;
 	string _username; 
-	string _password;
+	string _password;	
+	
+private:
+
 	
 };
 

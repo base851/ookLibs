@@ -45,6 +45,22 @@ ookTextMsgHandler::ookTextMsgHandler()
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookTextMsgHandler::ookTextMsgHandler(const ookTextMsgHandler& cpy)
+{
+
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookTextMsgHandler& ookTextMsgHandler::operator= (const ookTextMsgHandler &cpy)
+{
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookTextMsgHandler::~ookTextMsgHandler()

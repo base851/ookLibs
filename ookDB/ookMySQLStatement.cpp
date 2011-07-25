@@ -61,6 +61,34 @@ ookMySQLStatement::ookMySQLStatement(ookDBPtr  db, string sql)
 		_mysqldb = ((ookMySQLDB*) db.get())->GetMySQLObj();	
 }
 
+/*! 
+ \brief Copy constructor.
+ */
+ookMySQLStatement::ookMySQLStatement(const ookMySQLStatement& cpy)
+: ::ookDBStatement(cpy._db, cpy._sql)
+{
+	_mysqldb = cpy._mysqldb;
+	_stmt = cpy._stmt;
+	_bindlist = cpy._bindlist;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookMySQLStatement& ookMySQLStatement::operator= (const ookMySQLStatement &cpy)
+{
+	if (&cpy != this)
+	{
+		_db = cpy._db;
+		_sql = cpy._sql;
+		_mysqldb = cpy._mysqldb;
+		_stmt = cpy._stmt;
+		_bindlist = cpy._bindlist;
+	}
+	
+	return *this;
+}
+
 /**
  \brief Destructor.
  */	

@@ -41,7 +41,8 @@ public:
 	
 	ookSQLiteDB();
 	ookSQLiteDB(string connstr);
-	
+	ookSQLiteDB(const ookSQLiteDB& cpy);
+	virtual ookSQLiteDB& operator= (const ookSQLiteDB &cpy);		
 	virtual ~ookSQLiteDB();
 	
 	virtual bool Connect();

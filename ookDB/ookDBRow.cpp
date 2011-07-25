@@ -50,6 +50,39 @@ ookDBRow::ookDBRow()
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookDBRow::ookDBRow(const ookDBRow& cpy)
+{
+	_valsBool = cpy._valsBool;
+	_valsInt = cpy._valsInt;
+	_valsLong = cpy._valsLong;
+	_valsFloat = cpy._valsFloat;
+	_valsDouble = cpy._valsDouble;
+	_valsText = cpy._valsText;
+	_valsDate = cpy._valsDate;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookDBRow& ookDBRow::operator= (const ookDBRow &cpy)
+{
+	if (&cpy != this)
+	{
+		_valsBool = cpy._valsBool;
+		_valsInt = cpy._valsInt;
+		_valsLong = cpy._valsLong;
+		_valsFloat = cpy._valsFloat;
+		_valsDouble = cpy._valsDouble;
+		_valsText = cpy._valsText;
+		_valsDate = cpy._valsDate;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */	
 ookDBRow::~ookDBRow()

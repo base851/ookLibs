@@ -44,7 +44,8 @@ public:
 	
 	ookTwofishCipher();
 	ookTwofishCipher(string key);
-	
+	ookTwofishCipher(const ookTwofishCipher& cpy);
+	virtual ookTwofishCipher& operator= (const ookTwofishCipher &cpy);		
 	virtual ~ookTwofishCipher();
 	
 	virtual string Encrypt(string msg);

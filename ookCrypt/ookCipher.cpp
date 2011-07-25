@@ -56,6 +56,29 @@ ookCipher::ookCipher(string key)
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookCipher::ookCipher(const ookCipher& cpy)
+{
+	_key = cpy._key;
+	_keybytes = cpy._keybytes;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookCipher& ookCipher::operator= (const ookCipher &cpy)
+{
+	if (&cpy != this)
+	{
+		_key = cpy._key;
+		_keybytes = cpy._keybytes;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookCipher::~ookCipher()

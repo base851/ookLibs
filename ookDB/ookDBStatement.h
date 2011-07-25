@@ -41,7 +41,8 @@ public:
 	
 	ookDBStatement(ookDBPtr db);		
 	ookDBStatement(ookDBPtr db, string sql);	
-
+	ookDBStatement(const ookDBStatement& cpy);
+	virtual ookDBStatement& operator= (const ookDBStatement &cpy);	
 	virtual ~ookDBStatement();
 	
 	/*! 
@@ -159,12 +160,11 @@ public:
 	string GetSQL();
 
 protected:
-	
-	
-private:
 
 	ookDBPtr _db;
-	string _sql;
+	string _sql;	
+	
+private:
 
 };
 

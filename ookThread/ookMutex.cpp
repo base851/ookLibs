@@ -44,6 +44,22 @@ ookMutex::ookMutex()
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookMutex::ookMutex(const ookMutex& cpy)
+{
+	
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookMutex& ookMutex::operator= (const ookMutex &cpy)
+{
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookMutex::~ookMutex()

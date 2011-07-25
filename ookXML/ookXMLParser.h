@@ -48,6 +48,8 @@ class ookXMLParser
 public:
 	
 	ookXMLParser();
+	ookXMLParser(const ookXMLParser& cpy);
+	virtual ookXMLParser& operator= (const ookXMLParser &cpy);		
 	virtual ~ookXMLParser();
 	
 	bool LoadXMLFile(string filename);

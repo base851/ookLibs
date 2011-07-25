@@ -56,12 +56,17 @@ public:
 	/*! 
 	 \brief Destructor.
 	 */
-	~ookMsgObserverAbs(){}
+	virtual ~ookMsgObserverAbs(){}
+	
+	/*! 
+	 \brief Copy constructor.
+	 */
+	ookMsgObserverAbs(const ookMsgObserverAbs& cpy){}
 	
 	/*! 
 	 \brief Overloaded assignment operator.
 	 */
-	ookMsgObserverAbs& operator= (const ookMsgObserverAbs& observer);
+	virtual ookMsgObserverAbs& operator= (const ookMsgObserverAbs& observer){}
 	
 	/*! 
 	 \brief Receives a message from the message dispatcher. Pure virtual method

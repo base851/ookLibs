@@ -24,6 +24,7 @@
 		8262FBA913D661AB004F2058 /* ookGzip.h in Headers */ = {isa = PBXBuildFile; fileRef = 8262FBA713D661AB004F2058 /* ookGzip.h */; };
 		8272461D13D393420042C4F4 /* ookFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8272461B13D393420042C4F4 /* ookFile.cpp */; };
 		8272461E13D393420042C4F4 /* ookFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 8272461C13D393420042C4F4 /* ookFile.h */; };
+		8273640C13DCEA4F00DDC0DC /* ookSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 8273640A13DCEA4E00DDC0DC /* ookSingleton.h */; };
 		8274A9DF13D7CB0E00A2C6BF /* ookMySQLStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 8274A9DD13D7CB0D00A2C6BF /* ookMySQLStatement.h */; };
 		8274A9E313D7CB2600A2C6BF /* ookSQLiteStatement.h in Headers */ = {isa = PBXBuildFile; fileRef = 8274A9E113D7CB2500A2C6BF /* ookSQLiteStatement.h */; };
 		8282919213C567A7004EFCFA /* ookXMLParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8282919013C567A7004EFCFA /* ookXMLParser.cpp */; };
@@ -103,6 +104,7 @@
 		8262FBA713D661AB004F2058 /* ookGzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookGzip.h; sourceTree = "<group>"; };
 		8272461B13D393420042C4F4 /* ookFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookFile.cpp; sourceTree = "<group>"; };
 		8272461C13D393420042C4F4 /* ookFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookFile.h; sourceTree = "<group>"; };
+		8273640A13DCEA4E00DDC0DC /* ookSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookSingleton.h; sourceTree = "<group>"; };
 		8274A9DD13D7CB0D00A2C6BF /* ookMySQLStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookMySQLStatement.h; sourceTree = "<group>"; };
 		8274A9E113D7CB2500A2C6BF /* ookSQLiteStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ookSQLiteStatement.h; sourceTree = "<group>"; };
 		8282919013C567A7004EFCFA /* ookXMLParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ookXMLParser.cpp; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				8249924A13C3F7BB000C8F55 /* ookTextMsgHandler.cpp */,
 				8249924B13C3F7BB000C8F55 /* ookTextMsgHandler.h */,
 				8294CC2113C9268500484E59 /* ookException.h */,
+				8273640A13DCEA4E00DDC0DC /* ookSingleton.h */,
 			);
 			path = ookCore;
 			sourceTree = "<group>";
@@ -277,8 +280,8 @@
 		82E8F7EA13C1941700751A5A /* ookIO */ = {
 			isa = PBXGroup;
 			children = (
-				8272461B13D393420042C4F4 /* ookFile.cpp */,
 				8272461C13D393420042C4F4 /* ookFile.h */,
+				8272461B13D393420042C4F4 /* ookFile.cpp */,
 			);
 			path = ookIO;
 			sourceTree = "<group>";
@@ -286,18 +289,18 @@
 		82E8F7EB13C1941F00751A5A /* ookNet */ = {
 			isa = PBXGroup;
 			children = (
-				82B2644C13C6872C00D2876C /* ookSSLClient.cpp */,
 				82B2644D13C6872C00D2876C /* ookSSLClient.h */,
-				82B2644E13C6872C00D2876C /* ookSSLServer.cpp */,
+				82B2644C13C6872C00D2876C /* ookSSLClient.cpp */,
 				82B2644F13C6872C00D2876C /* ookSSLServer.h */,
-				82B2645013C6872C00D2876C /* ookSSLServerThread.cpp */,
+				82B2644E13C6872C00D2876C /* ookSSLServer.cpp */,
 				82B2645113C6872C00D2876C /* ookSSLServerThread.h */,
-				8249925A13C40E46000C8F55 /* ookTCPServer.cpp */,
+				82B2645013C6872C00D2876C /* ookSSLServerThread.cpp */,
 				8249925B13C40E46000C8F55 /* ookTCPServer.h */,
-				8249926213C419BB000C8F55 /* ookTCPClient.cpp */,
+				8249925A13C40E46000C8F55 /* ookTCPServer.cpp */,
 				8249926313C419BB000C8F55 /* ookTCPClient.h */,
-				8249926613C41E6E000C8F55 /* ookTCPServerThread.cpp */,
+				8249926213C419BB000C8F55 /* ookTCPClient.cpp */,
 				8249926713C41E6E000C8F55 /* ookTCPServerThread.h */,
+				8249926613C41E6E000C8F55 /* ookTCPServerThread.cpp */,
 			);
 			path = ookNet;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				8274A9DF13D7CB0E00A2C6BF /* ookMySQLStatement.h in Headers */,
 				8274A9E313D7CB2600A2C6BF /* ookSQLiteStatement.h in Headers */,
 				8254C16B13D91F4B000A6FB3 /* ookMySQLBindParam.h in Headers */,
+				8273640C13DCEA4F00DDC0DC /* ookSingleton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

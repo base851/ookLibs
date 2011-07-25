@@ -55,6 +55,29 @@ ookBlowfishCipher::ookBlowfishCipher(string key)
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookBlowfishCipher::ookBlowfishCipher(const ookBlowfishCipher& cpy)
+{
+	_key = cpy._key;
+	_keybytes = cpy._keybytes;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookBlowfishCipher& ookBlowfishCipher::operator= (const ookBlowfishCipher &cpy)
+{
+	if (&cpy != this)
+	{
+		_key = cpy._key;
+		_keybytes = cpy._keybytes;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookBlowfishCipher::~ookBlowfishCipher()

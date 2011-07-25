@@ -56,6 +56,29 @@ ookIDEACipher::ookIDEACipher(string key)
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookIDEACipher::ookIDEACipher(const ookIDEACipher& cpy)
+{
+	_key = cpy._key;
+	_keybytes = cpy._keybytes;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookIDEACipher& ookIDEACipher::operator= (const ookIDEACipher &cpy)
+{
+	if (&cpy != this)
+	{
+		_key = cpy._key;
+		_keybytes = cpy._keybytes;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookIDEACipher::~ookIDEACipher()

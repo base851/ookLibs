@@ -44,7 +44,8 @@ public:
 	
 	ookMySQLStatement(ookDBPtr  db);		
 	ookMySQLStatement(ookDBPtr  db, string sql);	
-	
+	ookMySQLStatement(const ookMySQLStatement& cpy);
+	virtual ookMySQLStatement& operator= (const ookMySQLStatement &cpy);		
 	virtual ~ookMySQLStatement();
 	
 	virtual bool PrepareStatement();

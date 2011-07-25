@@ -41,6 +41,8 @@ class ookThread
 public:
 	
 	ookThread();
+	ookThread(const ookThread& cpy);
+	virtual ookThread& operator= (const ookThread &cpy);		
 	virtual ~ookThread();
 	
 	void Start();

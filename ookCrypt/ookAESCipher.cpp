@@ -55,6 +55,29 @@ ookAESCipher::ookAESCipher(string key)
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookAESCipher::ookAESCipher(const ookAESCipher& cpy)
+{
+	_key = cpy._key;
+	_keybytes = cpy._keybytes;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookAESCipher& ookAESCipher::operator= (const ookAESCipher &cpy)
+{
+	if (&cpy != this)
+	{
+		_key = cpy._key;
+		_keybytes = cpy._keybytes;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookAESCipher::~ookAESCipher()

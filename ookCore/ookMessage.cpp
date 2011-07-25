@@ -46,6 +46,22 @@ ookMessage::ookMessage()
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookMessage::ookMessage(const ookMessage& cpy)
+{
+
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookMessage& ookMessage::operator = (const ookMessage &cpy)
+{
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookMessage::~ookMessage()

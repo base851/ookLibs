@@ -62,9 +62,41 @@ sslv23_server
 
  */
 ookSSLClient::ookSSLClient(string ipaddr, int iPort, base_method mthd)
-: _ipaddr(ipaddr), _iPort(iPort), _context(_io_service, mthd)
+: _ipaddr(ipaddr), _iPort(iPort), _mthd(mthd)
 {
+	_io_service = boost::shared_ptr<asio::io_service>(new asio::io_service);
+	_context = boost::shared_ptr<asio::ssl::context>(new asio::ssl::context(*_io_service, mthd));
+}
 
+/*! 
+ \brief Copy constructor.
+ */
+ookSSLClient::ookSSLClient(const ookSSLClient& cpy)
+{
+	_ipaddr = cpy._ipaddr;
+	_iPort = cpy._iPort;	
+	_sock = cpy._sock;
+	_mthd = cpy._mthd;
+	_io_service = cpy._io_service;
+	_context = cpy._context;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookSSLClient& ookSSLClient::operator= (const ookSSLClient &cpy)
+{
+	if (&cpy != this)
+	{
+		_ipaddr = cpy._ipaddr;
+		_iPort = cpy._iPort;	
+		_sock = cpy._sock;
+		_mthd = cpy._mthd;
+		_io_service = cpy._io_service;
+		_context = cpy._context;
+	}
+	
+	return *this;
 }
 
 /*! 
@@ -90,7 +122,7 @@ void ookSSLClient::AddVerifyPath(string path)
 {
 	boost::system::error_code err;
 	
-	_context.add_verify_path(path, err);
+	_context->add_verify_path(path, err);
 	
 	if(err)
 	{
@@ -108,7 +140,7 @@ void ookSSLClient::LoadVerifyFile(string filename)
 {
 	boost::system::error_code err;
 	
-	_context.load_verify_file(filename, err);
+	_context->load_verify_file(filename, err);
 	
 	if(err)
 	{
@@ -133,7 +165,7 @@ void ookSSLClient::SetOptions(int opt)
 {
 	boost::system::error_code err;
 	
-	_context.set_options(opt, err);
+	_context->set_options(opt, err);
 	
 	if(err)
 	{
@@ -152,7 +184,7 @@ void ookSSLClient::SetPasswordCallback(PasswordCallback cb)
 {
 	boost::system::error_code err;
 	
-	_context.set_password_callback(cb, err);
+	_context->set_password_callback(cb, err);
 	
 	if(err)
 	{
@@ -176,7 +208,7 @@ void ookSSLClient::SetVerifyMode(int mode)
 {
 	boost::system::error_code err;
 	
-	_context.set_verify_mode(mode, err);
+	_context->set_verify_mode(mode, err);
 	
 	if(err)
 	{
@@ -194,7 +226,7 @@ void ookSSLClient::UseCertificateChainFile(string filename)
 {
 	boost::system::error_code err;
 	
-	_context.use_certificate_chain_file(filename, err);
+	_context->use_certificate_chain_file(filename, err);
 	
 	if(err)
 	{
@@ -218,7 +250,7 @@ void ookSSLClient::UseCertificateFile(string filename, base_file_format frmt=asi
 {
 	boost::system::error_code err;
 	
-	_context.use_certificate_file(filename, frmt, err);
+	_context->use_certificate_file(filename, frmt, err);
 	
 	if(err)
 	{
@@ -242,7 +274,7 @@ void ookSSLClient::UsePrivateKeyFile(string filename, base_file_format frmt=asio
 {
 	boost::system::error_code err;
 	
-	_context.use_private_key_file(filename, frmt, err);
+	_context->use_private_key_file(filename, frmt, err);
 	
 	if(err)
 	{
@@ -266,7 +298,7 @@ void ookSSLClient::UseRSAPrivateKeyFile(string filename, base_file_format frmt=a
 {
 	boost::system::error_code err;
 	
-	_context.use_rsa_private_key_file(filename, frmt, err);
+	_context->use_rsa_private_key_file(filename, frmt, err);
 	
 	if(err)
 	{
@@ -284,7 +316,7 @@ void ookSSLClient::UseTmpDHFile(string filename)
 {
 	boost::system::error_code err;
 	
-	_context.use_tmp_dh_file(filename, err);
+	_context->use_tmp_dh_file(filename, err);
 	
 	if(err)
 	{
@@ -440,11 +472,11 @@ void ookSSLClient::Run()
 {
 	try 
 	{	
-		tcp::resolver resolver(_io_service);
+		tcp::resolver resolver(*_io_service);
 		tcp::resolver::query query(tcp::v4(), _ipaddr, ookString::ConvertInt2String(_iPort));
 		tcp::resolver::iterator iterator = resolver.resolve(query);
 	
-		_sock = boost::shared_ptr<ssl_socket>(new ssl_socket(_io_service, _context));	
+		_sock = boost::shared_ptr<ssl_socket>(new ssl_socket(*_io_service, *_context));	
 		
 		_sock->lowest_layer().connect(*iterator);	
 	

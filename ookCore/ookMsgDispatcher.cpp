@@ -49,6 +49,27 @@ ookMsgDispatcher::ookMsgDispatcher()
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookMsgDispatcher::ookMsgDispatcher(const ookMsgDispatcher& cpy)
+{
+	_vObservers = cpy._vObservers;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookMsgDispatcher& ookMsgDispatcher::operator= (const ookMsgDispatcher &cpy)
+{
+	if (&cpy != this)
+	{
+		_vObservers = cpy._vObservers;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookMsgDispatcher::~ookMsgDispatcher()

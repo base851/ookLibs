@@ -57,6 +57,29 @@ ookTwofishCipher::ookTwofishCipher(string key)
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookTwofishCipher::ookTwofishCipher(const ookTwofishCipher& cpy)
+{
+	_key = cpy._key;
+	_keybytes = cpy._keybytes;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookTwofishCipher& ookTwofishCipher::operator= (const ookTwofishCipher &cpy)
+{
+	if (&cpy != this)
+	{
+		_key = cpy._key;
+		_keybytes = cpy._keybytes;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookTwofishCipher::~ookTwofishCipher()

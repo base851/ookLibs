@@ -62,6 +62,32 @@ ookSQLiteStatement::ookSQLiteStatement(ookDBPtr  db, string sql)
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookSQLiteStatement::ookSQLiteStatement(const ookSQLiteStatement& cpy)
+: ::ookDBStatement(cpy._db, cpy._sql)
+{
+	_sqlitedb = cpy._sqlitedb;
+	_stmt = cpy._stmt;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookSQLiteStatement& ookSQLiteStatement::operator= (const ookSQLiteStatement &cpy)
+{
+	if (&cpy != this)
+	{
+		_db = cpy._db;
+		_sql = cpy._sql;
+		_sqlitedb = cpy._sqlitedb;
+		_stmt = cpy._stmt;
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */	
 ookSQLiteStatement::~ookSQLiteStatement()

@@ -28,62 +28,68 @@
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
  */
-////////////////////////////////////////////////////////////////
-// This class a derived work of the Poco Notifier framework.
-////////////////////////////////////////////////////////////////
 
 /*! 
- \class ookMsgHandler
- \headerfile ookMsgHandler.h "ookLibs/ookCore/ookMsgHandler.h"
- \brief Base class for message handlers.
- */
-#include "ookLibs/ookCore/ookMsgHandler.h"
-
-#include <iostream>
-
-using namespace std;
-
-/*! 
- \brief Default constructor.
- */
-ookMsgHandler::ookMsgHandler()
-{
-	
-}
-
-/*! 
- \brief Copy constructor.
- */
-ookMsgHandler::ookMsgHandler(const ookMsgHandler& cpy)
-{
-	
-}
-
-/*! 
- \brief Overloaded assignment operator.
- */
-ookMsgHandler& ookMsgHandler::operator= (const ookMsgHandler &cpy)
-{
-	return *this;
-}
-
-/*! 
- \brief Destructor.
- */
-ookMsgHandler::~ookMsgHandler()
-{
-	
-}
-
-/*! 
- \brief The main method which should be overridden
- by ookMsgHandlers. This is where you would handle any message
- which has been dispatched to you.
+ \class ookSingleton
+ \headerfile ookSingleton.h "ookLibs/ookCore/ookSingleton.h"
+ \brief Implementation of the singleton pattern. Singleton objects
+ are not directly instantiated. Rather, a pointer to the current 
+ instance is obtained via a call to GetInstance().
  
- \param msg	The message to be handled.
- 
+ Derived classes will need to declare ookSingleton a friend class in 
+ order for GetInstance to function correctly.
  */
-void ookMsgHandler::HandleMsg(ookMessagePtr msg)
+#ifndef OOK_SINGLETON_H_
+#define OOK_SINGLETON_H_
+
+#include "boost/shared_ptr.hpp"
+
+template <class T>
+class ookSingleton
 {
-	cout << "I received the message!" << endl;
-}
+public:
+	
+	/*! 
+	 \brief Destructor.
+	 */		
+	virtual ~ookSingleton(){}
+	
+	/*! 
+	 \brief Fetches the pointer to the single instance. If the pointer
+	 is null, constructs a new object.
+	 
+	 \return The singleton's instance.
+	 */		
+	static boost::shared_ptr<T> GetInstance()
+	{
+		if(_instance == NULL)
+			_instance = boost::shared_ptr<T>(new T());
+		
+		return _instance;
+	}
+	
+	
+protected:
+	
+	/*! 
+	 \brief Default constructor.
+	 */	
+	ookSingleton(){}
+	
+private:
+	
+	/*! 
+	 \brief Copy constructor.
+	 */	
+	ookSingleton(const ookSingleton& cpy);
+	
+	/*! 
+	 \brief Overloaded assignment operator.
+	 */	
+	virtual ookSingleton& operator= (const ookSingleton& cpy);	
+
+	static boost::shared_ptr<T> _instance;
+	
+};
+
+#endif

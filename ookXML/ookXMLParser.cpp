@@ -47,6 +47,27 @@ ookXMLParser::ookXMLParser()
 }
 
 /*! 
+ \brief Copy constructor.
+ */
+ookXMLParser::ookXMLParser(const ookXMLParser& cpy)
+{
+	_doc = cpy._doc;
+}
+
+/*! 
+ \brief Overloaded assignment operator.
+ */
+ookXMLParser& ookXMLParser::operator= (const ookXMLParser &cpy)
+{
+	if(&cpy != this)
+	{
+		_doc = cpy._doc;		
+	}
+	
+	return *this;
+}
+
+/*! 
  \brief Destructor.
  */
 ookXMLParser::~ookXMLParser()

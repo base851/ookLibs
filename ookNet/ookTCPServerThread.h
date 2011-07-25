@@ -41,7 +41,8 @@ class ookTCPServerThread : public ookThread
 public:
 	
 	ookTCPServerThread(socket_ptr sock, ookMsgDispatcher* dispatcher);
-	
+	ookTCPServerThread(const ookTCPServerThread& cpy);
+	virtual ookTCPServerThread& operator= (const ookTCPServerThread &cpy);				
 	virtual ~ookTCPServerThread();
 	
 	virtual string Read();

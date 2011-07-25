@@ -44,7 +44,8 @@ public:
 	
 	ookAESCipher();
 	ookAESCipher(string key);
-	
+	ookAESCipher(const ookAESCipher& cpy);
+	virtual ookAESCipher& operator= (const ookAESCipher &cpy);		
 	virtual ~ookAESCipher();
 	
 	string Encrypt(string msg);
